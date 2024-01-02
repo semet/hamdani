@@ -6,7 +6,13 @@ const config: Config = {
       "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
       "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
    ],
-   theme: {},
+   theme: {
+      extend: {
+         colors: {
+            heading: "#42446E",
+         },
+      },
+   },
    plugins: [require("daisyui")],
 };
 export default config;

@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+   .main-padding {
+      @apply px-4 md:px-6 lg:px-32 xl:px-44;
+   }
+   .secondary-padding {
+      @apply px-4 sm:px-4 md:px-6 2xl:px-40;
+   }
+   .awesome-link {
+      @apply relative tracking-wide text-gray-500 font-semibold;
+   }
+   .awesome-link:hover {
+      @apply text-indigo-400;
+   }
+   .awesome-link::before {
+      @apply content-[''] bg-indigo-500 absolute bottom-1 left-0 w-full h-1.5 opacity-15 scale-x-0 transition transform ease-in-out origin-top duration-500 -z-10;
+   }
+   .awesome-link:hover::before {
+      @apply scale-x-100 origin-bottom;
+   }
+   .tilt-card {
+      @apply !bg-white p-5 relative shadow-md rounded-md;
+   }
+   .tilt-card::before {
+      @apply content-[''] w-[102%] h-[102%] absolute top-0 left-0 bg-black/10 -z-10 rotate-2 rounded-md;
+   }
+}

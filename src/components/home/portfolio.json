@@ -1,0 +1,50 @@
+[
+   {
+      "id": 1,
+      "title": "Website Abudarda Boarding School",
+      "image": "/images/portfolio/abudarda.png",
+      "description": "This is the official website of a Boarding School in my village. I built it using Nextjs, Bootstrap, and Prisma and deployed on Vercel. The database is hosted in Planetscale. This website is not 100% done because of Administration issue",
+      "url": "https://abudarda.vercel.app",
+      "github": "https://github.com/semet/school"
+   },
+   {
+      "id": 2,
+      "title": "Abudardapedia (Media Abudarda)",
+      "image": "/images/portfolio/abudardapedia.png",
+      "description": "Another website i built on top of Nextjs, Chakra UI, and Prisma. This website has a full working Login System built with Next-auth library. This website is intended for the Abudarda Boarding School to share their Media and Articles",
+      "url": "https://abudardapedia.vercel.app",
+      "github": "https://github.com/semet/literasi-abudarda"
+   },
+   {
+      "id": 3,
+      "title": "Bookshelf",
+      "image": "/images/portfolio/bookshelf.png",
+      "description": "I created this website on the purpose of applying for a job in BRIDA Academy in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of Nextjs + Chakra UI combined together",
+      "url": "https://bookshelf-jet.vercel.app",
+      "github": "https://github.com/semet/bookshelf"
+   },
+   {
+      "id": 4,
+      "title": "Remake Website Brida NTB",
+      "image": "/images/portfolio/brida.png",
+      "description": "I created this website on the purpose of applying for a job in BRIDA Academy in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of Nextjs + Chakra UI combined together",
+      "url": "https://brida-three.vercel.app",
+      "github": "https://github.com/semet/brida"
+   },
+   {
+      "id": 5,
+      "title": "Luminae (E-comers template)",
+      "image": "/images/portfolio/luminae.png",
+      "description": "I created this website on the purpose of applying for a job in BRIDA Academy in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of Nextjs + Chakra UI combined together",
+      "url": "https://luminae-eta.vercel.app",
+      "github": "https://github.com/semet/luminae"
+   },
+   {
+      "id": 6,
+      "title": "Nexy Landing template",
+      "image": "/images/portfolio/luminae.png",
+      "description": "I created this website on the purpose of applying for a job in BRIDA Academy in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of Nextjs + Chakra UI combined together",
+      "url": "https://nexy-seven.vercel.app/",
+      "github": "https://github.com/semet/nexy"
+   }
+]

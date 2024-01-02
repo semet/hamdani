@@ -1,0 +1,19 @@
+[
+   {
+      "label": "Home",
+      "link": "#home-page"
+   },
+   {
+      "label": "Stack",
+      "link": "#techstack-section"
+   },
+   {
+      "label": "About",
+      "link": "#about-section"
+   },
+
+   {
+      "label": "Portfolio",
+      "link": "#portfolio-section"
+   }
+]
