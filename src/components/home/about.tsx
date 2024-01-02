@@ -12,7 +12,7 @@ const About: FC = () => {
       >
          <div className="flex flex-col lg:flex-row md:justify-between w-full">
             {/* About */}
-            <div className="w-full lg:w-[60%] tilt-card" data-aos="fade-right">
+            <div className="w-full lg:w-[60%] tilt-card">
                <p className="text-lg lg:text-base xl:text-lg text-gray-600 dark:text-slate-300">
                   I started coding more than 10 years ago when the good old PHP and
                   Double-clicking index.html was a thing. I then learned more advance

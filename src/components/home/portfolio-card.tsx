@@ -1,4 +1,3 @@
-import useAosDirection from "@/hooks/use-aos-directin";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
@@ -23,12 +22,8 @@ const PortfolioCard: FC<Props> = ({
    github,
    stacks,
 }) => {
-   const { directions, index } = useAosDirection();
    return (
-      <div
-         className="w-full flex flex-col rounded-md shadow-md overflow-hidden group"
-         data-aos={directions[index]}
-      >
+      <div className="w-full flex flex-col rounded-md shadow-md overflow-hidden group">
          <Link href={url} target="_blank" className="">
             <Image
                src={image}
