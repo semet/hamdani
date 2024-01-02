@@ -2,6 +2,7 @@ import React, { FC, Fragment } from "react";
 import { FaAlignJustify } from "react-icons/fa";
 import menus from "./menu.json";
 import Link from "next/link";
+import SocialIcons from "./social-icons";
 
 const MobileMenu: FC = () => {
    return (
@@ -38,6 +39,9 @@ const MobileMenu: FC = () => {
                         </li>
                      ))}
                   </ul>
+                  <div className="block md:hidden">
+                     <SocialIcons />
+                  </div>
                </div>
             </div>
          </div>

@@ -13,7 +13,7 @@ const AppFooter: FC = () => {
             </h1>
             {/* right */}
             <div className="flex gap-10">
-               <div className="flex gap-10 text-gray-700">
+               <div className="flex gap-10 text-gray-700 dark:text-slate-200">
                   <a href="">+6287736690307</a>
                   <a href="">hamdanilombok@gmail.com</a>
                </div>

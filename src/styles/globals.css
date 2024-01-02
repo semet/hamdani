@@ -10,21 +10,21 @@
       @apply px-4 sm:px-4 md:px-6 2xl:px-40;
    }
    .awesome-link {
-      @apply relative tracking-wide text-gray-500 font-semibold;
+      @apply relative tracking-wide text-slate-500 dark:text-slate-400 font-semibold;
    }
    .awesome-link:hover {
-      @apply text-indigo-400;
+      @apply text-indigo-400 dark:text-slate-100;
    }
    .awesome-link::before {
-      @apply content-[''] bg-indigo-500 absolute bottom-1 left-0 w-full h-1.5 opacity-15 scale-x-0 transition transform ease-in-out origin-top duration-500 -z-10;
+      @apply content-[''] bg-indigo-500/30 dark:bg-white/30 absolute bottom-1 left-0 w-full h-1 scale-x-0 transition transform ease-in-out origin-top duration-500 -z-10;
    }
    .awesome-link:hover::before {
       @apply scale-x-100 origin-bottom;
    }
    .tilt-card {
-      @apply !bg-white p-5 relative shadow-md rounded-md;
+      @apply bg-white dark:bg-slate-900/85 p-5 relative shadow-md rounded-md;
    }
    .tilt-card::before {
-      @apply content-[''] w-[100%] h-[100%] absolute top-0 left-0 bg-black/10 -z-10 rotate-2 rounded-md;
+      @apply content-[''] w-[100%] h-[100%] absolute top-0 left-0 bg-black/10 dark:bg-slate-700 -z-10 rotate-2 rounded-md;
    }
 }

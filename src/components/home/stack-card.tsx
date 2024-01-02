@@ -10,7 +10,11 @@ type Props = {
 const StackCard: FC<Props> = ({ image, name }) => {
    const { directions, index } = useAosDirection();
    return (
-      <div className="w-14 cursor-pointer tooltip tooltip-bottom" data-tip={name}>
+      <div
+         className="w-14 cursor-pointer tooltip tooltip-bottom"
+         data-tip={name}
+         data-aos={directions[index]}
+      >
          <Image src={image} width={120} height={120} alt={name} />
       </div>
    );

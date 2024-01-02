@@ -10,7 +10,9 @@ const AppHeader: FC = () => {
    return (
       <header
          className={`flex justify-between items-center main-padding sticky top-0 transition-all ease-in-out duration-700 z-50 ${
-            isScrolled ? "bg-white py-6 shadow-md" : "bg-transparent py-10"
+            isScrolled
+               ? "bg-white dark:bg-slate-900 py-6 shadow-md"
+               : "bg-transparent py-10"
          }`}
       >
          {/* Mobile menu :: available only in mobile */}
@@ -21,7 +23,9 @@ const AppHeader: FC = () => {
             {/* desktop menu available only in desktop*/}
             <DesktopMenu />
             {/* Social Icons */}
-            <SocialIcons />
+            <div className="hidden md:block">
+               <SocialIcons />
+            </div>
          </div>
       </header>
    );

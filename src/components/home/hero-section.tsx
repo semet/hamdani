@@ -13,10 +13,12 @@ const HeroSection: FC = () => {
       <div className="main-padding my-20 flex justify-between w-full" id="home-page">
          {/* left text*/}
          <div className="space-y-4 w-full md:w-1/2 flex flex-col gap-2 justify-center text-center md:text-start text-5xl font-bold text-heading">
-            <h2 className="font-semibold text-slate-800">
+            <h2 className="font-semibold text-slate-800 dark:text-slate-100">
                Hi <span className="text-3xl">👋,</span>
             </h2>
-            <h3 className="text-slate-700 text-5xl">My name is</h3>
+            <h3 className="text-slate-700 dark:text-slate-400 text-5xl">
+               My name is
+            </h3>
             <div className="mockup-code text-base w-min self-center md:self-start">
                <pre className="flex font-mono" data-prefix="$">
                   <code className="text-[#DE616D]">
@@ -32,8 +34,8 @@ const HeroSection: FC = () => {
                   </code>
                </pre>
             </div>
-            <h4 className="text-3xl lg:text-3xl xl:text-4xl font-light">
-               I build website of thing
+            <h4 className="text-3xl lg:text-3xl xl:text-4xl font-light text-slate-700 dark:text-slate-400">
+               I code your dream website
             </h4>
             <div className="flex justify-center md:justify-start gap-2">
                <button

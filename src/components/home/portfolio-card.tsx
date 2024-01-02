@@ -1,7 +1,7 @@
 import useAosDirection from "@/hooks/use-aos-directin";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC } from "react";
+import { FC } from "react";
 import { FaGithub } from "react-icons/fa";
 
 type Props = {
@@ -23,7 +23,10 @@ const PortfolioCard: FC<Props> = ({
 }) => {
    const { directions, index } = useAosDirection();
    return (
-      <div className="w-full rounded-md shadow-md overflow-hidden relative group">
+      <div
+         className="w-full rounded-md shadow-md overflow-hidden relative group"
+         data-aos={directions[index]}
+      >
          <Image
             src={image}
             width={375}
@@ -31,14 +34,16 @@ const PortfolioCard: FC<Props> = ({
             alt={title}
             className="object-cover w-full"
          />
-         <div className="absolute -bottom-52 group-hover:bottom-0 transition-all ease-in-out duration-500 w-full h-[40%] bg-slate-100/95 p-2 flex flex-col gap-2">
-            <h4 className="text-slate-900 font-extrabold">{title}</h4>
+         <div className="absolute -bottom-52 group-hover:bottom-0 transition-all ease-in-out duration-500 w-full h-[40%] bg-slate-100/95 dark:bg-slate-900/95 p-2 flex flex-col gap-2">
+            <h4 className="text-slate-900 dark:text-slate-100 font-extrabold">
+               {title}
+            </h4>
             {/* <p className="line-clamp-4 text-gray-700">{description}</p> */}
             <div className="flex justify-start gap-4 items-center">
                <Link
                   href={url}
                   target="_blank"
-                  className="text-primary font-semibold hover:text-secondary"
+                  className="text-indigo-700 dark:text-slate-100 font-semibold hover:text-secondary"
                >
                   Visit &#x2192;
                </Link>

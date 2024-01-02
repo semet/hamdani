@@ -23,8 +23,12 @@ const Education: FC = () => {
    return (
       <div className="mt-16 lg:mt-0 space-y-10 lg:space-y-0">
          <div className="block lg:hidden text-center space-y-4">
-            <h3 className="text-4xl font-extrabold text-heading">Education</h3>
-            <p>My Education background</p>
+            <h3 className="text-4xl font-extrabold text-heading dark:text-slate-300">
+               Education
+            </h3>
+            <p className="text-slate-600 dark:text-slate-400">
+               My Education background
+            </p>
          </div>
          <ul className="timeline timeline-snap-icon timeline-vertical text-2xl">
             {educations.map((education, index) => (
@@ -49,7 +53,7 @@ const Education: FC = () => {
                            <time className="text-xl font-bold text-slate-500">
                               {education.year}
                            </time>
-                           <div className="text-lg lg:text-base font-semibold text-heading">
+                           <div className="text-lg lg:text-base font-semibold text-heading dark:text-slate-200">
                               {education.name}
                            </div>
                         </div>
@@ -76,7 +80,7 @@ const Education: FC = () => {
                            <time className="text-xl font-bold text-slate-500">
                               {education.year}
                            </time>
-                           <div className="text-lg lg:text-base font-semibold text-heading">
+                           <div className="text-lg lg:text-base font-semibold text-heading dark:text-slate-200">
                               {education.name}
                            </div>
                         </div>

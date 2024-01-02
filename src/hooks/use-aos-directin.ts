@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useAosDirection = () => {
-   const [directions, setDirections] = useState([
-      "fade-left",
-      "fade-right",
-      "fade-down",
-      "fade-up",
-   ]);
+   const [directions, setDirections] = useState(["fade-down", "fade-up"]);
    const [index, setIndex] = useState(0);
 
    useEffect(() => {

@@ -8,7 +8,7 @@ const Portfolio: FC = () => {
       <SectionContainer
          id="portfolio-section"
          title=" Here is what I make"
-         subtitle=" I use Nextjs in most of my project. I Sometime use Laravel (based on my client request)"
+         subtitle=" I use Nextjs in most of my project. I Sometime use Laravel"
       >
          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {items.map((item) => (

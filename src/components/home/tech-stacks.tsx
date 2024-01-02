@@ -78,7 +78,7 @@ const TechStacks: FC = () => {
    return (
       <SectionContainer
          id="techstack-section"
-         title="My tech stacks"
+         title="My stack"
          subtitle="Technologies I've been working with recently"
       >
          <div className="mx-auto flex flex-wrap gap-8 items-center justify-center w-full md:w-1/2">

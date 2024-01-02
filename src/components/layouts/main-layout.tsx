@@ -4,7 +4,7 @@ import AppFooter from "../partials/footer/app-footer";
 
 const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
    return (
-      <div className="bg-gradient-to-br from-indigo-800/30 via-transparent to-transparent">
+      <div className="bg-gradient-to-br from-indigo-800/30 dark:from-zinc-900 via-transparent dark:via-indigo-950/30 to-transparent">
          {/* Header */}
          <AppHeader />
          {/* content */}
