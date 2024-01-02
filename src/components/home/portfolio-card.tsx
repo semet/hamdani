@@ -23,10 +23,7 @@ const PortfolioCard: FC<Props> = ({
 }) => {
    const { directions, index } = useAosDirection();
    return (
-      <div
-         className="w-full rounded-md shadow-md overflow-hidden relative group"
-         // data-aos={directions[index]}
-      >
+      <div className="w-full rounded-md shadow-md overflow-hidden relative group">
          <Image
             src={image}
             width={375}
