@@ -1,8 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { FC, useId } from "react";
 import TypewriterComponent, { TypewriterClass } from "typewriter-effect";
 
 const HeroSection: FC = () => {
+   const sendMail = () => {
+      if (typeof window !== "undefined") {
+         (window as any).location = "mailto:hamdanilombok@gmail.com";
+      }
+   };
    return (
       <div className="main-padding my-20 flex justify-between w-full" id="home-page">
          {/* left text*/}
@@ -30,12 +36,19 @@ const HeroSection: FC = () => {
                I build website of thing
             </h4>
             <div className="flex justify-center md:justify-start gap-2">
-               <button className="btn btn-primary rounded-md shadow-md">
+               <button
+                  className="btn btn-primary rounded-md shadow-md"
+                  onClick={sendMail}
+               >
                   Hire me
                </button>
-               <button className="btn btn-secondary rounded-md shadow-md">
+               <Link
+                  href="https://drive.google.com/file/d/1uUxnd6E0y7qSUY2v8YqV7BQPyViODL2i/view?usp=share_link"
+                  target="_blank"
+                  className="btn btn-secondary rounded-md shadow-md"
+               >
                   See my CV
-               </button>
+               </Link>
             </div>
          </div>
          {/* Image */}
