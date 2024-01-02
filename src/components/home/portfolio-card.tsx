@@ -34,9 +34,9 @@ const PortfolioCard: FC<Props> = ({
             alt={title}
             className="object-cover w-full"
          />
-         <div className="absolute -bottom-52 group-hover:bottom-0 transition-all ease-in-out duration-500 w-full h-[80%] bg-white/95 p-2 flex flex-col gap-2">
-            <h4 className="text-heading font-bold">{title}</h4>
-            <p className="line-clamp-4 text-gray-700">{description}</p>
+         <div className="absolute -bottom-52 group-hover:bottom-0 transition-all ease-in-out duration-500 w-full h-[40%] bg-slate-100/95 p-2 flex flex-col gap-2">
+            <h4 className="text-slate-900 font-extrabold">{title}</h4>
+            {/* <p className="line-clamp-4 text-gray-700">{description}</p> */}
             <div className="flex justify-start gap-4 items-center">
                <Link
                   href={url}

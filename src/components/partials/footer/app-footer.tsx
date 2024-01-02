@@ -6,7 +6,7 @@ import { Copyright } from "./copyright";
 const AppFooter: FC = () => {
    return (
       <div className="main-padding mt-28 ">
-         <div className="flex justify-between items-center">
+         <div className="hidden md:flex justify-between items-center">
             {/* left */}
             <h1 className="font-mono text-xl font-bold tracking-wide bg-gradient-to-r from-[#2681b6] to-[#cf21b3] text-transparent bg-clip-text">
                Hamdani
