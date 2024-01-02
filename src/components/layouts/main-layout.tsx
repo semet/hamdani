@@ -1,6 +1,7 @@
 import React, { FC, Fragment, ReactNode } from "react";
 import AppHeader from "../partials/header/app-header";
 import AppFooter from "../partials/footer/app-footer";
+import ScrollToTop from "../partials/footer/scroll-to-top";
 
 const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
    return (
@@ -11,6 +12,8 @@ const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
          {children}
          {/* footer */}
          <AppFooter />
+         {/* scroll to top */}
+         <ScrollToTop />
       </div>
    );
 };
