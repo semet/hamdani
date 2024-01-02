@@ -5,7 +5,8 @@
       "image": "/images/portfolio/abudarda.png",
       "description": "This is the official website of a Boarding School in my village. I built it using Nextjs, Bootstrap, and Prisma and deployed on Vercel. The database is hosted in Planetscale. This website is not 100% done because of Administration issue",
       "url": "https://abudarda.vercel.app",
-      "github": "https://github.com/semet/school"
+      "github": "https://github.com/semet/school",
+      "stacks": ["Nextjs", "Chakra UI", "Planetscale", "Prisma"]
    },
    {
       "id": 2,
@@ -13,15 +14,24 @@
       "image": "/images/portfolio/abudardapedia.png",
       "description": "Another website i built on top of Nextjs, Chakra UI, and Prisma. This website has a full working Login System built with Next-auth library. This website is intended for the Abudarda Boarding School to share their Media and Articles",
       "url": "https://abudardapedia.vercel.app",
-      "github": "https://github.com/semet/literasi-abudarda"
+      "github": "https://github.com/semet/literasi-abudarda",
+      "stacks": [
+         "Nextjs",
+         "Chakra UI",
+         "Planetscale",
+         "Prisma",
+         "Cloudinary",
+         "React Query"
+      ]
    },
    {
       "id": 3,
       "title": "Bookshelf",
       "image": "/images/portfolio/bookshelf.png",
-      "description": "I created this website on the purpose of applying for a job in BRIDA Academy in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of Nextjs + Chakra UI combined together",
+      "description": "This website is made as a test for me when I applied in the Digital Solution company located in Philipphine. The test require me using external Api (Google Book API) and my favorite library; React Query. I use Tailwind css to style this website. This repository also uses Jest as the testing Framework",
       "url": "https://bookshelf-jet.vercel.app",
-      "github": "https://github.com/semet/bookshelf"
+      "github": "https://github.com/semet/bookshelf",
+      "stacks": ["Nextjs", "Tailwind css", "Google book API", "React Query", "Jest"]
    },
    {
       "id": 4,
@@ -29,22 +39,25 @@
       "image": "/images/portfolio/brida.png",
       "description": "I created this website on the purpose of applying for a job in BRIDA Academy in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of Nextjs + Chakra UI combined together",
       "url": "https://brida-three.vercel.app",
-      "github": "https://github.com/semet/brida"
+      "github": "https://github.com/semet/brida",
+      "stacks": ["Nextjs", "Chakra UI"]
    },
    {
       "id": 5,
       "title": "Luminae (E-comers template)",
       "image": "/images/portfolio/luminae.png",
-      "description": "I created this website on the purpose of applying for a job in BRIDA Academy in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of Nextjs + Chakra UI combined together",
+      "description": "This is a Nextjs Version of a Figma file. I transformed the Figma design into a website template using Nextjs and tailwind css. I handle state management using popular library called Zustand. As usual, I pop Jest testing library once again to deal with Unit Testing in this project",
       "url": "https://luminae-eta.vercel.app",
-      "github": "https://github.com/semet/luminae"
+      "github": "https://github.com/semet/luminae",
+      "stacks": ["Nextjs", "Tailwind css", "Jest", "Zustand"]
    },
    {
       "id": 6,
       "title": "Nexy Landing template",
-      "image": "/images/portfolio/luminae.png",
-      "description": "I created this website on the purpose of applying for a job in BRIDA Academy in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of Nextjs + Chakra UI combined together",
+      "image": "/images/portfolio/nexy.png",
+      "description": "This was my first design using Chakra UI and Nextjs. It might look awful, but this project means a lot to me. This project open my mind and understanding about how Frontend design works. This is the beginning of my 'start-from-scratch' project",
       "url": "https://nexy-seven.vercel.app/",
-      "github": "https://github.com/semet/nexy"
+      "github": "https://github.com/semet/nexy",
+      "stacks": ["Nextjs", "Chakra UI"]
    }
 ]
