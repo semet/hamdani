@@ -25,6 +25,6 @@
       @apply !bg-white p-5 relative shadow-md rounded-md;
    }
    .tilt-card::before {
-      @apply content-[''] w-[102%] h-[102%] absolute top-0 left-0 bg-black/10 -z-10 rotate-2 rounded-md;
+      @apply content-[''] w-[100%] h-[100%] absolute top-0 left-0 bg-black/10 -z-10 rotate-2 rounded-md;
    }
 }

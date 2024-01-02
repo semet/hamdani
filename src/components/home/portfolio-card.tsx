@@ -25,7 +25,7 @@ const PortfolioCard: FC<Props> = ({
    return (
       <div
          className="w-full rounded-md shadow-md overflow-hidden relative group"
-         data-aos={directions[index]}
+         // data-aos={directions[index]}
       >
          <Image
             src={image}

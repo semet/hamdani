@@ -30,7 +30,7 @@ const Education: FC = () => {
             {educations.map((education, index) => (
                <Fragment key={education.year}>
                   {index % 2 == 0 ? (
-                     <li data-aos="fade-right">
+                     <li>
                         <div className="timeline-middle">
                            <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ const Education: FC = () => {
                         <hr className="bg-primary" />
                      </li>
                   ) : (
-                     <li data-aos="fade-left">
+                     <li>
                         <hr className="bg-primary" />
                         <div className="timeline-middle">
                            <svg
