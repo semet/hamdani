@@ -27,7 +27,7 @@ const PortfolioCard: FC<Props> = ({
    return (
       <div
          className="w-full flex flex-col rounded-md shadow-md overflow-hidden group"
-         // data-aos={directions[index]}
+         data-aos={directions[index]}
       >
          <Link href={url} target="_blank" className="">
             <Image
@@ -51,7 +51,10 @@ const PortfolioCard: FC<Props> = ({
                   </li>
                ))}
             </ul>
-            <p>{description}</p>
+            <p
+               className="prose prose-a:no-underline prose-a:text-primary"
+               dangerouslySetInnerHTML={{ __html: description }}
+            ></p>
 
             <div className="absolute flex gap-4 -right-24 group-hover:right-0 top-2 px-4 py-2 bg-heading rounded-l-md shadow-md transition-all ease-in-out duration-300">
                <Link
