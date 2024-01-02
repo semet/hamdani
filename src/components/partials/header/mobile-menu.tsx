@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const MobileMenu: FC = () => {
    return (
-      <div>
+      <div className="block md:hidden">
          <div className="drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
