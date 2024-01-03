@@ -21,7 +21,7 @@ const ScrollToTop: FC = () => {
                className="fixed bottom-4 right-6"
             >
                <button
-                  className="btn btn-circle btn-sm btn-primary shadow-md"
+                  className="btn btn-circle btn-sm btn-primary dark:text-slate-50 shadow-md"
                   onClick={handleScrollTop}
                >
                   <FaArrowUp />

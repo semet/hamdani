@@ -11,7 +11,11 @@ const SocialIcons: FC = () => {
    };
    return (
       <div className="flex gap-2 text-gray-500 dark:text-slate-400 text-2xl">
-         <Link href="" className="hover:text-gray-900 dark:hover:text-slate-50">
+         <Link
+            href="https://github.com/semet"
+            target="_blank"
+            className="hover:text-gray-900 dark:hover:text-slate-50"
+         >
             <FaGithub />
          </Link>
          <Link

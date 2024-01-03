@@ -23,10 +23,16 @@ const StackCard: FC<Props> = ({ image, name }) => {
       <motion.div
          ref={ref}
          style={{ scale }}
-         className="w-14 cursor-pointer tooltip tooltip-bottom"
+         className="w-16 cursor-pointer tooltip tooltip-bottom"
          data-tip={name}
       >
-         <Image src={image} width={120} height={120} alt={name} />
+         <Image
+            src={image}
+            width={120}
+            height={120}
+            className="w-full h-full object-cover"
+            alt={name}
+         />
       </motion.div>
    );
 };

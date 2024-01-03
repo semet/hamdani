@@ -22,9 +22,9 @@
       @apply scale-x-100 origin-bottom;
    }
    .tilt-card {
-      @apply bg-white dark:bg-slate-900/85 p-5 relative shadow-md rounded-md;
+      @apply bg-white dark:bg-slate-900 p-5 relative shadow-md rounded-md;
    }
    .tilt-card::before {
-      @apply content-[''] w-[100%] h-[100%] absolute top-0 left-0 bg-black/10 dark:bg-slate-700 -z-10 rotate-2 rounded-md;
+      @apply content-[''] w-[100%] h-[100%] absolute top-0 left-0 bg-slate-400 blur-sm -z-50 dark:bg-slate-700 rotate-2 rounded-md;
    }
 }

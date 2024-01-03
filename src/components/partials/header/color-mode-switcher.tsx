@@ -1,12 +1,7 @@
-import React, { FC } from "react";
-import { FaMoon } from "react-icons/fa";
+import React from "react";
 
-const ColorModeSwitcher: FC = () => {
-   return (
-      <button className="btn btn-circle btn-xs btn-ghost">
-         <FaMoon />
-      </button>
-   );
+const ColorModeSwitcher = () => {
+   return <div>ColorModeSwitcher</div>;
 };
 
 export default ColorModeSwitcher;

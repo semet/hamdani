@@ -1,14 +1,22 @@
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment, useState } from "react";
 import { FaAlignJustify } from "react-icons/fa";
 import menus from "./menu.json";
 import Link from "next/link";
 import SocialIcons from "./social-icons";
 
 const MobileMenu: FC = () => {
+   const [isDrawerOpen, setDrawerOpen] = useState(false);
+   const toggle = () => setDrawerOpen(!isDrawerOpen);
    return (
       <div className="block md:hidden">
          <div className="drawer">
-            <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+            <input
+               id="my-drawer"
+               type="checkbox"
+               className="drawer-toggle"
+               checked={isDrawerOpen}
+               onChange={toggle}
+            />
             <div className="drawer-content">
                {/* Page content here */}
                <label
@@ -33,6 +41,7 @@ const MobileMenu: FC = () => {
                               href={menu.link}
                               scroll={false}
                               className="hover:rounded-l-none rounded-l-none text-lg"
+                              onClick={toggle}
                            >
                               {menu.label}
                            </Link>

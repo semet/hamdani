@@ -30,6 +30,10 @@ const stacks = [
       image: "/images/stacks/javascript.png",
    },
    {
+      name: "Jest",
+      image: "/images/stacks/jest.png",
+   },
+   {
       name: "Material UI",
       image: "/images/stacks/materialui.png",
    },
@@ -39,7 +43,11 @@ const stacks = [
    },
    {
       name: "Next js",
-      image: "/images/stacks/nextjs.png",
+      image: "/images/stacks/next-js.svg",
+   },
+   {
+      name: "Prisma",
+      image: "/images/stacks/prisma.png",
    },
    {
       name: "Nuxt js",
@@ -82,11 +90,7 @@ const TechStacks: FC = () => {
       offset: ["start end", "end end"],
    });
 
-   const scale = useTransform(
-      scrollYProgress,
-      [0.03, 0.27, 0.67, 0.95],
-      ["200px", "80px", "50px", "32px"]
-   );
+   const scale = useTransform(scrollYProgress, [0.56, 0.7, 8], [0.5, 0.8, 1]);
 
    const opacity = useTransform(
       scrollYProgress,
@@ -94,9 +98,9 @@ const TechStacks: FC = () => {
       [0.2, 0.5, 0.9, 1]
    );
 
-   // useMotionValueEvent(scrollYProgress, "change", (latest) => {
-   //    console.log(latest);
-   // });
+   useMotionValueEvent(scrollYProgress, "change", (latest) => {
+      console.log(latest);
+   });
    return (
       <SectionContainer
          id="techstack-section"
@@ -105,7 +109,7 @@ const TechStacks: FC = () => {
       >
          <motion.div
             ref={ref}
-            style={{ gap: scale }}
+            style={{ scale }}
             className="mx-auto flex flex-wrap gap-8 items-center justify-center w-full md:w-1/2"
          >
             {stacks.map((stack) => (

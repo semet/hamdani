@@ -1,7 +1,8 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
-import { FaExternalLinkAlt, FaForward, FaGithub } from "react-icons/fa";
+import { FC, useRef } from "react";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 type Props = {
    id: number;
@@ -22,8 +23,20 @@ const PortfolioCard: FC<Props> = ({
    github,
    stacks,
 }) => {
+   const ref = useRef<HTMLDivElement>(null);
+   const { scrollYProgress } = useScroll({
+      target: ref,
+      offset: ["start end", "end end"],
+   });
+
+   const scale = useTransform(scrollYProgress, [0, 0.5, 0.8], [0.5, 0.7, 1]);
+
    return (
-      <div className="w-full flex flex-col rounded-md shadow-md overflow-hidden group">
+      <motion.div
+         ref={ref}
+         style={{ scale }}
+         className="w-full flex flex-col rounded-md shadow-md overflow-hidden group bg-white dark:bg-slate-800"
+      >
          <Link href={url} target="_blank" className="">
             <Image
                src={image}
@@ -34,7 +47,9 @@ const PortfolioCard: FC<Props> = ({
             />
          </Link>
          <div className="flex flex-col gap-4 px-4 py-3 relative">
-            <h3 className="text-xl font-semibold text-slate-700">{title}</h3>
+            <h3 className="text-xl font-semibold text-slate-700 dark:text-slate-100">
+               {title}
+            </h3>
             <ul className="flex items-center flex-wrap gap-1">
                <li className="font-bold">Stacks: </li>
                {stacks.map((stack) => (
@@ -47,7 +62,7 @@ const PortfolioCard: FC<Props> = ({
                ))}
             </ul>
             <p
-               className="prose prose-a:no-underline prose-a:text-primary"
+               className="prose prose-a:no-underline prose-a:text-primary text-gray-600 dark:text-slate-300"
                dangerouslySetInnerHTML={{ __html: description }}
             ></p>
 
@@ -68,7 +83,7 @@ const PortfolioCard: FC<Props> = ({
                </Link>
             </div>
          </div>
-      </div>
+      </motion.div>
    );
 };
 

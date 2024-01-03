@@ -63,7 +63,7 @@ const HeroSection: FC = () => {
             </h4>
             <div className="flex justify-center md:justify-start gap-2">
                <button
-                  className="btn btn-primary rounded-md shadow-md"
+                  className="btn btn-primary dark:text-slate-50 rounded-md shadow-md tracking-wide"
                   onClick={sendMail}
                >
                   Hire me
@@ -71,7 +71,7 @@ const HeroSection: FC = () => {
                <Link
                   href="https://drive.google.com/file/d/1uUxnd6E0y7qSUY2v8YqV7BQPyViODL2i/view?usp=share_link"
                   target="_blank"
-                  className="btn btn-secondary rounded-md shadow-md"
+                  className="btn btn-secondary dark:text-slate-50 rounded-md shadow-md tracking-wide"
                >
                   See my CV
                </Link>

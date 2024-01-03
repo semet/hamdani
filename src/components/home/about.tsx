@@ -22,9 +22,6 @@ const About: FC = () => {
 
    const animatedScale = useSpring(scale);
 
-   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-      console.log(latest);
-   });
    return (
       <SectionContainer
          id="about-section"
@@ -35,10 +32,10 @@ const About: FC = () => {
             {/* About */}
             <motion.div
                ref={ref}
-               style={{ scale: animatedScale }}
-               className="w-full lg:w-[60%] tilt-card"
+               style={{ scale }}
+               className="w-full lg:w-1/2 tilt-card"
             >
-               <p className="text-lg lg:text-base xl:text-lg text-gray-600 dark:text-slate-300">
+               <p className="text-lg lg:text-base xl:text-lg text-gray-600 dark:text-slate-300 prose prose-base">
                   I started coding more than 10 years ago when the good old PHP and
                   Double-clicking index.html was a thing. I then learned more advance
                   languages like HTML (I am one of those who believe HTML is a
@@ -55,7 +52,7 @@ const About: FC = () => {
                </p>
             </motion.div>
             {/* Education */}
-            <motion.div style={{ opacity, scale }} className="w-full lg:w-[40%]">
+            <motion.div style={{ opacity, scale }} className="w-full lg:w-1/2">
                <Education />
             </motion.div>
          </div>
