@@ -44,6 +44,7 @@ const PortfolioCard: FC<Props> = ({
                height={260}
                alt={title}
                className="object-cover w-full"
+               priority={true}
             />
          </Link>
          <div className="flex flex-col gap-4 px-4 py-3 relative">

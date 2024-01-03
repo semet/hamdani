@@ -1,6 +1,5 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import SocialIcons from "../header/social-icons";
-import { Copse } from "next/font/google";
 import { Copyright } from "./copyright";
 
 const AppFooter: FC = () => {

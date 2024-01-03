@@ -1,7 +1,7 @@
-import React, { FC, Fragment, useState } from "react";
+import Link from "next/link";
+import { FC, useState } from "react";
 import { FaAlignJustify } from "react-icons/fa";
 import menus from "./menu.json";
-import Link from "next/link";
 import SocialIcons from "./social-icons";
 
 const MobileMenu: FC = () => {

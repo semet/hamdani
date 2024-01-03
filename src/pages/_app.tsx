@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { Inconsolata } from "next/font/google";
 
@@ -9,8 +10,10 @@ const inconsolataFont = Inconsolata({
 
 export default function App({ Component, pageProps }: AppProps) {
    return (
-      <main className={inconsolataFont.className}>
-         <Component {...pageProps} />
-      </main>
+      <ThemeProvider enableSystem={true} attribute="class">
+         <main className={inconsolataFont.className}>
+            <Component {...pageProps} />
+         </main>
+      </ThemeProvider>
    );
 }

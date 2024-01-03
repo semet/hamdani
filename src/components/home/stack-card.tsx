@@ -1,28 +1,36 @@
-import { useScroll, motion, useTransform, useMotionValueEvent } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { FC, useRef } from "react";
 
 type Props = {
+   id: number;
    name: string;
    image: string;
 };
 
-const StackCard: FC<Props> = ({ image, name }) => {
+const StackCard: FC<Props> = ({ image, name, id }) => {
    const ref = useRef<HTMLDivElement>(null);
-   const { scrollYProgress } = useScroll({
-      target: ref,
-      offset: ["start end", "end end"],
-   });
-   const scale = useTransform(
-      scrollYProgress,
-      [0.71, 0.8, 0.9, 1],
-      [0.4, 0.5, 0.8, 1]
-   );
+   const variants = {
+      initial: {
+         opacity: 0,
+         y: 100,
+      },
+      animate: (index: number) => ({
+         opacity: 1,
+         y: 0,
+         transition: {
+            delay: index * 0.05,
+         },
+      }),
+   };
 
    return (
       <motion.div
          ref={ref}
-         style={{ scale }}
+         variants={variants}
+         initial="initial"
+         whileInView="animate"
+         custom={id}
          className="w-16 cursor-pointer tooltip tooltip-bottom"
          data-tip={name}
       >

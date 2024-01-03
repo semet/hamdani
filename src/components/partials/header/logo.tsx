@@ -1,11 +1,4 @@
-import {
-   AnimatePresence,
-   motion,
-   useMotionValueEvent,
-   useScroll,
-   useTransform,
-} from "framer-motion";
-import React, { FC, useRef } from "react";
+import { FC } from "react";
 
 const Logo: FC = () => {
    return (

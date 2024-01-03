@@ -1,14 +1,8 @@
-import {
-   useScroll,
-   useTransform,
-   motion,
-   useMotionValueEvent,
-   useSpring,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC, useId, useRef } from "react";
-import TypewriterComponent, { TypewriterClass } from "typewriter-effect";
+import { FC, useRef } from "react";
+import TypewriterComponent from "typewriter-effect";
 
 const HeroSection: FC = () => {
    const ref = useRef<HTMLDivElement>(null);

@@ -5,6 +5,7 @@ import Logo from "./logo";
 import MobileMenu from "./mobile-menu";
 import SocialIcons from "./social-icons";
 import ScrollProgress from "./scroll-progress";
+import ColorModeSwitcher from "./color-mode-switcher";
 
 const AppHeader: FC = () => {
    const { isScrolled } = useIsScrolled();
@@ -29,6 +30,8 @@ const AppHeader: FC = () => {
             <div className="hidden md:block">
                <SocialIcons />
             </div>
+            {/* Color mode switcher */}
+            <ColorModeSwitcher />
          </div>
       </header>
    );

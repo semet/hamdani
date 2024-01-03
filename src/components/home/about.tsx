@@ -1,14 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { FC, useRef } from "react";
-import Education from "./education";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { FC, useRef } from "react";
 import SectionContainer from "../shared/section-container";
-import {
-   useMotionValueEvent,
-   useScroll,
-   useTransform,
-   motion,
-   useSpring,
-} from "framer-motion";
+import Education from "./education";
 
 const About: FC = () => {
    const ref = useRef<HTMLDivElement>(null);
