@@ -1,16 +1,40 @@
+import {
+   useScroll,
+   useTransform,
+   motion,
+   useMotionValueEvent,
+   useSpring,
+} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC, useId } from "react";
+import React, { FC, useId, useRef } from "react";
 import TypewriterComponent, { TypewriterClass } from "typewriter-effect";
 
 const HeroSection: FC = () => {
+   const ref = useRef<HTMLDivElement>(null);
+   const { scrollYProgress } = useScroll({
+      target: ref,
+      offset: ["end end", "end start"],
+   });
+
+   const opacity = useTransform(
+      scrollYProgress,
+      [0.23, 0.25, 0.29, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.81],
+      [1, 0.95, 0.85, 0.75, 0.6, 0.5, 0.4, 0.3, 0.2, 0]
+   );
+
    const sendMail = () => {
       if (typeof window !== "undefined") {
          (window as any).location = "mailto:hamdanilombok@gmail.com";
       }
    };
    return (
-      <div className="main-padding my-20 flex justify-between w-full" id="home-page">
+      <motion.div
+         ref={ref}
+         style={{ scale: opacity }}
+         className="main-padding my-20 flex justify-between w-full"
+         id="home-page"
+      >
          {/* left text*/}
          <div className="space-y-4 w-full md:w-1/2 flex flex-col gap-2 justify-center text-center md:text-start text-5xl font-bold text-heading">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
@@ -65,7 +89,7 @@ const HeroSection: FC = () => {
                />
             </div>
          </div>
-      </div>
+      </motion.div>
    );
 };
 

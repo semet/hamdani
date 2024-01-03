@@ -1,7 +1,8 @@
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 import StackCard from "./stack-card";
 import SectionContainer from "../shared/section-container";
+import { useMotionValueEvent, useScroll, useTransform, motion } from "framer-motion";
 
 const stacks = [
    {
@@ -75,17 +76,42 @@ const stacks = [
 ];
 
 const TechStacks: FC = () => {
+   const ref = useRef<HTMLDivElement>(null);
+   const { scrollYProgress } = useScroll({
+      target: ref,
+      offset: ["start end", "end end"],
+   });
+
+   const scale = useTransform(
+      scrollYProgress,
+      [0.03, 0.27, 0.67, 0.95],
+      ["200px", "80px", "50px", "32px"]
+   );
+
+   const opacity = useTransform(
+      scrollYProgress,
+      [0.03, 0.27, 0.67, 0.95],
+      [0.2, 0.5, 0.9, 1]
+   );
+
+   // useMotionValueEvent(scrollYProgress, "change", (latest) => {
+   //    console.log(latest);
+   // });
    return (
       <SectionContainer
          id="techstack-section"
          title="My stack"
          subtitle="Technologies I've been working with recently"
       >
-         <div className="mx-auto flex flex-wrap gap-8 items-center justify-center w-full md:w-1/2">
+         <motion.div
+            ref={ref}
+            style={{ gap: scale }}
+            className="mx-auto flex flex-wrap gap-8 items-center justify-center w-full md:w-1/2"
+         >
             {stacks.map((stack) => (
                <StackCard key={stack.name} {...stack} />
             ))}
-         </div>
+         </motion.div>
       </SectionContainer>
    );
 };

@@ -1,18 +1,43 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 import Education from "./education";
 import SectionContainer from "../shared/section-container";
+import {
+   useMotionValueEvent,
+   useScroll,
+   useTransform,
+   motion,
+   useSpring,
+} from "framer-motion";
 
 const About: FC = () => {
+   const ref = useRef<HTMLDivElement>(null);
+   const { scrollYProgress } = useScroll({
+      target: ref,
+      offset: ["start end", "end end"],
+   });
+
+   const scale = useTransform(scrollYProgress, [0.39, 0.45, 0.51], [0.8, 0.9, 1]);
+   const opacity = useTransform(scrollYProgress, [0.39, 0.4], [0.1, 1]);
+
+   const animatedScale = useSpring(scale);
+
+   useMotionValueEvent(scrollYProgress, "change", (latest) => {
+      console.log(latest);
+   });
    return (
       <SectionContainer
          id="about-section"
          title="About me"
          subtitle="A little information about me"
       >
-         <div className="flex flex-col lg:flex-row md:justify-between w-full">
+         <div className="flex flex-col lg:flex-row md:justify-between">
             {/* About */}
-            <div className="w-full lg:w-[60%] tilt-card">
+            <motion.div
+               ref={ref}
+               style={{ scale: animatedScale }}
+               className="w-full lg:w-[60%] tilt-card"
+            >
                <p className="text-lg lg:text-base xl:text-lg text-gray-600 dark:text-slate-300">
                   I started coding more than 10 years ago when the good old PHP and
                   Double-clicking index.html was a thing. I then learned more advance
@@ -31,11 +56,11 @@ const About: FC = () => {
                   understanding of Rest API and how to connect both. By the way, I
                   also know Laravel very well (incase you need a PHP Developer).
                </p>
-            </div>
+            </motion.div>
             {/* Education */}
-            <div className="w-full lg:w-[40%]">
+            <motion.div style={{ opacity, scale }} className="w-full lg:w-[40%]">
                <Education />
-            </div>
+            </motion.div>
          </div>
       </SectionContainer>
    );

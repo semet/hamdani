@@ -1,4 +1,4 @@
-import useScroll from "@/hooks/use-scroll";
+import useScroll from "@/hooks/use-isscrolled";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { FC } from "react";
 import { FaArrowUp } from "react-icons/fa";

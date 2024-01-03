@@ -1,20 +1,23 @@
-import React, { FC } from "react";
-import Logo from "./logo";
+import useIsScrolled from "@/hooks/use-isscrolled";
+import { FC } from "react";
 import DesktopMenu from "./desktop-menu";
-import SocialIcons from "./social-icons";
+import Logo from "./logo";
 import MobileMenu from "./mobile-menu";
-import useScroll from "@/hooks/use-scroll";
+import SocialIcons from "./social-icons";
+import ScrollProgress from "./scroll-progress";
 
 const AppHeader: FC = () => {
-   const { isScrolled } = useScroll(60);
+   const { isScrolled } = useIsScrolled();
+
    return (
       <header
-         className={`flex justify-between items-center main-padding sticky top-0 transition-all ease-in-out duration-700 z-50 ${
+         className={`flex justify-between items-center main-padding sticky top-0 w-full transition-all ease-in-out duration-700 z-50 ${
             isScrolled
                ? "bg-white dark:bg-slate-900 py-6 shadow-md"
                : "bg-transparent py-10"
          }`}
       >
+         <ScrollProgress />
          {/* Mobile menu :: available only in mobile */}
          <MobileMenu />
          {/* logo */}
