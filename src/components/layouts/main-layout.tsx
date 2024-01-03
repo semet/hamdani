@@ -6,7 +6,7 @@ import ScrollProgress from "../partials/header/scroll-progress";
 
 const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
    return (
-      <div className="bg-gradient-to-br from-indigo-800/30 dark:from-zinc-900 via-transparent dark:via-indigo-950/30 to-transparent">
+      <Fragment>
          {/* Header */}
          <AppHeader />
          {/* content */}
@@ -15,7 +15,7 @@ const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
          <AppFooter />
          {/* scroll to top */}
          <ScrollToTop />
-      </div>
+      </Fragment>
    );
 };
 

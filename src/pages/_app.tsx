@@ -11,7 +11,9 @@ const inconsolataFont = Inconsolata({
 export default function App({ Component, pageProps }: AppProps) {
    return (
       <ThemeProvider enableSystem={true} attribute="class">
-         <main className={inconsolataFont.className}>
+         <main
+            className={`${inconsolataFont.className} bg-gradient-to-br from-indigo-800/30 dark:from-zinc-900 via-transparent dark:via-indigo-950/30 to-transparent`}
+         >
             <Component {...pageProps} />
          </main>
       </ThemeProvider>
