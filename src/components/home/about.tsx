@@ -45,16 +45,13 @@ const About: FC = () => {
                   Programming Language itself 😂), CSS, JavsScript, TypeScript, MySql
                   and many more. I also spent my time learning some stuffs like
                   Reactjs, Vuejs, Nextjs, Nodejs (especially Express), and a good
-                  amount of time diving Rest API. But my primary Language is PHP
-                  (Laravel) and Javascript (React/Nextjs). I know GraphQL a little
-                  bit and I keep myself Up-to-Date with the information about the
-                  languages and technologies that I use. Sadly, up until you read
-                  this, I never have my first job as Web Developer and most of my
-                  works I open for free in my Github page. I don't know the minimum
-                  requirement of a man being a Fullstack Developer but I claim myself
-                  to be one of those because I can do Front-end Design, good
-                  understanding of Rest API and how to connect both. By the way, I
-                  also know Laravel very well (incase you need a PHP Developer).
+                  amount of time diving Rest API. But my primary Language is
+                  Javascript (React/Nextjs) and PHP (Laravel) . I know GraphQL a
+                  little bit and I keep myself Up-to-Date with the information about
+                  the languages and technologies that I use. I claim myself to be one
+                  of those Fullstack Developer because I can do Front-end Design,
+                  good understanding of Rest API and how to connect both. By the way,
+                  I also know Laravel very well (incase you need a PHP Developer).
                </p>
             </motion.div>
             {/* Education */}
