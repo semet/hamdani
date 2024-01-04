@@ -5,15 +5,12 @@ const useToggleTheme = () => {
    const { systemTheme, theme, setTheme } = useTheme();
 
    useEffect(() => {
-      if (theme) {
-         // if (theme === "dark") {
-         //    document.documentElement.classList.add("dark");
-         // } else {
-         //    document.documentElement.classList.remove("dark");
-         // }
-         document.querySelector("html")?.setAttribute("data-theme", theme);
+      if (theme && systemTheme) {
+         document
+            .querySelector("html")
+            ?.setAttribute("data-theme", theme === "system" ? systemTheme : theme);
       }
-   }, [theme]);
+   }, [theme, systemTheme]);
    return {
       systemTheme,
       theme,
