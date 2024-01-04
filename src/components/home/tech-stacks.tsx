@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { FC, useRef } from "react";
 import SectionContainer from "../shared/section-container";
 import StackCard from "./stack-card";
@@ -109,6 +109,7 @@ const TechStacks: FC = () => {
    });
 
    const scale = useTransform(scrollYProgress, [0.05, 0.41, 0.8], [0.3, 0.5, 1]);
+
    return (
       <SectionContainer
          id="techstack-section"

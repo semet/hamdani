@@ -9,28 +9,28 @@ type Props = {
 };
 
 const StackCard: FC<Props> = ({ image, name, id }) => {
-   const ref = useRef<HTMLDivElement>(null);
-   const variants = {
-      initial: {
-         opacity: 0,
-         y: 100,
-      },
-      animate: (index: number) => ({
-         opacity: 1,
-         y: 0,
-         transition: {
-            delay: index * 0.05,
-         },
-      }),
-   };
+   // const ref = useRef<HTMLDivElement>(null);
+   // const variants = {
+   //    initial: {
+   //       opacity: 0,
+   //       y: 100,
+   //    },
+   //    animate: (index: number) => ({
+   //       opacity: 1,
+   //       y: 0,
+   //       transition: {
+   //          delay: index * 0.05,
+   //       },
+   //    }),
+   // };
 
    return (
       <motion.div
-         ref={ref}
-         variants={variants}
-         initial="initial"
-         whileInView="animate"
-         custom={id}
+         // ref={ref}
+         // variants={variants}
+         // initial="initial"
+         // whileInView="animate"
+         // custom={id}
          className="w-16 cursor-pointer tooltip tooltip-bottom"
          data-tip={name}
       >

@@ -11,8 +11,7 @@ const About: FC = () => {
       offset: ["start end", "end end"],
    });
 
-   const scale = useTransform(scrollYProgress, [0.39, 0.45, 0.51], [0.8, 0.9, 1]);
-   const opacity = useTransform(scrollYProgress, [0.39, 0.4], [0.1, 1]);
+   const scale = useTransform(scrollYProgress, [0.4, 0.68], [0.5, 1]);
 
    const animatedScale = useSpring(scale);
 
@@ -27,7 +26,7 @@ const About: FC = () => {
             <motion.div
                ref={ref}
                style={{ scale }}
-               className="w-full lg:w-1/2 tilt-card"
+               className="w-full lg:w-1/2 bg-white dark:bg-slate-900 p-5 relative shadow-md rounded-md"
             >
                <p className="text-lg lg:text-base xl:text-lg text-gray-600 dark:text-slate-300 prose prose-base">
                   I started coding more than 10 years ago when the good old PHP and
@@ -46,7 +45,7 @@ const About: FC = () => {
                </p>
             </motion.div>
             {/* Education */}
-            <motion.div style={{ opacity, scale }} className="w-full lg:w-1/2">
+            <motion.div style={{ scale }} className="w-full lg:w-1/2">
                <Education />
             </motion.div>
          </div>
