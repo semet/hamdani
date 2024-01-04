@@ -27,7 +27,6 @@ const HeroSection: FC = () => {
          ref={ref}
          style={{ scale: opacity }}
          className="main-padding my-20 flex justify-between w-full"
-         id="home-page"
       >
          {/* left text*/}
          <div className="space-y-4 w-full md:w-1/2 flex flex-col gap-2 justify-center text-center md:text-start text-5xl font-bold text-heading">

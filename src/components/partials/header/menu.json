@@ -1,9 +1,5 @@
 [
    {
-      "label": "Home",
-      "link": "#home-page"
-   },
-   {
       "label": "Stack",
       "link": "#techstack-section"
    },

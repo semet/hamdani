@@ -1,16 +1,12 @@
 import useScroll from "@/hooks/use-isscrolled";
+import useScrollTop from "@/hooks/use-scroll-top";
 import { AnimatePresence, motion } from "framer-motion";
 import { FC } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
 const ScrollToTop: FC = () => {
    const { isScrolled } = useScroll(450);
-   const handleScrollTop = () => {
-      window.scrollTo({
-         top: 0,
-         behavior: "smooth",
-      });
-   };
+   const { handleScrollTop } = useScrollTop();
    return (
       <AnimatePresence>
          {isScrolled ? (

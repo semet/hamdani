@@ -3,10 +3,12 @@ import { FC, useState } from "react";
 import { FaAlignJustify } from "react-icons/fa";
 import menus from "./menu.json";
 import SocialIcons from "./social-icons";
+import useScrollTop from "@/hooks/use-scroll-top";
 
 const MobileMenu: FC = () => {
    const [isDrawerOpen, setDrawerOpen] = useState(false);
    const toggle = () => setDrawerOpen(!isDrawerOpen);
+   const { handleScrollTop } = useScrollTop();
    return (
       <div className="block md:hidden">
          <div className="drawer">
@@ -35,6 +37,20 @@ const MobileMenu: FC = () => {
                <div className="menu p-4 w-80 min-h-full bg-base-200 space-y-6">
                   <h3 className="text-3xl font-semibold">Navigation</h3>
                   <ul className="-ml-4">
+                     <li
+                        onClick={() => {
+                           handleScrollTop();
+                           toggle();
+                        }}
+                     >
+                        <Link
+                           href="#"
+                           scroll={false}
+                           className="hover:rounded-l-none rounded-l-none text-lg"
+                        >
+                           Home
+                        </Link>
+                     </li>
                      {menus.map((menu) => (
                         <li key={menu.link}>
                            <Link
