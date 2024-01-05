@@ -4,13 +4,13 @@
 
 @layer utilities {
    .main-padding {
-      @apply px-4 md:px-6 lg:px-32 xl:px-44;
+      @apply px-4 md:px-10 lg:px-20 xl:px-32;
    }
    .secondary-padding {
       @apply px-4 sm:px-4 md:px-6 2xl:px-40;
    }
    .awesome-link {
-      @apply relative tracking-wide text-slate-500 dark:text-slate-400 font-semibold;
+      @apply relative tracking-wide text-slate-500 dark:text-slate-400 font-semibold xl:text-lg;
    }
    .awesome-link:hover {
       @apply text-indigo-400 dark:text-slate-100;

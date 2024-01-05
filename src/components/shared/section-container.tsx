@@ -35,13 +35,13 @@ const SectionContainer: FC<Props> = ({ id, subtitle, title, children }) => {
          <div className="text-center space-y-4 relative">
             <motion.h3
                variants={{
-                  hidden: { opacity: 0, y: 75, fontSize: "10px" },
-                  visible: { opacity: 1, y: 0, fontSize: "36px" },
+                  hidden: { opacity: 0, y: 75 },
+                  visible: { opacity: 1, y: 0 },
                }}
                initial="hidden"
                animate={mainControl}
                transition={{ duration: 0.5, delay: 0.25 }}
-               className="text-4xl font-extrabold text-heading dark:text-slate-300 inline-block  overflow-hidden relative"
+               className="text-4xl xl:text-6xl font-extrabold text-heading dark:text-slate-300 inline-block  overflow-hidden relative"
             >
                {title}
                <motion.span
@@ -54,7 +54,9 @@ const SectionContainer: FC<Props> = ({ id, subtitle, title, children }) => {
                   className="absolute top-0 left-0 right-0 transform origin-left z-50 place-self-start bg-slate-900/45 dark:bg-slate-300 h-full w-full"
                ></motion.span>
             </motion.h3>
-            <p className="text-slate-600 dark:text-slate-400">{subtitle}</p>
+            <p className="text-slate-600 dark:text-slate-400 text-base lg:text-xl">
+               {subtitle}
+            </p>
          </div>
          {children}
       </section>

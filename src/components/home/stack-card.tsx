@@ -31,7 +31,7 @@ const StackCard: FC<Props> = ({ image, name, id }) => {
          // initial="initial"
          // whileInView="animate"
          // custom={id}
-         className="w-16 cursor-pointer tooltip tooltip-bottom"
+         className="w-16 xl:w-20 cursor-pointer tooltip tooltip-bottom"
          data-tip={name}
       >
          <Image

@@ -10,7 +10,7 @@ const Portfolio: FC = () => {
          title=" Here is what I make"
          subtitle=" I use Nextjs in most of my project. I Sometime use Laravel"
       >
-         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 lg:gap-4">
             {items.map((item) => (
                <PortfolioCard {...item} key={item.title} />
             ))}

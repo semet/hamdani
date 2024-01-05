@@ -48,22 +48,22 @@ const PortfolioCard: FC<Props> = ({
             />
          </Link>
          <div className="flex flex-col gap-4 px-4 py-3 relative">
-            <h3 className="text-xl font-semibold text-slate-700 dark:text-slate-100">
+            <h3 className="text-xl sm:text-2xl lg:text-xl xl:text-3xl font-semibold text-slate-700 dark:text-slate-100">
                {title}
             </h3>
-            <ul className="flex items-center flex-wrap gap-1">
-               <li className="font-bold">Stacks: </li>
+            <ul className="flex items-center flex-wrap gap-1 md:gap-2 lg:gap-1 xl:gap-2">
+               <li className="font-bold text-base md:text-lg">Stacks: </li>
                {stacks.map((stack) => (
                   <li
                      key={stack}
-                     className="whitespace-nowrap badge badge-outline badge-primary"
+                     className="whitespace-nowrap badge badge-outline badge-primary md:text-lg lg:text-base xl:text-lg"
                   >
                      {stack}
                   </li>
                ))}
             </ul>
             <p
-               className="prose prose-a:no-underline prose-a:text-primary text-gray-600 dark:text-slate-300"
+               className="prose prose-lg md:prose-xl lg:prose-lg prose-a:no-underline prose-a:text-primary text-gray-600 dark:text-slate-300"
                dangerouslySetInnerHTML={{ __html: description }}
             ></p>
 

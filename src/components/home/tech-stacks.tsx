@@ -108,7 +108,7 @@ const TechStacks: FC = () => {
       offset: ["start end", "end end"],
    });
 
-   const scale = useTransform(scrollYProgress, [0.05, 0.41, 0.8], [0.3, 0.5, 1]);
+   const scale = useTransform(scrollYProgress, [0.05, 0.41, 0.75], [0.3, 0.5, 1]);
 
    return (
       <SectionContainer
@@ -119,7 +119,7 @@ const TechStacks: FC = () => {
          <motion.div
             ref={ref}
             style={{ scale }}
-            className="mx-auto flex flex-wrap gap-8 items-center justify-center w-full md:w-[60%]"
+            className="mx-auto flex flex-wrap gap-8 items-center justify-center w-full lg:w-[60%]"
          >
             {stacks.map((stack) => (
                <StackCard key={stack.name} {...stack} />
