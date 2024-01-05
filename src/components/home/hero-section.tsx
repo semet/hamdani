@@ -26,10 +26,10 @@ const HeroSection: FC = () => {
       <motion.section
          ref={ref}
          style={{ scale: opacity }}
-         className="main-padding my-20 flex justify-between w-full"
+         className="main-padding my-20 grid grid-cols-1 md:grid-cols-2 w-full"
       >
          {/* left text*/}
-         <div className="space-y-4 w-full md:w-1/2 flex flex-col gap-2 justify-center text-center md:text-start text-5xl font-bold text-heading">
+         <div className="space-y-4 w-full flex flex-col gap-2 justify-center text-center md:text-start text-5xl font-bold text-heading">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
                Hi <span className="text-3xl">👋,</span>
             </h2>
@@ -71,14 +71,16 @@ const HeroSection: FC = () => {
             </div>
          </div>
          {/* Image */}
-         <div className="hidden md:flex w-1/2 justify-end">
-            <div className="w-[300px] h-[300px] p-1 bg-gradient-to-tr from-blue-600 to-pink-800 from rounded-full overflow-hidden">
+         <div className="hidden md:flex place-self-end">
+            <div className="w-[300px] h-[300px] rounded-xl relative">
+               <div className="absolute top-0 left-0 bg-gray-300 w-[102%] h-[102%] -z-10 rounded-xl rotate-[4deg]"></div>
+               <div className="absolute top-0 left-0 bg-gray-200 w-[102%] h-[102%] -z-30 rounded-xl rotate-[10deg]"></div>
                <Image
                   src="/images/hamdani.png"
                   width={439}
                   height={439}
                   alt="Hamdani"
-                  className="rounded-full"
+                  className="rounded-xl shadow-md"
                />
             </div>
          </div>
