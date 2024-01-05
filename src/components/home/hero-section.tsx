@@ -76,7 +76,7 @@ const HeroSection: FC = () => {
                <div className="absolute top-0 left-0 bg-gray-300 w-[102%] h-[102%] -z-10 rounded-xl rotate-[4deg]"></div>
                <div className="absolute top-0 left-0 bg-gray-200 w-[102%] h-[102%] -z-30 rounded-xl rotate-[10deg]"></div>
                <Image
-                  src="/images/hamdani.png"
+                  src="/images/hamdani.jpg"
                   width={439}
                   height={439}
                   alt="Hamdani"
