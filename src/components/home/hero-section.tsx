@@ -23,7 +23,7 @@ const HeroSection: FC = () => {
       }
    };
    return (
-      <motion.div
+      <motion.section
          ref={ref}
          style={{ scale: opacity }}
          className="main-padding my-20 flex justify-between w-full"
@@ -82,7 +82,7 @@ const HeroSection: FC = () => {
                />
             </div>
          </div>
-      </motion.div>
+      </motion.section>
    );
 };
 
