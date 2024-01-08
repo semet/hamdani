@@ -41,7 +41,7 @@ const SectionContainer: FC<Props> = ({ id, subtitle, title, children }) => {
                initial="hidden"
                animate={mainControl}
                transition={{ duration: 0.5, delay: 0.25 }}
-               className="text-4xl xl:text-6xl font-extrabold text-heading dark:text-slate-300 inline-block overflow-x-clip relative"
+               className="text-4xl xl:text-5xl font-extrabold text-heading dark:text-slate-300 inline-block overflow-x-clip relative"
             >
                {title}
                <motion.span
