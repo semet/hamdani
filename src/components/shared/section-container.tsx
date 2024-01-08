@@ -32,7 +32,7 @@ const SectionContainer: FC<Props> = ({ id, subtitle, title, children }) => {
          className="main-padding mt-32 space-y-12 min-w-full"
          id={id}
       >
-         <div className="text-center space-y-4 relative">
+         <div className="text-center space-y-5 relative">
             <motion.h3
                variants={{
                   hidden: { opacity: 0, y: 75 },
@@ -41,7 +41,7 @@ const SectionContainer: FC<Props> = ({ id, subtitle, title, children }) => {
                initial="hidden"
                animate={mainControl}
                transition={{ duration: 0.5, delay: 0.25 }}
-               className="text-4xl xl:text-6xl font-extrabold text-heading dark:text-slate-300 inline-block  overflow-hidden relative"
+               className="text-4xl xl:text-6xl font-extrabold text-heading dark:text-slate-300 inline-block overflow-x-clip relative"
             >
                {title}
                <motion.span

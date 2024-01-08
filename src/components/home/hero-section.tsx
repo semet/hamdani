@@ -28,7 +28,7 @@ const HeroSection: FC = () => {
       >
          {/* left text*/}
          <div className="space-y-4 w-full flex flex-col gap-2 justify-center text-center md:text-start text-5xl font-bold text-heading">
-            <h2 className="font-semibold text-slate-800 dark:text-slate-100 ext-5xl xl:text-7xl">
+            <h2 className="font-semibold text-slate-800 dark:text-slate-100 text-5xl xl:text-7xl">
                Hi <span className="text-3xl xl:text-5xl">👋,</span>
             </h2>
             <h3 className="text-slate-700 dark:text-slate-400 text-5xl xl:text-7xl">
@@ -53,7 +53,7 @@ const HeroSection: FC = () => {
                </pre>
             </div>
             <h4 className="text-3xl lg:text-3xl xl:text-4xl font-light text-slate-700 dark:text-slate-400">
-               I code your dream website
+               Talk less, Code more
             </h4>
             <div className="flex justify-center md:justify-start gap-2">
                <button

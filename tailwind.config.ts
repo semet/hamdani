@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const config: Config = {
    darkMode: ["class", '[data-theme="dark"]'],
@@ -11,6 +12,11 @@ const config: Config = {
       extend: {
          colors: {
             heading: "#42446E",
+         },
+         fontFamily: {
+            // sans: ["var(--font-inter)", ...fontFamily.sans],
+            // serif: ["var(--font-inter)", ...fontFamily.serif],
+            mono: ["var(--font-fira-code)", ...fontFamily.mono],
          },
       },
    },
