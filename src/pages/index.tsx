@@ -15,6 +15,10 @@ const Home: NextPage = () => {
       <MainLayout>
          <Head>
             <title>Hamdani</title>
+            <meta
+               name="google-site-verification"
+               content="pT68wa1pdeflo4JOa7u2ONvPj124U3Y0C_U8Rfgxnyc"
+            />
          </Head>
          {/* Hero */}
          <HeroSection />
