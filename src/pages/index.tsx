@@ -9,6 +9,7 @@ import MainLayout from "@/components/layouts/main-layout";
 import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
+import Script from "next/script";
 
 const Home: NextPage = () => {
    return (
@@ -20,6 +21,19 @@ const Home: NextPage = () => {
                content="pT68wa1pdeflo4JOa7u2ONvPj124U3Y0C_U8Rfgxnyc"
             />
          </Head>
+         <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"
+         />
+         <Script id="google-analytics">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'GA_TRACKING_ID');
+        `}
+         </Script>
          {/* Hero */}
          <HeroSection />
          {/* tech stack */}
