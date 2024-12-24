@@ -10,7 +10,7 @@ type Props = {
 
 export const RadialStacks: FC<Props> = ({ radius, scale }) => {
   return (
-    <div className="absolute left-1/2 top-1/3 flex -translate-x-1/2 -translate-y-1/3 transform items-start justify-center">
+    <div className="absolute bottom-[10%] left-[20%] hidden -translate-x-[20%] -translate-y-1/3 transform items-start justify-center lg:flex xl:bottom-0">
       <motion.div
         className="size-[500px]"
         animate={{
@@ -25,13 +25,13 @@ export const RadialStacks: FC<Props> = ({ radius, scale }) => {
       >
         {stacks.map((ele, index) => {
           const angle = (index / stacks.length) * 2 * Math.PI
-          const x = radius * Math.cos(angle) // Dynamically update radius
-          const y = radius * Math.sin(angle) // Dynamically update radius
+          const x = radius * Math.cos(angle)
+          const y = radius * Math.sin(angle)
 
           return (
             <motion.div
               key={ele.id}
-              className="absolute h-10 w-10 cursor-pointer overflow-hidden rounded-3xl bg-white p-2 shadow-lg md:h-20 md:w-20"
+              className="absolute h-10 w-10 cursor-pointer overflow-hidden rounded-3xl bg-white p-2 shadow-lg lg:h-20 lg:w-20"
               style={{
                 x,
                 y,

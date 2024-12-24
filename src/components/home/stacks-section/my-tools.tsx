@@ -13,7 +13,7 @@ const shuffleArray = (array: typeof tools) => {
   return shuffled
 }
 
-export const Right = () => {
+export const MyTools = () => {
   const [shuffledTools, setShuffledTools] = useState(tools)
 
   useEffect(() => {
@@ -24,19 +24,16 @@ export const Right = () => {
     return () => clearInterval(interval) // Cleanup on unmount
   }, [])
   return (
-    <div className="flex flex-col items-end gap-4">
-      <h1
-        className="rounded-mdp-4 relative text-5xl font-semibold text-white"
+    <div className="flex flex-col items-center gap-4 lg:items-end">
+      <h3
+        className="rounded-mdp-4 relative text-2xl font-semibold text-white sm:text-5xl"
         style={{
           textShadow: '-4px 4px 2px rgba(0,0,0,0.6)'
         }}
       >
         My Tools
-      </h1>
-      <motion.div
-        layout
-        className="flex flex-wrap justify-end gap-6"
-      >
+      </h3>
+      <motion.div className="flex flex-wrap justify-center gap-4 lg:justify-end lg:gap-6">
         {shuffledTools.map((tool) => {
           return (
             <motion.div
@@ -44,14 +41,14 @@ export const Right = () => {
               key={tool.id}
               className="flex flex-col items-center gap-1"
             >
-              <div className="h-20 w-20 rounded-3xl bg-white p-2 shadow-md">
+              <div className="h-10 w-10 rounded-3xl bg-white p-2 shadow-md sm:h-16 sm:w-16 lg:h-20 lg:w-20">
                 <img
                   src={tool.image}
                   alt={tool.name}
                   className="h-full w-full rounded-lg object-contain"
                 />
               </div>
-              <span className="text-sm text-white">{tool.name}</span>
+              <span className="text-xs text-white sm:text-sm">{tool.name}</span>
             </motion.div>
           )
         })}

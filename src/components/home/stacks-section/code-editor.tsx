@@ -37,7 +37,7 @@ export const CodeEditor = () => {
   }, [isInView])
 
   return (
-    <div className="h-full w-full overflow-hidden rounded-md bg-slate-600 shadow">
+    <div className="hidden h-full w-full overflow-hidden rounded-md bg-slate-600 shadow lg:block">
       <div className="border-b border-slate-400">
         <div className="flex w-fit items-center gap-2 bg-slate-700 px-2 py-1 font-mono text-slate-300">
           <code className="text-sm">radial-stacks.tsx</code>
@@ -68,7 +68,7 @@ export const CodeEditor = () => {
           CodeTag={(props) => (
             <pre
               {...props}
-              className="overflow-x-hidden font-mono text-xs md:text-sm"
+              className="h-1/2 overflow-x-hidden font-mono text-xs md:text-sm"
             />
           )}
         >

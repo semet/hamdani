@@ -17,12 +17,12 @@ export const Right: FC<Props> = ({ containerRef }) => {
   const window1Y = useTransform(scrollYProgress, [0, 0.5], [0, -300])
   const window4X = useTransform(scrollYProgress, [0, 0.5], [0, 200])
   return (
-    <div className="flex h-full w-full items-center justify-center">
+    <div className="flex h-full w-[80%] items-center justify-center sm:w-[60%] md:w-full">
       <svg
         viewBox="0 0 500 500"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-[70%] overflow-visible"
+        className="h-full w-full overflow-visible"
       >
         <g id="7118756_3426523 1">
           <g id="Floor">
