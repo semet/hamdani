@@ -1,18 +1,18 @@
 import { motion } from 'motion/react'
-import { useRef } from 'react'
 
 import { useAurora } from '@/hooks'
+import { useLayout } from '@/providers'
 
 import { Left } from './left'
 import { Right } from './right'
 
 export const HeroSection = () => {
   const { toBottom, color } = useAurora()
-  const containerRef = useRef<HTMLDivElement>(null)
+  const { homeSection } = useLayout()
 
   return (
     <motion.section
-      ref={containerRef}
+      ref={homeSection}
       style={{
         backgroundImage: toBottom
       }}
@@ -29,7 +29,7 @@ export const HeroSection = () => {
       />
       <div className="absolute inset-0 flex flex-col-reverse items-center justify-center gap-4 px-4 py-4 md:flex-row md:justify-start md:pl-10 lg:pl-20 xl:pl-32 2xl:pl-44">
         <Left color={color} />
-        <Right containerRef={containerRef} />
+        <Right containerRef={homeSection} />
       </div>
     </motion.section>
   )

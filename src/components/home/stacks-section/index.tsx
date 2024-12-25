@@ -4,9 +4,10 @@ import {
   useScroll,
   useTransform
 } from 'motion/react'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 import { useAurora } from '@/hooks'
+import { useLayout } from '@/providers'
 
 import { CodeEditor } from './code-editor'
 import { MyTools } from './my-tools'
@@ -16,10 +17,10 @@ import { SquareStacks } from './square-stacks'
 
 export const StacksSection = () => {
   const { toTop } = useAurora()
-  const containerRef = useRef<HTMLDivElement>(null)
+  const { stacksSection } = useLayout()
   const [radius, setRadius] = useState<number>(0)
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: stacksSection,
     offset: ['start end', 'start start']
   })
   const scale = useTransform(scrollYProgress, [0, 1], [0.3, 1.1])
@@ -32,7 +33,7 @@ export const StacksSection = () => {
   return (
     <motion.section
       layout
-      ref={containerRef}
+      ref={stacksSection}
       className="main-padding relative flex h-auto flex-col items-start justify-start gap-4 overflow-hidden p-4 py-4 lg:h-screen lg:flex-row lg:justify-between"
       style={{
         backgroundImage: toTop

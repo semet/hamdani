@@ -1,15 +1,19 @@
 import { motion } from 'motion/react'
 
+import { PageTitle } from '@/components/page-title'
 import { useAurora } from '@/hooks'
+import { useLayout } from '@/providers'
 
 import { ExperienceTabs } from './experience-tabs'
 import { NodejsLogo } from './nodejs-logo'
 
 export const Experience = () => {
   const { toBottom } = useAurora()
+  const { aboutSection } = useLayout()
   return (
     <motion.section
-      className="main-padding relative flex min-h-screen flex-col justify-between gap-4 py-4 lg:flex-row"
+      ref={aboutSection}
+      className="main-padding relative flex min-h-screen flex-col justify-between gap-4 py-4 lg:gap-6 xl:flex-row"
       style={{ backgroundImage: toBottom }}
     >
       <motion.div
@@ -24,24 +28,25 @@ export const Experience = () => {
             duration: 0.5
           }
         }}
-        className="relative flex w-full flex-col gap-4 lg:w-1/3"
+        className="relative flex w-full flex-col gap-2 xl:w-1/3"
       >
-        <h3
-          className="rounded-mdp-4 relative text-2xl font-semibold text-white sm:text-5xl"
-          style={{
-            textShadow: '-4px 4px 2px rgba(0,0,0,0.6)'
-          }}
-        >
-          Experiences
-        </h3>
-        <p className="prose-sm sm:prose-lg text-white">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. A illum
-          iusto officiis quidem eos laboriosam sunt explicabo quibusdam
-          voluptatem cupiditate! Ipsum, sequi dolorum? Assumenda deleniti
-          voluptas dolorum at non rerum. Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. Ex laboriosam eveniet error. Mollitia ad molestias
-          nam perspiciatis deleniti sed incidunt saepe repudiandae,
-          reprehenderit ullam dicta tenetur nemo quibusdam voluptatem magni.
+        <PageTitle title="About Me" />
+        <p className="prose-sm rounded-lg bg-white/50 p-4 text-justify text-white shadow sm:prose">
+          I started coding more than 10 years ago when the good old PHP and
+          Double-clicking index.html was a thing. I then learned more advance
+          languages like HTML (I am one of those who believe HTML is a
+          Programming Language itself 😂), CSS, JavsScript, TypeScript, MySql
+          and many more. I also spent my time learning some stuffs like Reactjs,
+          Vuejs, Nextjs, Nodejs (especially Express), and a good amount of time
+          diving Rest API. But my primary Language is Javascript (React/Nextjs)
+          and PHP (Laravel) . I know GraphQL a little bit and I keep myself
+          Up-to-Date with the information about the languages and technologies
+          that I use. I claim myself to be one of those Fullstack Developer
+          because I can do Front-end Design, good understanding of Rest API and
+          how to connect both. By the way, I also know Laravel very well (incase
+          you need a PHP Developer). I currently work in a leading tech company
+          called Synergyse Tech. I work full time as Frontend Developer by using
+          Nextjs as the main framework.
         </p>
       </motion.div>
       <motion.div
@@ -57,7 +62,7 @@ export const Experience = () => {
             delay: 0.5
           }
         }}
-        className="flex w-full flex-col gap-4 lg:w-2/3"
+        className="flex w-full flex-col gap-4 xl:w-2/3"
       >
         <ExperienceTabs />
       </motion.div>

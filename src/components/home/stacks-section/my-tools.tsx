@@ -2,6 +2,8 @@
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 
+import { PageTitle } from '@/components/page-title'
+
 import { tools } from './tools'
 
 const shuffleArray = (array: typeof tools) => {
@@ -25,14 +27,7 @@ export const MyTools = () => {
   }, [])
   return (
     <div className="flex flex-col items-center gap-4 lg:items-end">
-      <h3
-        className="rounded-mdp-4 relative text-2xl font-semibold text-white sm:text-5xl"
-        style={{
-          textShadow: '-4px 4px 2px rgba(0,0,0,0.6)'
-        }}
-      >
-        My Tools
-      </h3>
+      <PageTitle title="My Tools" />
       <motion.div className="flex flex-wrap justify-center gap-4 lg:justify-end lg:gap-6">
         {shuffledTools.map((tool) => {
           return (

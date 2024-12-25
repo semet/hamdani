@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .main-padding {
-  @apply px-4 md:px-10 lg:px-20 xl:px-32 2xl:px-44;
+  @apply px-4 md:px-10 lg:px-20 xl:px-28 2xl:px-32;
 }

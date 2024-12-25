@@ -1,4 +1,9 @@
-import { Experience, HeroSection, StacksSection } from '@/components/home'
+import {
+  Experience,
+  HeroSection,
+  ShowcaseSection,
+  StacksSection
+} from '@/components/home'
 
 const Home = () => {
   return (
@@ -6,6 +11,7 @@ const Home = () => {
       <HeroSection />
       <StacksSection />
       <Experience />
+      <ShowcaseSection />
       <div className="h-[300vh]"></div>
     </>
   )

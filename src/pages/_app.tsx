@@ -5,6 +5,7 @@ import { Nunito_Sans, Fira_Code } from 'next/font/google'
 import { useEffect, useRef } from 'react'
 
 import { Header } from '@/components/header'
+import { LayoutProvider } from '@/providers'
 
 const nunito = Nunito_Sans({
   subsets: ['latin'],
@@ -34,9 +35,11 @@ export default function App({ Component, pageProps }: AppProps) {
     return () => lenis.destroy()
   }, [])
   return (
-    <main className={`${nunito.className} ${firaCode.style}`}>
-      <Header />
-      <Component {...pageProps} />
-    </main>
+    <LayoutProvider>
+      <main className={`${nunito.className} ${firaCode.style}`}>
+        <Header />
+        <Component {...pageProps} />
+      </main>
+    </LayoutProvider>
   )
 }

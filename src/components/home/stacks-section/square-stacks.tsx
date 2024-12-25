@@ -2,6 +2,8 @@
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 
+import { PageTitle } from '@/components/page-title'
+
 import { stacks } from './stacks'
 const shuffleArray = (array: typeof stacks) => {
   const shuffled = [...array]
@@ -24,14 +26,7 @@ export const SquareStacks = () => {
   }, [])
   return (
     <div className="flex flex-col items-center gap-4 lg:hidden">
-      <h3
-        className="rounded-mdp-4 relative text-2xl font-semibold text-white sm:text-5xl"
-        style={{
-          textShadow: '-4px 4px 2px rgba(0,0,0,0.6)'
-        }}
-      >
-        My Stacks
-      </h3>
+      <PageTitle title="My Stacks" />
       <motion.div className="flex flex-wrap justify-center gap-4 lg:justify-end lg:gap-6">
         {shuffledStacks.map((stack) => {
           return (

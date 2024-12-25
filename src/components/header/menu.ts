@@ -1,22 +1,35 @@
 export const menus = [
   {
+    id: 'homeSection',
+    name: 'Home'
+  },
+  {
+    id: 'stacksSection',
+    name: 'Stacks'
+  },
+  {
+    id: 'aboutSection',
+    name: 'About'
+  },
+  {
+    id: 'showcaseSection',
+    name: 'Showcase'
+  },
+  {
+    id: 'contactSection',
+    name: 'Contact'
+  }
+]
+
+export const otherMenus = [
+  {
     id: 1,
-    name: 'Home',
-    link: '/'
+    name: 'Labs',
+    href: '/labs'
   },
   {
     id: 2,
-    name: 'About',
-    link: '/about'
-  },
-  {
-    id: 3,
-    name: 'Services',
-    link: '/services'
-  },
-  {
-    id: 4,
-    name: 'Contact',
-    link: '/contact'
+    name: 'Blog',
+    href: '/blog'
   }
 ]
