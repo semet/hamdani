@@ -1,5 +1,4 @@
 import { motion } from 'motion/react'
-import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
 import { menus } from '@/data'
@@ -27,15 +26,9 @@ export const DesktopMenu = () => {
                   className="absolute -inset-1 rounded-full bg-gradient-to-r from-sky-400 to-indigo-400"
                 />
               )}
-              {!menu.href ? (
-                <button onClick={() => onMenuClick(menu.id)}>
-                  <span className="relative">{menu.name}</span>
-                </button>
-              ) : (
-                <Link href={menu.href}>
-                  <span>{menu.name}</span>
-                </Link>
-              )}
+              <button onClick={() => onMenuClick(menu.id)}>
+                <span className="relative">{menu.name}</span>
+              </button>
             </motion.li>
           )
         })}

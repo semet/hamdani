@@ -18,16 +18,6 @@ export const menus = [
   {
     id: 'contactSection',
     name: 'Contact'
-  },
-  {
-    id: 'labsPage',
-    name: 'Labs',
-    href: '/labs'
-  },
-  {
-    id: 'blogPage',
-    name: 'Blog',
-    href: '/blog'
   }
 ]
 

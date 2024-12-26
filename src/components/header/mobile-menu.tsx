@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from 'motion/react'
-import Link from 'next/link'
 import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -114,21 +113,12 @@ export const MobileMenu = () => {
                         className="absolute -inset-1 inline-block rounded-full bg-gradient-to-r from-sky-400 to-indigo-400"
                       />
                     )}
-                    {!menu.href ? (
-                      <button
-                        className="relative"
-                        onClick={() => handleClick(menu.id)}
-                      >
-                        {menu.name}
-                      </button>
-                    ) : (
-                      <Link
-                        className="relative"
-                        href={menu.href}
-                      >
-                        <span>{menu.name}</span>
-                      </Link>
-                    )}
+                    <button
+                      className="relative"
+                      onClick={() => handleClick(menu.id)}
+                    >
+                      {menu.name}
+                    </button>
                   </motion.li>
                 )
               })}
