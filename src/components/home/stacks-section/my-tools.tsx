@@ -28,7 +28,7 @@ export const MyTools = () => {
   return (
     <div className="flex flex-col items-center gap-4 lg:items-end">
       <PageTitle title="My Tools" />
-      <motion.div className="flex flex-wrap justify-center gap-4 lg:justify-end lg:gap-6">
+      <motion.div className="flex w-full flex-wrap justify-center gap-4 lg:justify-end lg:gap-6 2xl:w-[80%]">
         {shuffledTools.map((tool) => {
           return (
             <motion.div

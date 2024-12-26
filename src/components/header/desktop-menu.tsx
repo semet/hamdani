@@ -1,18 +1,20 @@
+import { motion } from 'motion/react'
 import Link from 'next/link'
-import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 
+import { HomeMenu, menus } from '@/data'
 import { useLayout } from '@/providers'
 
-import { menus, otherMenus } from './menu'
-
 export const DesktopMenu = () => {
-  const [activeMenu, setActiveMenu] = useState('homeSection')
-  const { aboutSection, homeSection, showcaseSection, stacksSection } =
-    useLayout()
+  const {
+    aboutSection,
+    homeSection,
+    showcaseSection,
+    stacksSection,
+    activeMenu
+  } = useLayout()
 
-  const handleMenuClick = (id: string) => {
-    setActiveMenu(id)
+  const handleMenuClick = (id: HomeMenu) => {
     const section = id
     const offset = 70
     switch (section) {
@@ -40,36 +42,44 @@ export const DesktopMenu = () => {
           behavior: 'smooth'
         })
         break
+      case 'contactSection':
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        })
+        break
     }
   }
+
   return (
     <nav>
-      <ul className="hidden sm:flex">
+      <ul className="hidden gap-2 sm:flex">
         {menus.map((menu) => {
           return (
-            <li
+            <motion.li
+              layout
               key={menu.id}
               className={twMerge([
-                'px-2 font-semibold text-slate-600 hover:text-tertiary',
-                activeMenu === menu.id && 'text-tertiary'
+                'relative px-2 font-semibold text-slate-600 hover:text-tertiary',
+                activeMenu === menu.id && 'text-white'
               ])}
             >
-              <button onClick={() => handleMenuClick(menu.id)}>
-                {menu.name}
-              </button>
-            </li>
-          )
-        })}
-        {otherMenus.map((menu) => {
-          return (
-            <li
-              key={menu.id}
-              className={twMerge([
-                'px-2 font-semibold text-slate-600 hover:text-tertiary'
-              ])}
-            >
-              <Link href={menu.href}>{menu.name}</Link>
-            </li>
+              {activeMenu === menu.id && (
+                <motion.span
+                  layoutId="menu-item"
+                  className="absolute -inset-1 rounded-full bg-gradient-to-r from-sky-400 to-indigo-400"
+                />
+              )}
+              {!menu.href ? (
+                <button onClick={() => handleMenuClick(menu.id)}>
+                  <span className="relative">{menu.name}</span>
+                </button>
+              ) : (
+                <Link href={menu.href}>
+                  <span>{menu.name}</span>
+                </Link>
+              )}
+            </motion.li>
           )
         })}
       </ul>

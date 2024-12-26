@@ -18,18 +18,17 @@ export const menus = [
   {
     id: 'contactSection',
     name: 'Contact'
-  }
-]
-
-export const otherMenus = [
+  },
   {
-    id: 1,
+    id: 'labsPage',
     name: 'Labs',
     href: '/labs'
   },
   {
-    id: 2,
+    id: 'blogPage',
     name: 'Blog',
     href: '/blog'
   }
 ]
+
+export type HomeMenu = (typeof menus)[number]['id']

@@ -38,7 +38,7 @@ export const ShowcaseSection = () => {
   return (
     <motion.section
       ref={showcaseSection}
-      className="relative pb-4"
+      className="relative z-20 pb-4"
       style={{ backgroundImage: toTop, height: `${items.length * 100}vh` }}
     >
       <Background />

@@ -1,6 +1,22 @@
+import { useRouter } from 'next/router'
+
+import { useLayout } from '@/providers'
+
 export const Logo = () => {
+  const { homeSection } = useLayout()
+  const { pathname, push } = useRouter()
+  const handleClick = () => {
+    if (pathname === '/') {
+      window.scrollTo({
+        top: homeSection.current?.offsetTop,
+        behavior: 'smooth'
+      })
+    } else {
+      push('/')
+    }
+  }
   return (
-    <div>
+    <button onClick={handleClick}>
       <svg
         viewBox="0 0 141 149"
         fill="none"
@@ -31,6 +47,6 @@ export const Logo = () => {
           fill="#2A464D"
         />
       </svg>
-    </div>
+    </button>
   )
 }

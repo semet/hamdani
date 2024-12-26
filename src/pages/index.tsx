@@ -1,5 +1,6 @@
 import {
   Experience,
+  FooterSection,
   HeroSection,
   ShowcaseSection,
   StacksSection
@@ -12,7 +13,8 @@ const Home = () => {
       <StacksSection />
       <Experience />
       <ShowcaseSection />
-      <div className="h-[300vh]"></div>
+      <FooterSection />
+      {/* <div className="h-[300vh]"></div> */}
     </>
   )
 }
