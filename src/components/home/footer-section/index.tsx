@@ -26,10 +26,12 @@ export const FooterSection = () => {
     >
       <Background />
       <footer className="relative flex h-full w-full flex-col items-center justify-center gap-4">
-        <div className="flex items-end justify-between gap-4 rounded-lg bg-black/30 p-4 shadow">
+        <div className="flex w-full flex-col items-center justify-between gap-4 rounded-lg bg-black/30 p-4 shadow sm:flex-row sm:items-end md:w-fit">
           <Logo />
-          <span className="text-4xl text-white">+6287736690307</span>
-          <span className="text-4xl text-white">hamdanilombok@gmail.com</span>
+          <span className="text-xl text-white sm:text-2xl">+6287736690307</span>
+          <span className="text-xl text-white sm:text-2xl">
+            hamdanilombok@gmail.com
+          </span>
         </div>
 
         <div className="flex justify-center gap-4">

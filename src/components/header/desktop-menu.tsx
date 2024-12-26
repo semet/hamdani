@@ -2,57 +2,14 @@ import { motion } from 'motion/react'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
-import { HomeMenu, menus } from '@/data'
+import { menus } from '@/data'
 import { useLayout } from '@/providers'
 
 export const DesktopMenu = () => {
-  const {
-    aboutSection,
-    homeSection,
-    showcaseSection,
-    stacksSection,
-    activeMenu
-  } = useLayout()
-
-  const handleMenuClick = (id: HomeMenu) => {
-    const section = id
-    const offset = 70
-    switch (section) {
-      case 'homeSection':
-        window.scrollTo({
-          top: homeSection.current?.offsetTop,
-          behavior: 'smooth'
-        })
-        break
-      case 'stacksSection':
-        window.scrollTo({
-          top: (stacksSection.current?.offsetTop ?? 0) - offset - 40,
-          behavior: 'smooth'
-        })
-        break
-      case 'aboutSection':
-        window.scrollTo({
-          top: (aboutSection.current?.offsetTop ?? 0) - offset,
-          behavior: 'smooth'
-        })
-        break
-      case 'showcaseSection':
-        window.scrollTo({
-          top: showcaseSection.current?.offsetTop,
-          behavior: 'smooth'
-        })
-        break
-      case 'contactSection':
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: 'smooth'
-        })
-        break
-    }
-  }
+  const { activeMenu, onMenuClick } = useLayout()
 
   return (
-    <nav>
+    <nav className="hidden sm:flex">
       <ul className="hidden gap-2 sm:flex">
         {menus.map((menu) => {
           return (
@@ -60,7 +17,7 @@ export const DesktopMenu = () => {
               layout
               key={menu.id}
               className={twMerge([
-                'relative px-2 font-semibold text-slate-600 hover:text-tertiary',
+                'relative px-2 text-sm font-semibold text-slate-600 hover:text-tertiary md:text-base',
                 activeMenu === menu.id && 'text-white'
               ])}
             >
@@ -71,7 +28,7 @@ export const DesktopMenu = () => {
                 />
               )}
               {!menu.href ? (
-                <button onClick={() => handleMenuClick(menu.id)}>
+                <button onClick={() => onMenuClick(menu.id)}>
                   <span className="relative">{menu.name}</span>
                 </button>
               ) : (

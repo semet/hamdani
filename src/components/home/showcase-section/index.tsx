@@ -28,7 +28,7 @@ export const ShowcaseSection = () => {
         : windowWidth >= 1536
           ? -460
           : -50
-
+  const itemHeight = windowWidth >= 1024 ? 100 : 85
   const x = useTransform(scrollYProgress, [0, 1], [0, subtract * items.length])
 
   useEffect(() => {
@@ -39,7 +39,10 @@ export const ShowcaseSection = () => {
     <motion.section
       ref={showcaseSection}
       className="relative z-20 pb-4"
-      style={{ backgroundImage: toTop, height: `${items.length * 100}vh` }}
+      style={{
+        backgroundImage: toTop,
+        height: `${items.length * itemHeight}vh`
+      }}
     >
       <Background />
       <div className="top-0 flex flex-col gap-2 lg:sticky lg:top-40 lg:overflow-hidden">

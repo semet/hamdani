@@ -14,7 +14,6 @@ const Home = () => {
       <Experience />
       <ShowcaseSection />
       <FooterSection />
-      {/* <div className="h-[300vh]"></div> */}
     </>
   )
 }

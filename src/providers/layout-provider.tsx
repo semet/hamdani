@@ -22,6 +22,7 @@ type LayoutProviderType = {
   contactSection: RefObject<HTMLDivElement | null>
   activeMenu: HomeMenu
   setActiveMenu: Dispatch<SetStateAction<HomeMenu>>
+  onMenuClick: (_id: HomeMenu) => void
 }
 
 const LayoutContext = createContext<LayoutProviderType | null>(null)
@@ -35,6 +36,44 @@ const LayoutProvider: FC<PropsWithChildren> = ({ children }) => {
     contactSection: useRef<HTMLDivElement | null>(null)
   }
   const [activeMenu, setActiveMenu] = useState<HomeMenu>('homeSection')
+  const onMenuClick = (id: HomeMenu) => {
+    const { homeSection, stacksSection, aboutSection, showcaseSection } =
+      sectionRefs
+    const section = id
+    const offset = 70
+    switch (section) {
+      case 'homeSection':
+        window.scrollTo({
+          top: homeSection.current?.offsetTop,
+          behavior: 'smooth'
+        })
+        break
+      case 'stacksSection':
+        window.scrollTo({
+          top: (stacksSection.current?.offsetTop ?? 0) - offset - 40,
+          behavior: 'smooth'
+        })
+        break
+      case 'aboutSection':
+        window.scrollTo({
+          top: (aboutSection.current?.offsetTop ?? 0) - offset,
+          behavior: 'smooth'
+        })
+        break
+      case 'showcaseSection':
+        window.scrollTo({
+          top: showcaseSection.current?.offsetTop,
+          behavior: 'smooth'
+        })
+        break
+      case 'contactSection':
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        })
+        break
+    }
+  }
 
   const isHomeInView = useInView(sectionRefs.homeSection, {
     margin: '-500px 0px 0px 0px'
@@ -77,7 +116,8 @@ const LayoutProvider: FC<PropsWithChildren> = ({ children }) => {
       value={{
         ...sectionRefs,
         activeMenu,
-        setActiveMenu
+        setActiveMenu,
+        onMenuClick
       }}
     >
       {children}

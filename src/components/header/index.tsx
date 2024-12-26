@@ -3,6 +3,7 @@ import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 import { Logo } from '@/components/logo'
 
 import { DesktopMenu } from './desktop-menu'
+import { MobileMenu } from './mobile-menu'
 
 export const Header = () => {
   const { scrollYProgress } = useScroll()
@@ -25,7 +26,7 @@ export const Header = () => {
 
   return (
     <motion.header
-      className="main-padding fixed left-0 top-0 z-50 flex w-full items-end justify-between py-4 shadow transition-colors duration-300"
+      className="main-padding fixed left-0 top-0 z-50 flex w-full items-center justify-between py-4 shadow transition-colors duration-300 sm:items-end"
       style={{
         backgroundColor,
         boxShadow,
@@ -34,6 +35,7 @@ export const Header = () => {
     >
       <Logo />
       <DesktopMenu />
+      <MobileMenu />
     </motion.header>
   )
 }

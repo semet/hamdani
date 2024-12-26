@@ -31,7 +31,7 @@ export const VerticalCard: FC<Props> = (props) => {
       style={{
         opacity,
         scale,
-        top: `calc(75px + ${cardIndex * 25}px)`
+        top: `calc(35px + ${cardIndex * 25}px)`
       }}
       className="group sticky h-[80vh] min-w-full overflow-hidden rounded-lg shadow"
     >

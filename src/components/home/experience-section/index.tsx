@@ -31,7 +31,7 @@ export const Experience = () => {
         className="relative flex w-full flex-col gap-2 xl:w-1/3"
       >
         <PageTitle title="About Me" />
-        <p className="prose-sm rounded-lg bg-white/50 p-4 text-justify text-white shadow sm:prose">
+        <p className="prose-sm rounded-lg bg-black/50 p-4 text-justify text-white shadow sm:prose">
           I started coding more than 10 years ago when the good old PHP and
           Double-clicking index.html was a thing. I then learned more advance
           languages like HTML (I am one of those who believe HTML is a
@@ -59,7 +59,7 @@ export const Experience = () => {
           y: 0,
           transition: {
             duration: 0.5,
-            delay: 0.5
+            delay: 0.3
           }
         }}
         className="flex w-full flex-col gap-4 xl:w-2/3"
