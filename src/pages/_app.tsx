@@ -5,6 +5,7 @@ import { Nunito_Sans, Fira_Code } from 'next/font/google'
 import { useEffect, useRef } from 'react'
 
 import { Header } from '@/components/header'
+import { ScrollToTop } from '@/components/scroll-to-top'
 import { LayoutProvider } from '@/providers'
 
 const nunito = Nunito_Sans({
@@ -39,6 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <main className={`${nunito.className} ${firaCode.style}`}>
         <Header />
         <Component {...pageProps} />
+        <ScrollToTop />
       </main>
     </LayoutProvider>
   )
