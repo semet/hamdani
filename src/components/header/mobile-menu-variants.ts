@@ -37,6 +37,6 @@ export const toggleVariants: Variants = {
   }
 }
 export const overlayVariants: Variants = {
-  open: {},
-  close: {}
+  open: { opacity: 1 },
+  close: { opacity: 0 }
 }
