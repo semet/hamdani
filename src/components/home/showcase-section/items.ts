@@ -10,92 +10,104 @@ export type Item = {
 export const items = [
   {
     id: 1,
-    title: 'Aurora',
+    title: 'Remix Admin Template',
     description:
-      'Aurora is a web application that allows users to create and share their own custom themes for their favorite websites.',
-    image:
-      'https://images.unsplash.com/photo-1529675641475-78780f1fd4b0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2ViJTIwcGFnZXxlbnwwfHwwfHx8MA%3D%3D',
-    link: 'https://aurora.alexlockhart.me',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase']
+      'Remix Admin Template is a modern and responsive admin template built with Remix and Tailwind CSS. It is designed to be easy to use and customize. It uses some popular library like.',
+    image: '/showcase/remix-admin.png',
+    link: 'https://remix-admin-five.vercel.app/dashboard',
+    repository: '',
+    tags: [
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Remix',
+      'React Hook Form',
+      'React Table',
+      'React Query',
+      'Recharts',
+      'framer-motion'
+    ]
   },
   {
     id: 2,
-    title: 'Aurora API',
+    title: 'Remix Admin Template Landing',
     description:
-      'Aurora API is a RESTful API that provides access to the Aurora database. It is used by the Aurora web application.',
-    image:
-      'https://plus.unsplash.com/premium_photo-1683141123111-c445910abc29?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2ViJTIwcGFnZXxlbnwwfHwwfHx8MA%3D%3D',
-    link: 'https://aurora-api.alexlockhart.me',
-    tags: ['Node.js', 'Express', 'MongoDB', 'JWT']
+      'Remix Admin Template Landing is a modern and responsive landing page built with Remix and Tailwind CSS. It is designed to be easy to use and customize.',
+    image: '/showcase/remix-admin-landing.png',
+    link: 'https://remix-admin-five.vercel.app',
+    tags: [
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Remix',
+      'React Hook Form',
+      'React Table',
+      'React Query',
+      'React Full Calendar',
+      'Recharts'
+    ]
   },
   {
     id: 3,
-    title: 'Aurora CLI',
+    title: 'Website Abudarda Boarding School',
     description:
-      'Aurora CLI is a command line interface that allows users to interact with the Aurora API. It is used to create, read, update, and delete themes.',
-    image:
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHdlYiUyMHBhZ2V8ZW58MHx8MHx8fDA%3D',
+      "This is the official website of a Boarding School in my village. I built it using <a href='https://nextjs.org' target='_blank'>Nextjs</a>, <a href='https://nextjs.org' target='_blank'>Nextjs</a>, Bootstrap, and Prisma and deployed on Vercel. The database is hosted in <a href='https://getbootstrap.com/docs/5.0/getting-started/introduction target='_blank'> Bootstrap </a>, and <a href='https://www.prisma.io' target='_blank'>Prisma</a> and deployed on <a href='https://vercel.com' target='_blank'>Vercel</a>. The database is hosted in <a href='https://planetscale.com' target='_blank'>Planetscale</a>. This website is not 100% done because of Administration issue",
+    url: 'https://abudarda.vercel.app',
+    image: '/showcase/abudarda.png',
     link: '',
-    tags: ['Node.js', 'Express', 'MongoDB', 'JWT']
+    tags: ['Nextjs', 'Chakra UI', 'Planetscale', 'Prisma']
   },
   {
     id: 4,
-    title: 'Aurora Theme',
+    title: 'Abudardapedia (Media Abudarda)',
     description:
-      'Aurora Theme is a collection of themes created by the Aurora community. Users can browse, search, and install themes from the Aurora Theme website.',
-    image:
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdlYiUyMHBhZ2V8ZW58MHx8MHx8fDA%3D',
+      "Another website i built on top of <a href='https://nextjs.org' target='_blank'>Nextjs</a>, <a href='https://chakra-ui.com' target='_blank'>Chakra UI</a>, and <a href='https://www.prisma.io' target='_blank'>Prisma</a>. This website has a full working Login System built with <a href='https://next-auth.js.org' target='_blank'>Next-Auth</a> library. This website is intended for the Abudarda Boarding School to share their Media and Articles",
+    image: '/showcase/abudardapedia.png',
     link: 'https://aurora-theme.alexlockhart.me',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase']
+    tags: [
+      'Nextjs',
+      'Chakra UI',
+      'Planetscale',
+      'Prisma',
+      'Cloudinary',
+      'React Query',
+      'Next Auth'
+    ]
   },
   {
     id: 5,
-    title: 'Aurora Theme API',
+    title: 'Bookshelf',
     description:
-      'Aurora Theme API is a RESTful API that provides access to the Aurora Theme database. It is used by the Aurora Theme website.',
-    image:
-      'https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdlYiUyMHBhZ2V8ZW58MHx8MHx8fDA%3D',
+      "This website is made as a test for me when I applied in the Digital Solution company located in Philipphine. The test require me using external Api <a href='https://developers.google.com/books' target='_blank'>(Google Book API)</a> and my favorite library; <a href='https://tanstack.com/query/v5/docs/react/overview' target='_blank'>React Query</a>. I use <a href='https://tailwindcss.com' target='_blank'>Tailwind css</a> to style this website. This repository also uses <a href='https://jestjs.io' target='_blank'>Jest</a> as the testing Framework",
+    image: '/showcase/bookshelf.png',
     link: 'https://aurora-theme-api.alexlockhart.me',
-    tags: ['Node.js', 'Express', 'MongoDB', 'JWT']
+    tags: ['Nextjs', 'Tailwind css', 'Google book API', 'React Query', 'Jest']
   },
   {
     id: 6,
-    title: 'Aurora Theme CLI',
+    title: 'Remake Website Brida NTB',
     description:
-      'Aurora Theme CLI is a command line interface that allows users to interact with the Aurora Theme API. It is used to create, read, update, and delete themes.',
-    image:
-      'https://images.unsplash.com/photo-1487611459768-bd414656ea10?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHx8',
+      "I created this website on the purpose of applying for a job in  <a href='https://brida.ntbprov.go.id' target='_blank'>BRIDA Academy</a> in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of <a href='https://nextjs.org' target='_blank'>Nextjs</a> + <a href='https://chakra-ui.com' target='_blank'>Chakra UI</a> combined together",
+    image: '/showcase/brida.png',
     link: '',
-    tags: ['Node.js', 'Express', 'MongoDB', 'JWT']
+    tags: ['Nextjs', 'Chakra UI']
   },
   {
     id: 7,
-    title: 'Aurora Theme Website',
+    title: 'Luminae (E-comers template)',
     description:
-      'Aurora Theme Website is a static website that showcases themes created by the Aurora community. Users can browse, search, and install themes from the Aurora Theme website.',
-    image:
-      'https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIxfHx8ZW58MHx8fHx8',
+      "This is a <a href='https://nextjs.org' target='_blank'>Nextjs</a> Version of a <a href='https://www.figma.com/file/2MxWLF542kMuO5aS9VrgcI/Ecommerce-UI-Kit-(Community)?type=design&node-id=0-1&mode=design&t=DwqUmjBcEoUnI3Hx-0' target='_blank'>Figma file</a>. I transformed the <a href='https://www.figma.com' target='_blank'>Figma</a> design into a website template using <a href='https://nextjs.org' target='_blank'>Nextjs</a> and <a href='https://tailwindcss.com' target='_blank'>Tailwind css</a>. I handle state management using popular library called <a href='https://zustand-demo.pmnd.rs' target='_blank'>Zustand</a>. As usual, I pop <a href='https://jestjs.io' target='_blank'>Jest</a> testing library once again to deal with Unit Testing in this project",
+    image: '/showcase/luminae.png',
     link: 'https://aurora-theme-website.alexlockhart.me',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase']
+    tags: ['Nextjs', 'Tailwind css', 'Jest', 'Zustand']
   },
   {
     id: 8,
-    title: 'Aurora Theme Website API',
+    title: 'Nexy Landing template',
     description:
-      'Aurora Theme Website API is a RESTful API that provides access to the Aurora Theme Website database. It is used by the Aurora Theme Website.',
-    image:
-      'https://images.unsplash.com/photo-1632406898161-6a3b767dfbe2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGFkbWluJTIwZGFzaGJvYXJhZHxlbnwwfHwwfHx8MA%3D%3D',
+      "This was my first design using <a href='https://nextjs.org' target='_blank'>Nextjs</a> and <a href='https://chakra-ui.com' target='_blank'>Chakra UI</a>. It might look awful, but this project means a lot to me. This project open my mind and understanding about how Frontend design works. This is the beginning of my 'start-from-scratch' project",
+    image: '/showcase/nexy.png',
     link: 'https://aurora-theme-website-api.alexlockhart.me',
-    tags: ['Node.js', 'Express', 'MongoDB', 'JWT']
-  },
-  {
-    id: 9,
-    title: 'Aurora Theme Website CLI',
-    description:
-      'Aurora Theme Website CLI is a command line interface that allows users to interact with the Aurora Theme Website API. It is used to create, read, update, and delete themes.',
-    image:
-      'https://plus.unsplash.com/premium_photo-1720287601920-ee8c503af775?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNvbXB1dGVyfGVufDB8fDB8fHww',
-    link: '',
-    tags: ['Node.js', 'Express', 'MongoDB', 'JWT']
+    tags: ['Nextjs', 'Chakra UI']
   }
 ]

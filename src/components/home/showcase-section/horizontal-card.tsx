@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { motion, MotionValue, useTransform, useVelocity } from 'motion/react'
 import { FC } from 'react'
 
@@ -13,42 +14,42 @@ export const HorizontalCard: FC<Props> = (props) => {
   const skew = useTransform(scrollVelocity, [-1, 1], [-15, 15])
   return (
     <motion.div
-      className="group relative min-h-[300px] min-w-full overflow-hidden rounded-2xl bg-white shadow md:h-[500px] md:min-w-[500px] 2xl:h-[600px] 2xl:min-w-[600px]"
+      className="group relative flex min-h-[300px] min-w-full flex-col overflow-hidden rounded-2xl bg-white shadow md:h-[500px] md:min-w-[500px] 2xl:h-[600px] 2xl:min-w-[600px]"
       style={{
         skewX: skew
       }}
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-        style={{
-          backgroundImage: `url(${image})`
-        }}
+      <img
+        src={image}
+        alt={title}
+        className="h-1/2 w-full object-cover object-center"
       />
-      <div className="relative h-full">
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-black/40" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4">
-          <h4 className="text-2xl font-semibold text-white">{title}</h4>
-          <p className="text-white">{description}</p>
+
+      <div className="flex flex-col justify-between gap-2 p-4">
+        <a
+          href={link}
+          target="_blank"
+          className="text-2xl font-semibold text-slate-700"
+        >
+          {title}
+        </a>
+        <div className="flex flex-col items-center justify-center gap-2">
+          <p
+            className="prose rounded text-slate-700 prose-a:text-sky-500 prose-a:no-underline"
+            dangerouslySetInnerHTML={{ __html: description }}
+          ></p>
           <div className="flex flex-wrap gap-2">
             {tags.map((tag, index) => {
               return (
                 <span
                   key={index}
-                  className="rounded-md bg-blue-500 px-2 py-1 text-sm font-semibold text-white"
+                  className="rounded-md bg-blue-500 px-2 py-1 text-xs font-semibold text-white"
                 >
                   {tag}
                 </span>
               )
             })}
           </div>
-          <a
-            className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-white"
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View
-          </a>
         </div>
       </div>
     </motion.div>
