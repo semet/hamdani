@@ -9,7 +9,7 @@ export const useAurora = () => {
   useEffect(() => {
     animate(color, AURORA, {
       ease: 'easeInOut',
-      duration: 10,
+      duration: 20,
       repeat: Infinity,
       repeatType: 'mirror'
     })
@@ -19,4 +19,11 @@ export const useAurora = () => {
   return { toBottom, toTop, color }
 }
 
-const AURORA = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C']
+const AURORA = [
+  '#69afd7',
+  '#7d3688',
+  '#3f86f5',
+  '#e923ed',
+  '#5c1b80',
+  '#00bfb3'
+]
