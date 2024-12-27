@@ -50,6 +50,7 @@ export const StacksSection = () => {
       <RadialStacks
         radius={radius}
         scale={scale}
+        scrollYProgress={scrollYProgress}
       />
     </motion.section>
   )

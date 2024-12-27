@@ -1,4 +1,10 @@
-import { motion, MotionValue } from 'motion/react'
+import {
+  motion,
+  MotionValue,
+  SpringOptions,
+  useSpring,
+  useTransform
+} from 'motion/react'
 import { FC } from 'react'
 
 import { stacks } from './stacks'
@@ -6,21 +12,29 @@ import { stacks } from './stacks'
 type Props = {
   radius: number
   scale: MotionValue<number>
+  scrollYProgress: MotionValue<number>
 }
 
-export const RadialStacks: FC<Props> = ({ radius, scale }) => {
+const options: SpringOptions = {
+  stiffness: 100,
+  damping: 50,
+  bounce: 0
+}
+
+export const RadialStacks: FC<Props> = ({ radius, scale, scrollYProgress }) => {
+  const rotateContainerRaw = useTransform(scrollYProgress, [0, 1], [0, 360])
+  const rotateContainer = useSpring(rotateContainerRaw, options)
+  const rotateItemRaw = useTransform(scrollYProgress, [0, 1], [360, 0])
+  const rotateItem = useSpring(rotateItemRaw, options)
   return (
     <div className="absolute bottom-[10%] left-[20%] hidden -translate-x-[20%] -translate-y-1/3 transform items-start justify-center lg:flex xl:bottom-0 2xl:bottom-[18%]">
       <motion.div
         className="size-[500px]"
-        animate={{
-          rotate: 360,
-          transition: {
-            duration: 50,
-            repeat: Infinity,
-            ease: 'linear',
-            repeatType: 'loop'
-          }
+        style={{
+          rotate: rotateContainer
+        }}
+        transition={{
+          type: 'spring'
         }}
       >
         {stacks.map((ele, index) => {
@@ -37,16 +51,8 @@ export const RadialStacks: FC<Props> = ({ radius, scale }) => {
                 y,
                 left: '40%',
                 top: '40%',
-                scale
-              }}
-              animate={{
-                rotate: -360,
-                transition: {
-                  duration: 50,
-                  repeat: Infinity,
-                  ease: 'linear',
-                  repeatType: 'loop'
-                }
+                scale,
+                rotate: rotateItem
               }}
             >
               <motion.img
