@@ -1,28 +1,47 @@
-import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
-import type { AppProps } from "next/app";
-import { Fira_Code, Inconsolata, Inter } from "next/font/google";
+import '@/styles/globals.css'
+import Lenis from '@studio-freight/lenis'
+import type { AppProps } from 'next/app'
+import { Nunito_Sans, Fira_Code } from 'next/font/google'
+import { useEffect, useRef } from 'react'
 
-const inter = Inter({
-   subsets: ["latin"],
-   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-   variable: "--font-inter",
-});
+import { Header } from '@/components/header'
+import { ScrollToTop } from '@/components/scroll-to-top'
+import { LayoutProvider } from '@/providers'
 
+const nunito = Nunito_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900', '1000']
+})
 const firaCode = Fira_Code({
-   subsets: ["latin"],
-   weight: ["300", "400", "500", "600", "700"],
-   variable: "--font-fira-code",
-});
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700']
+})
 
 export default function App({ Component, pageProps }: AppProps) {
-   return (
-      <ThemeProvider enableSystem={true} attribute="class">
-         <main
-            className={`${inter.className} ${firaCode.variable} bg-gradient-to-br from-indigo-800/30 dark:from-zinc-900 via-transparent dark:via-indigo-950/30 to-transparent overflow-clip`}
-         >
-            <Component {...pageProps} />
-         </main>
-      </ThemeProvider>
-   );
+  const lenisRef = useRef<Lenis | null>(null)
+  useEffect(() => {
+    const lenis = new Lenis()
+
+    lenisRef.current = lenis
+
+    // Animation frame loop
+    const onRaf = (time: number) => {
+      lenis.raf(time)
+      requestAnimationFrame(onRaf)
+    }
+    requestAnimationFrame(onRaf)
+
+    return () => lenis.destroy()
+  }, [])
+  return (
+    <LayoutProvider>
+      <main className={`${nunito.className} ${firaCode.style}`}>
+        <Header />
+        <Component {...pageProps} />
+        <ScrollToTop />
+      </main>
+    </LayoutProvider>
+  )
 }

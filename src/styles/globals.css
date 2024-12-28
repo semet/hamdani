@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-   .main-padding {
-      @apply px-4 md:px-10 lg:px-20 xl:px-32;
-   }
-   .secondary-padding {
-      @apply px-4 sm:px-4 md:px-6 2xl:px-40;
-   }
-   .awesome-link {
-      @apply relative tracking-wide text-slate-500 dark:text-slate-400 font-semibold xl:text-lg;
-   }
-   .awesome-link:hover {
-      @apply text-indigo-400 dark:text-slate-100;
-   }
-   .awesome-link::before {
-      @apply content-[''] bg-indigo-500/30 dark:bg-white/30 absolute bottom-1 left-0 w-full h-1 scale-x-0 transition transform ease-in-out origin-top duration-500 -z-10;
-   }
-   .awesome-link:hover::before {
-      @apply scale-x-100 origin-bottom;
-   }
+.main-padding {
+  @apply px-4 md:px-10 lg:px-20 xl:px-28 2xl:px-32;
 }
