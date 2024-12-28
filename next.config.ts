@@ -10,7 +10,8 @@ const nextConfig: NextConfig = {
         hostname: '**'
       }
     ]
-  }
+  },
+  transpilePackages: ['react-syntax-highlighter']
 }
 
 export default nextConfig
