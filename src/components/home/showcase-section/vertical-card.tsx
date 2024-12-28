@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { MotionValue, motion, useTransform } from 'motion/react'
+import { MotionValue, SpringOptions, motion, useSpring, useTransform } from 'motion/react'
 import { FC } from 'react'
 
 import { Item } from './items'
@@ -10,6 +10,12 @@ type Props = Item & {
   cardIndex: number
   range: [number, number]
   targetScale: number
+}
+
+const options: SpringOptions = {
+  stiffness: 100,
+  damping: 50,
+  bounce: 0
 }
 
 export const VerticalCard: FC<Props> = (props) => {
@@ -25,8 +31,10 @@ export const VerticalCard: FC<Props> = (props) => {
     cardIndex
   } = props
 
-  const opacity = useTransform(scrollYProgress, range, [1, targetScale + 0.1])
-  const scale = useTransform(scrollYProgress, range, [1, targetScale])
+  const opacityRaw = useTransform(scrollYProgress, range, [1, targetScale + 0.1])
+  const opacity = useSpring(opacityRaw, options)
+  const scaleRaw = useTransform(scrollYProgress, range, [1, targetScale])
+  const scale = useSpring(scaleRaw, options)
   return (
     <motion.div
       style={{
