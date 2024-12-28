@@ -7,22 +7,22 @@ import { Twitter } from './twitter'
 export const socialLinks = [
   {
     id: 'github',
-    href: '',
+    href: 'https://github.com/semet',
     icon: Github
   },
   {
     id: 'facebook',
-    href: '',
+    href: 'https://www.facebook.com/hamdaniashsidik',
     icon: Facebook
   },
   {
     id: 'twitter',
-    href: '',
+    href: 'https://twitter.com/HamdaniAshSidik',
     icon: Twitter
   },
   {
     id: 'linkedin',
-    href: '',
+    href: 'https://www.linkedin.com/in/hamdani-ash-sidiq-92b697115',
     icon: Linkedin
   },
   {

@@ -15,6 +15,12 @@ export const FooterSection = () => {
     offset: ['start end', 'end end']
   })
   const y = useTransform(scrollYProgress, [0, 1], [-300, 0])
+
+  const sendMail = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = 'mailto:hamdanilombok@gmail.com'
+    }
+  }
   return (
     <motion.section
       ref={contactSection}
@@ -35,17 +41,32 @@ export const FooterSection = () => {
         </div>
 
         <div className="flex justify-center gap-4">
-          {socialLinks.map(({ icon: Icon, id }, index) => (
-            <motion.div
-              initial={{ y: -100 }}
-              whileInView={{ y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="cursor-pointer"
-              key={id}
-            >
-              <Icon />
-            </motion.div>
-          ))}
+          {socialLinks.map(({ icon: Icon, id, href }, index) =>
+            id === 'gmail' ? (
+              <motion.button
+                onClick={sendMail}
+                initial={{ y: -100 }}
+                whileInView={{ y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="cursor-pointer"
+                key={id}
+              >
+                <Icon />
+              </motion.button>
+            ) : (
+              <motion.a
+                href={href}
+                target="_blank"
+                initial={{ y: -100 }}
+                whileInView={{ y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="cursor-pointer"
+                key={id}
+              >
+                <Icon />
+              </motion.a>
+            )
+          )}
         </div>
       </footer>
     </motion.section>
