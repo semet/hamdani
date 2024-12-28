@@ -1,8 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react'
-import { useEffect, useState } from 'react'
 
 import { PageTitle } from '@/components/page-title'
-import { useAurora } from '@/hooks'
+import { useAurora, useWindowWidth } from '@/hooks'
 import { useLayout } from '@/providers'
 
 import { Background } from './background'
@@ -12,7 +11,7 @@ import { VerticalView } from './vertical-view'
 
 export const ShowcaseSection = () => {
   const { toTop } = useAurora()
-  const [windowWidth, setWindowWidth] = useState<number>(0)
+  const windowWidth= useWindowWidth()
   const { showcaseSection } = useLayout()
   const { scrollYProgress } = useScroll({
     target: showcaseSection,
@@ -31,10 +30,7 @@ export const ShowcaseSection = () => {
   const itemHeight = windowWidth >= 1024 ? 100 : 85
   const x = useTransform(scrollYProgress, [0, 1], [0, subtract * items.length])
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    setWindowWidth(window.innerWidth)
-  }, [])
+
   return (
     <motion.section
       ref={showcaseSection}

@@ -59,7 +59,7 @@ export const ExperienceTabs = () => {
                   </span>
                   <p className="font-mono text-slate-200">{`> ${experience.description}`}</p>
                   <span className="border-b border-dashed border-slate-300" />
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-wrap">
                     {experience.technologies.map((tech) => (
                       <span
                         key={tech}

@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react'
 
 import { Header } from '@/components/header'
 import { ScrollToTop } from '@/components/scroll-to-top'
+import { useWindowWidth } from '@/hooks'
 import { LayoutProvider } from '@/providers'
 
 const nunito = Nunito_Sans({
@@ -20,8 +21,10 @@ const firaCode = Fira_Code({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
+  const windowWidth = useWindowWidth()
   const lenisRef = useRef<Lenis | null>(null)
   useEffect(() => {
+    if(windowWidth < 640) return
     const lenis = new Lenis()
 
     lenisRef.current = lenis
@@ -34,7 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
     requestAnimationFrame(onRaf)
 
     return () => lenis.destroy()
-  }, [])
+  }, [windowWidth])
   return (
     <LayoutProvider>
       <main className={`${nunito.className} ${firaCode.style}`}>

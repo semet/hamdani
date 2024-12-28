@@ -1,35 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import { motion } from 'motion/react'
-import { useEffect, useState } from 'react'
 
 import { PageTitle } from '@/components/page-title'
 
 import { tools } from './tools'
 
-const shuffleArray = (array: typeof tools) => {
-  const shuffled = [...array]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
 
 export const MyTools = () => {
-  const [shuffledTools, setShuffledTools] = useState(tools)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShuffledTools(shuffleArray)
-    }, 5000)
-
-    return () => clearInterval(interval) // Cleanup on unmount
-  }, [])
+  
   return (
     <div className="flex flex-col items-center gap-4 lg:items-end">
       <PageTitle title="My Tools" />
       <motion.div className="flex w-full flex-wrap justify-center gap-4 lg:justify-end lg:gap-6 2xl:w-[80%]">
-        {shuffledTools.map((tool) => {
+        {tools.map((tool) => {
           return (
             <motion.div
               layout
