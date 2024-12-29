@@ -121,5 +121,11 @@ export const stacks = [
     title: 'React Three Fiber',
     image:
       'https://global.discourse-cdn.com/flex035/uploads/threejs/original/2X/b/be2f75f72751c11cbe1593c69a99a52900bf12cb.svg'
+  },
+  {
+    id: 23,
+    title: 'React Router',
+    image:
+      'https://reactrouter.com/_brand/React%20Router%20Brand%20Assets/React%20Router%20Logo/Light.svg'
   }
 ]
