@@ -54,6 +54,7 @@ export const RadialStacks: FC<Props> = ({ radius, scale, scrollYProgress }) => {
                 scale,
                 rotate: rotateItem
               }}
+              title={ele.title}
             >
               <motion.img
                 src={ele.image}

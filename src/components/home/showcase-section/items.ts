@@ -109,5 +109,14 @@ export const items = [
     image: '/showcase/nexy.png',
     link: 'https://nexy-byq9.vercel.app/',
     tags: ['Nextjs', 'Chakra UI']
+  },
+  {
+    id: 9,
+    title: 'Animated Portfolio',
+    description:
+      "This is a Open Source animated portfolio template made with <a href='https://nextjs.org' target='_blank'>Nextjs</a>, <a href='https://motion.dev/' target='_blank'>Framer Motion</a>, <a href='https://r3f.docs.pmnd.rs/' target='_blank'>React Three Fiber</a>, and <a href='https://drei.docs.pmnd.rs/getting-started/introduction' target='_blank'>React Three Drei</a>. Definitely check it out!",
+    image: '/showcase/animated-portfolio.png',
+    link: 'https://tanstack-router-app.vercel.app/portfolio',
+    tags: ['Reactjs', 'Framer Motion', 'React Three Fiber', 'React Three Drei']
   }
 ]

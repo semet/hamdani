@@ -97,7 +97,7 @@ export const stacks = [
   },
   {
     id: 18,
-    title: 'MUI',
+    title: 'Material UI',
     image: 'https://v4.mui.com/static/logo_raw.svg'
   },
   {
@@ -115,5 +115,11 @@ export const stacks = [
     id: 21,
     title: 'Prisma',
     image: 'https://cdn.worldvectorlogo.com/logos/prisma-3.svg'
+  },
+  {
+    id: 22,
+    title: 'React Three Fiber',
+    image:
+      'https://global.discourse-cdn.com/flex035/uploads/threejs/original/2X/b/be2f75f72751c11cbe1593c69a99a52900bf12cb.svg'
   }
 ]
