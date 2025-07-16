@@ -29,7 +29,7 @@ export const RadialStacks: FC<Props> = ({ radius, scale, scrollYProgress }) => {
   return (
     <div className="absolute bottom-[10%] left-[20%] hidden -translate-x-[20%] -translate-y-1/3 transform items-start justify-center lg:flex xl:bottom-0 2xl:bottom-[18%]">
       <motion.div
-        className="size-[500px]"
+        className="size-[500px] origin-center"
         style={{
           rotate: rotateContainer
         }}

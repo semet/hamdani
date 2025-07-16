@@ -25,7 +25,7 @@ export const tools = [
     id: 5,
     name: 'PHPstorm',
     image:
-      'https://static-00.iconduck.com/assets.00/phpstorm-icon-2048x2048-rjjm74g9.png'
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/PhpStorm_Icon.svg/1024px-PhpStorm_Icon.svg.png?20200803075927'
   },
   {
     id: 6,
@@ -70,13 +70,12 @@ export const tools = [
   {
     id: 13,
     name: 'Vercel',
-    image:
-      'https://static-00.iconduck.com/assets.00/vercel-icon-512x449-3422jidz.png'
+    image: 'https://icon.icepanel.io/Technology/svg/Vercel.svg'
   },
   {
     id: 14,
     name: 'Netlify',
     image:
-      'https://static-00.iconduck.com/assets.00/netlify-icon-511x512-idkvcd89.png'
+      'https://images.seeklogo.com/logo-png/27/1/netlify-logo-png_seeklogo-273744.png'
   }
 ]

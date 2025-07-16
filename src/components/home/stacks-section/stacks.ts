@@ -15,7 +15,7 @@ export const stacks = [
     id: 3,
     title: 'Tailwind CSS',
     image:
-      'https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg'
+      'https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg'
   },
   {
     id: 4,
@@ -120,7 +120,7 @@ export const stacks = [
     id: 22,
     title: 'React Three Fiber',
     image:
-      'https://global.discourse-cdn.com/flex035/uploads/threejs/original/2X/b/be2f75f72751c11cbe1593c69a99a52900bf12cb.svg'
+      'https://canada1.discourse-cdn.com/flex035/uploads/threejs/original/2X/b/be2f75f72751c11cbe1593c69a99a52900bf12cb.svg'
   },
   {
     id: 23,
