@@ -42,7 +42,7 @@ export const ScrollToTop = () => {
             duration: 0.3,
             type: 'linear'
           }}
-          className="fixed bottom-4 right-4 z-50"
+          className="fixed right-4 bottom-4 z-50"
         >
           <button
             className="rounded-full bg-white p-2 shadow-lg"

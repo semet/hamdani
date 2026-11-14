@@ -1,7 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-.main-padding {
+@plugin '@tailwindcss/typography';
+
+/* Theme tokens (formerly tailwind.config.ts → theme.extend) */
+@theme {
+  --font-sans: 'Nunito Sans', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  --color-primary: #13ffaa;
+  --color-secondary: #1e67c6;
+  --color-tertiary: #ce84cf;
+  --color-quaternary: #dd335c;
+}
+
+/* Tailwind v3 compatibility defaults */
+@layer base {
+  /* v4 changed the default border color to `currentcolor` */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  /* v4 no longer sets `cursor: pointer` on buttons */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Responsive horizontal page gutters */
+@utility main-padding {
   @apply px-4 md:px-10 lg:px-20 xl:px-28 2xl:px-32;
 }

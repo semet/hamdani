@@ -34,7 +34,7 @@ export const StacksSection = () => {
     <motion.section
       layout
       ref={stacksSection}
-      className="main-padding relative flex h-auto flex-col items-start justify-start gap-4 overflow-hidden p-4 py-4 lg:h-screen lg:flex-row lg:justify-between"
+      className="relative flex h-auto flex-col items-start justify-start gap-4 overflow-hidden p-4 main-padding py-4 lg:h-screen lg:flex-row lg:justify-between"
       style={{
         backgroundImage: toTop
       }}

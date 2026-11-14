@@ -26,7 +26,7 @@ export const Header = () => {
 
   return (
     <motion.header
-      className="main-padding fixed left-0 top-0 z-50 flex w-full items-center justify-between py-4 shadow transition-colors duration-300 sm:items-end"
+      className="fixed top-0 left-0 z-50 flex w-full items-center justify-between main-padding py-4 shadow-sm transition-colors duration-300 sm:items-end"
       style={{
         backgroundColor,
         boxShadow,

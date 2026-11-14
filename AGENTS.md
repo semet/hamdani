@@ -9,8 +9,10 @@ when conventions change, then sync the short summaries in the others.
 
 Single-page personal portfolio for a frontend developer.
 
-- **Framework:** Next.js 15 (**Pages Router**, not App Router) + React 19 + TypeScript (strict)
-- **Styling:** Tailwind CSS 3 (+ `@tailwindcss/typography`), `tailwind-merge` for conditional classes
+- **Framework:** Next.js 16 (**Pages Router**, not App Router) + React 19 + TypeScript (strict)
+- **Styling:** Tailwind CSS 4 (+ `@tailwindcss/typography`), `tailwind-merge` for conditional classes
+  CSS-first config: there is no `tailwind.config.ts`. Theme tokens live in `@theme`, custom
+  utilities in `@utility`, and plugins in `@plugin` inside `src/styles/globals.css`.
 - **Animation:** `motion` (Framer Motion v11, imported from `motion/react`), Lenis smooth scrolling
 - **UI primitives:** `@headlessui/react` (tabs, mobile menu)
 - **Package manager:** pnpm (lockfile is `pnpm-lock.yaml`; do not add npm/yarn lockfiles)
@@ -21,7 +23,7 @@ Single-page personal portfolio for a frontend developer.
 ```bash
 pnpm install      # install deps
 pnpm dev          # dev server (Turbopack) at http://localhost:3000
-pnpm lint         # ESLint (next lint) — must pass before finishing
+pnpm lint         # ESLint (eslint .)  — must pass before finishing
 pnpm build        # production build — run to verify type errors
 pnpm start        # serve the production build
 ```
@@ -51,7 +53,7 @@ src/
       experience-section/ -> Experience         (ref: aboutSection)    data: experiences.ts
       showcase-section/   -> ShowcaseSection    (ref: showcaseSection) data: items.ts
       footer-section/     -> FooterSection      (ref: contactSection)  data: socials.ts
-  styles/globals.css  # Tailwind layers + `.main-padding` utility
+  styles/globals.css  # Tailwind v4 entry: @import, @theme tokens, @plugin, @utility main-padding
 public/
   images/             # logo.svg, abstract.png
   showcase/           # screenshots referenced by showcase items.ts
@@ -65,15 +67,17 @@ public/
   - Import across folders only via the folder's barrel: `@/components/header` ✅,
     `@/components/header/desktop-menu` ❌ (`@/components/*/*` is restricted). Same for `@/hooks/*/*`.
   - `import/order` is enforced: builtin → external → internal → parent → sibling → index,
-    blank line between groups, alphabetized. Run `pnpm lint` to check; `next lint --fix` can fix ordering.
+    blank line between groups, alphabetized. Run `pnpm lint` to check; `pnpm lint --fix` can fix ordering.
 - **Formatting (Prettier):** 2 spaces, **no semicolons**, single quotes, no trailing commas,
   one JSX attribute per line, Tailwind classes auto-sorted by `prettier-plugin-tailwindcss`.
 - **No `console.*`** (`no-console: error`). Unused vars/args must be prefixed with `_`.
+- React Compiler lint rules `react-hooks/refs` and `react-hooks/set-state-in-effect` are
+  set to warn (existing patterns are intentional); don't add new violations.
 - **Components:** named exports of arrow-function components (`export const Foo = () => ...`).
   Folder components expose an `index.tsx`; group barrels are `index.ts` with `export * from`.
 - **File names:** kebab-case (`desktop-menu.tsx`, `use-aurora.ts`).
 - **Styling:** Tailwind utilities only. Use `twMerge([...])` for conditional classes.
-  Use `.main-padding` for horizontal page padding. Theme colors: `primary` `#13FFAA`,
+  Use the `main-padding` utility (defined with `@utility`) for horizontal page padding. Theme colors: `primary` `#13FFAA`,
   `secondary` `#1E67C6`, `tertiary` `#CE84CF`, `quaternary` `#DD335C`. Fonts: `font-sans`
   (Nunito Sans), `font-mono` (Fira Code).
 - **Animation:** import from `motion/react` (not `framer-motion`). Section entrances use

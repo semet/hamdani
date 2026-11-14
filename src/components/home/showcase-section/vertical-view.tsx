@@ -10,7 +10,7 @@ type Props = {
 
 export const VerticalView: FC<Props> = ({ scrollYProgress }) => {
   return (
-    <div className="main-padding flex flex-col gap-4 lg:hidden">
+    <div className="flex flex-col gap-4 main-padding lg:hidden">
       {items.map((item, index) => {
         const targetScale = 1 - (items.length - index) * 0.05
         return (

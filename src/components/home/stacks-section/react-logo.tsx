@@ -4,7 +4,7 @@ export const ReactLogo = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
-      className="absolute left-1/2 top-0 h-[90%] w-[90%] -translate-x-1/2 transform opacity-5"
+      className="absolute top-0 left-1/2 h-[90%] w-[90%] -translate-x-1/2 transform opacity-5"
     >
       <g
         transform="matrix(.05696 0 0 .05696 .647744 2.43826)"

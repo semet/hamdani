@@ -1,17 +1,11 @@
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { defineConfig, globalIgnores } from 'eslint/config'
+import nextVitals from 'eslint-config-next/core-web-vitals'
+import nextTs from 'eslint-config-next/typescript'
 
-import { FlatCompat } from '@eslint/eslintrc'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname
-})
-
-const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
   {
     rules: {
       'no-console': 'error',
@@ -69,9 +63,14 @@ const eslintConfig = [
       ],
       'import/default': 'off',
       'import/no-named-as-default-member': 'off',
-      'import/no-named-as-default': 'off'
+      'import/no-named-as-default': 'off',
+      // React Compiler rules added in eslint-config-next 16. This project doesn't
+      // use the compiler, and the flagged patterns (refs shared via context /
+      // passed to useInView) are intentional. Kept visible as warnings.
+      'react-hooks/refs': 'warn',
+      'react-hooks/set-state-in-effect': 'warn'
     }
   }
-]
+])
 
 export default eslintConfig

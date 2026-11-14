@@ -23,7 +23,7 @@ export const DesktopMenu = () => {
               {activeMenu === menu.id && (
                 <motion.span
                   layoutId="menu-item"
-                  className="absolute -inset-1 rounded-full bg-gradient-to-r from-sky-400 to-indigo-400"
+                  className="absolute -inset-1 rounded-full bg-linear-to-r from-sky-400 to-indigo-400"
                 />
               )}
               <button onClick={() => onMenuClick(menu.id)}>

@@ -11,8 +11,8 @@ The page has five sections: **Home** (hero), **Stacks** (tech & tools), **About*
 
 | Area          | Choice                                                             |
 | ------------- | ------------------------------------------------------------------ |
-| Framework     | Next.js 15 (Pages Router), React 19, TypeScript                    |
-| Styling       | Tailwind CSS 3, `@tailwindcss/typography`, `tailwind-merge`        |
+| Framework     | Next.js 16 (Pages Router), React 19, TypeScript                    |
+| Styling       | Tailwind CSS 4, `@tailwindcss/typography`, `tailwind-merge`        |
 | Animation     | [Motion](https://motion.dev) (`motion/react`), Lenis smooth scroll |
 | UI primitives | Headless UI                                                        |
 | Tooling       | ESLint 9 (flat config), Prettier + Tailwind plugin, pnpm           |

@@ -14,7 +14,7 @@ export const HorizontalCard: FC<Props> = (props) => {
   const skew = useTransform(scrollVelocity, [-1, 1], [-15, 15])
   return (
     <motion.div
-      className="group relative flex min-h-[300px] min-w-full flex-col overflow-hidden rounded-2xl bg-white shadow md:h-[500px] md:min-w-[500px] 2xl:h-[600px] 2xl:min-w-[600px]"
+      className="group relative flex min-h-[300px] min-w-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm md:h-[500px] md:min-w-[500px] 2xl:h-[600px] 2xl:min-w-[600px]"
       style={{
         skewX: skew
       }}
@@ -35,7 +35,7 @@ export const HorizontalCard: FC<Props> = (props) => {
         </a>
         <div className="flex flex-col items-center justify-center gap-2">
           <p
-            className="prose rounded text-slate-700 prose-a:text-sky-500 prose-a:no-underline"
+            className="prose rounded-sm text-slate-700 prose-a:text-sky-500 prose-a:no-underline"
             dangerouslySetInnerHTML={{ __html: description }}
           ></p>
           <div className="flex flex-wrap gap-2">

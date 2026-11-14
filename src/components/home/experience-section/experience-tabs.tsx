@@ -14,7 +14,7 @@ export const ExperienceTabs = () => {
               <Tab
                 as={motion.button}
                 key={experience.id}
-                className="outline-none ring-0"
+                className="ring-0 outline-hidden"
                 layout
               >
                 {({ active, focus, selected }) => (

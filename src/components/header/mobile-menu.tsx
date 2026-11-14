@@ -35,7 +35,7 @@ export const MobileMenu = () => {
             initial="close"
             animate="open"
             exit="close"
-            className="fixed inset-0 bg-black bg-opacity-50"
+            className="bg-opacity-50 fixed inset-0 bg-black"
           />
         )}
       </AnimatePresence>
@@ -48,7 +48,7 @@ export const MobileMenu = () => {
         style={{
           transformOrigin: 'top right'
         }}
-        className="absolute right-0 top-0 flex flex-col items-end bg-white shadow-lg"
+        className="absolute top-0 right-0 flex flex-col items-end bg-white shadow-lg"
       >
         <div className="flex min-h-[73px] items-center justify-center pr-4">
           <button onClick={toggle}>
@@ -98,7 +98,7 @@ export const MobileMenu = () => {
                       {activeMenu === menu.id && (
                         <motion.span
                           layoutId="mobile-menu-item"
-                          className="absolute -inset-1 inline-block rounded-full bg-gradient-to-r from-sky-400 to-indigo-400"
+                          className="absolute -inset-1 inline-block rounded-full bg-linear-to-r from-sky-400 to-indigo-400"
                         />
                       )}
                       <span className="relative">{menu.name}</span>

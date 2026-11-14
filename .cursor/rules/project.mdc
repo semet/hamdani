@@ -8,7 +8,7 @@ alwaysApply: true
 Full guide: `AGENTS.md` at the repo root (canonical — read it for architecture details).
 
 ## Stack
-Next.js 15 **Pages Router** (not App Router), React 19, TypeScript strict, Tailwind CSS 3,
+Next.js 16 **Pages Router** (not App Router), React 19, TypeScript strict, Tailwind CSS 4,
 `motion` (import from `motion/react`, not `framer-motion`), Lenis, Headless UI, pnpm.
 Single-page portfolio; all content is hard-coded TS data. No API routes, no tests.
 

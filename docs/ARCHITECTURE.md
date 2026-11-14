@@ -51,9 +51,9 @@ Menu items aren't links to routes. Instead:
   (gradients from cyan to the animated color). Sections alternate between them so the
   seams line up.
 - **Grid overlay:** several sections add an absolutely positioned SVG grid with a gradient mask.
-- **Theme tokens** (`tailwind.config.ts`): `primary #13FFAA`, `secondary #1E67C6`,
+- **Theme tokens** (`@theme` in `src/styles/globals.css`): `primary #13FFAA`, `secondary #1E67C6`,
   `tertiary #CE84CF`, `quaternary #DD335C`; `font-sans` Nunito Sans, `font-mono` Fira Code.
-- **Gutters:** `.main-padding` in `globals.css` applies responsive horizontal padding.
+- **Gutters:** `main-padding` (an `@utility` in `globals.css`) applies responsive horizontal padding.
 
 ## Scroll-driven effects
 

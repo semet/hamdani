@@ -37,7 +37,7 @@ export const CodeEditor = () => {
   }, [isInView])
 
   return (
-    <div className="hidden h-full w-full overflow-hidden rounded-md bg-slate-600 shadow lg:block">
+    <div className="hidden h-full w-full overflow-hidden rounded-md bg-slate-600 shadow-sm lg:block">
       <div className="border-b border-slate-400">
         <div className="flex w-fit items-center gap-2 bg-slate-700 px-2 py-1 font-mono text-slate-300">
           <code className="text-sm">radial-stacks.tsx</code>
@@ -55,7 +55,7 @@ export const CodeEditor = () => {
       </div>
       <div
         ref={boxRef}
-        className="flex-grow overflow-hidden p-2"
+        className="grow overflow-hidden p-2"
       >
         <SyntaxHighlighter
           language="javascript"
@@ -108,7 +108,7 @@ export const RadialStacks: FC<Props> = ({ radius, scale, scrollYProgress }) => {
   const rotateItemRaw = useTransform(scrollYProgress, [0, 1], [360, 0])
   const rotateItem = useSpring(rotateItemRaw, options)
   return (
-    <div className="absolute bottom-[10%] left-[20%] hidden -translate-x-[20%] -translate-y-1/3 transform items-start justify-center lg:flex xl:bottom-0 2xl:bottom-[18%]">
+    <div className="absolute bottom-[10%] left-[20%] hidden translate-x-[-20%] -translate-y-1/3 transform items-start justify-center lg:flex xl:bottom-0 2xl:bottom-[18%]">
       <motion.div
         className="size-[500px]"
         style={{

@@ -13,7 +13,7 @@ export const Experience = () => {
   return (
     <motion.section
       ref={aboutSection}
-      className="main-padding relative flex min-h-screen flex-col justify-between gap-4 py-4 lg:gap-6 xl:flex-row"
+      className="relative flex min-h-screen flex-col justify-between gap-4 main-padding py-4 lg:gap-6 xl:flex-row"
       style={{ backgroundImage: toBottom }}
     >
       <motion.div
@@ -31,7 +31,7 @@ export const Experience = () => {
         className="relative flex w-full flex-col gap-2 xl:w-1/3"
       >
         <PageTitle title="About Me" />
-        <p className="prose-sm rounded-lg bg-black/50 p-4 text-justify text-white shadow sm:prose sm:text-white">
+        <p className="prose-sm rounded-lg bg-black/50 p-4 text-justify text-white shadow-sm sm:prose sm:text-white">
           I started coding more than 10 years ago when the good old PHP and
           Double-clicking index.html was a thing. I then learned more advance
           languages like HTML (I am one of those who believe HTML is a

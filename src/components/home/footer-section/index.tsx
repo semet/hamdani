@@ -28,11 +28,11 @@ export const FooterSection = () => {
         backgroundImage: toBottom,
         y
       }}
-      className="main-padding relative z-10 flex h-[50vh]"
+      className="relative z-10 flex h-[50vh] main-padding"
     >
       <Background />
       <footer className="relative flex h-full w-full flex-col items-center justify-center gap-4">
-        <div className="flex w-full flex-col items-center justify-between gap-4 rounded-lg bg-black/30 p-4 shadow sm:flex-row sm:items-end md:w-fit">
+        <div className="flex w-full flex-col items-center justify-between gap-4 rounded-lg bg-black/30 p-4 shadow-sm sm:flex-row sm:items-end md:w-fit">
           <Logo />
           <span className="text-xl text-white sm:text-2xl">+6287736690307</span>
           <span className="text-xl text-white sm:text-2xl">

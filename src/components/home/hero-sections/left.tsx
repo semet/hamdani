@@ -10,7 +10,7 @@ export const Left: FC<Props> = ({ color }) => {
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`
   return (
     <motion.div
-      className="relative flex w-full flex-col gap-4 rounded md:w-fit"
+      className="relative flex w-full flex-col gap-4 rounded-sm md:w-fit"
       initial={{
         y: -100
       }}
@@ -23,7 +23,7 @@ export const Left: FC<Props> = ({ color }) => {
     >
       <h1 className="text-slate- z-10 text-center text-4xl font-bold tracking-tighter sm:text-left sm:text-6xl">
         Hi, I&apos;m{' '}
-        <motion.span className="relative inline-block bg-gradient-to-r from-indigo-600 to-fuchsia-500 bg-clip-text font-mono font-thin text-transparent">
+        <motion.span className="relative inline-block bg-linear-to-r from-indigo-600 to-fuchsia-500 bg-clip-text font-mono font-thin text-transparent">
           Hamdani
         </motion.span>
       </h1>

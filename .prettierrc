@@ -5,5 +5,6 @@
   "singleQuote": true,
   "singleAttributePerLine": true,
   "trailingComma": "none",
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./src/styles/globals.css"
 }

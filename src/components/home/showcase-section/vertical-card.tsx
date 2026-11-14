@@ -34,7 +34,7 @@ export const VerticalCard: FC<Props> = (props) => {
         scale,
         top: `calc(35px + ${cardIndex * 25}px)`
       }}
-      className="group sticky flex h-[80vh] min-w-full flex-col overflow-hidden rounded-lg bg-white shadow"
+      className="group sticky flex h-[80vh] min-w-full flex-col overflow-hidden rounded-lg bg-white shadow-sm"
     >
       <img
         src={image}
@@ -51,7 +51,7 @@ export const VerticalCard: FC<Props> = (props) => {
         </a>
         <div className="flex flex-col items-center justify-center gap-2">
           <p
-            className="prose-sm rounded text-slate-700 prose-a:text-sky-500 prose-a:no-underline"
+            className="prose-sm rounded-sm text-slate-700 prose-a:text-sky-500 prose-a:no-underline"
             dangerouslySetInnerHTML={{ __html: description }}
           ></p>
           <div className="flex flex-wrap gap-2">
