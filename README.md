@@ -1,40 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Portfolio
 
-## Getting Started
+Personal portfolio website for Hamdani Ash-Sidiq — a single-page, animation-heavy site
+built with Next.js, Tailwind CSS and Motion.
 
-First, run the development server:
+The page has five sections: **Home** (hero), **Stacks** (tech & tools), **About**
+(bio + work experience), **Showcase** (projects, horizontally scrolled on desktop) and
+**Contact** (footer).
+
+## Tech stack
+
+| Area          | Choice                                                             |
+| ------------- | ------------------------------------------------------------------ |
+| Framework     | Next.js 15 (Pages Router), React 19, TypeScript                    |
+| Styling       | Tailwind CSS 3, `@tailwindcss/typography`, `tailwind-merge`        |
+| Animation     | [Motion](https://motion.dev) (`motion/react`), Lenis smooth scroll |
+| UI primitives | Headless UI                                                        |
+| Tooling       | ESLint 9 (flat config), Prettier + Tailwind plugin, pnpm           |
+
+## Getting started
+
+Requirements: Node.js 18.18+ and [pnpm](https://pnpm.io).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Scripts
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+| Script       | What it does                        |
+| ------------ | ----------------------------------- |
+| `pnpm dev`   | Start the dev server with Turbopack |
+| `pnpm build` | Production build (also type-checks) |
+| `pnpm start` | Serve the production build          |
+| `pnpm lint`  | Run ESLint                          |
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+There is no automated test suite; `pnpm lint` and `pnpm build` are the checks.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  pages/        _app.tsx (fonts, smooth scroll, layout), index.tsx (the page)
+  providers/    LayoutProvider — section refs, active menu, scroll-to-section
+  data/         nav menu definition
+  hooks/        useAurora — animated gradient backgrounds
+  components/   header, logo, page-title, scroll-to-top, home/<section>/
+  styles/       globals.css
+public/         favicons, images/, showcase/ screenshots
+```
 
-## Learn More
+More detail:
 
-To learn more about Next.js, take a look at the following resources:
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — how the page, navigation and animations fit together
+- [docs/CONTENT.md](docs/CONTENT.md) — how to update projects, experience, stacks, socials
+- [AGENTS.md](AGENTS.md) — conventions for contributors and AI coding agents
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Contributing workflow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Create a branch: `git checkout -b feat/short-description`
+2. Make the change, following the conventions in [AGENTS.md](AGENTS.md)
+3. Run `pnpm lint` and `pnpm build`
+4. Open a pull request into `main`
 
-## Deploy on Vercel
+## AI agent support
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This repo ships instructions for common AI coding assistants. `AGENTS.md` is the source
+of truth; the others summarize or import it:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+| Tool                                    | File                              |
+| --------------------------------------- | --------------------------------- |
+| OpenAI Codex, Jules, Zed, Aider, others | `AGENTS.md`                       |
+| Claude Code                             | `CLAUDE.md` (imports `AGENTS.md`) |
+| Gemini CLI / Code Assist                | `GEMINI.md` (imports `AGENTS.md`) |
+| GitHub Copilot                          | `.github/copilot-instructions.md` |
+| Cursor                                  | `.cursor/rules/project.mdc`       |
+| Windsurf                                | `.windsurf/rules/project.md`      |
+
+When conventions change, update `AGENTS.md` first, then the condensed copies.
+
+## Deployment
+
+Designed for [Vercel](https://vercel.com): import the repo, keep the default Next.js
+settings, deploy. Any host that runs `next build && next start` also works.
