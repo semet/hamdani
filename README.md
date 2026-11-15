@@ -22,7 +22,7 @@ Lighthouse: desktop 100 / 100 / 100 / 100 · mobile 91 / 100 / 100 / 100
 
 ## Getting started
 
-Requirements: Node.js 20.9+ and [pnpm](https://pnpm.io).
+Requirements: Node.js 24 or 26 (pinned in `package.json` `engines`, which Vercel uses) and [pnpm](https://pnpm.io).
 
 ```bash
 pnpm install
