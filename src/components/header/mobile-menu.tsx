@@ -50,7 +50,7 @@ export const MobileMenu = () => {
         }}
         className="absolute top-0 right-0 flex flex-col items-end bg-white shadow-lg"
       >
-        <div className="flex min-h-[73px] items-center justify-center pr-4">
+        <div className="flex min-h-18.25 items-center justify-center pr-4">
           <button onClick={toggle}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

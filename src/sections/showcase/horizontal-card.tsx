@@ -14,7 +14,7 @@ export const HorizontalCard: FC<Props> = (props) => {
   const skew = useTransform(scrollVelocity, [-1, 1], [-15, 15])
   return (
     <motion.div
-      className="group relative flex min-h-[300px] min-w-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm md:h-[500px] md:min-w-[500px] 2xl:h-[600px] 2xl:min-w-[600px]"
+      className="group relative flex min-h-75 min-w-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm md:h-125 md:min-w-125 2xl:h-150 2xl:min-w-150"
       style={{
         skewX: skew
       }}
