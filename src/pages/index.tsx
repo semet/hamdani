@@ -1,3 +1,4 @@
+import { Seo } from '@/components/seo'
 import { ExperienceSection } from '@/sections/experience/experience-section'
 import { FooterSection } from '@/sections/footer/footer-section'
 import { HeroSection } from '@/sections/hero/hero-section'
@@ -7,6 +8,7 @@ import { StacksSection } from '@/sections/stacks/stacks-section'
 const Home = () => {
   return (
     <>
+      <Seo />
       <HeroSection />
       <StacksSection />
       <ExperienceSection />

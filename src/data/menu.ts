@@ -1,11 +1,11 @@
 export const menus = [
   {
     id: 'homeSection',
-    name: 'Home'
+    name: 'Index'
   },
   {
     id: 'stacksSection',
-    name: 'Stacks'
+    name: 'Toolkit'
   },
   {
     id: 'aboutSection',
@@ -13,12 +13,12 @@ export const menus = [
   },
   {
     id: 'showcaseSection',
-    name: 'Showcase'
+    name: 'Work'
   },
   {
     id: 'contactSection',
     name: 'Contact'
   }
-]
+] as const
 
 export type HomeMenu = (typeof menus)[number]['id']

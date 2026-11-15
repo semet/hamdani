@@ -5,28 +5,29 @@ export const experiences = [
     company: 'PT. Griya Mitra Digital',
     date: '2023-01-19--Present',
     description:
-      'This is my current company. I work as a Frontend Developer. My main task is to develop a web application for our client. Our main tech stack is Nextjs, TypeScript, Tailwind Css, React Query, React Table (Tanstack) and many more. Our main testing stack is Jest and React Testing Library. PT. Griya Mitra Digital is one of Indonesian leading tech company with awesome devs that has been crafting amazing applications for years. I collaborate with  three Frontend Seniors that guide me to become a better developer.',
+      'At one of Indonesia’s established software houses, I build client web applications with Next.js, TypeScript and Tailwind CSS — powered by React Query and TanStack Table, and tested with Jest and React Testing Library. Working alongside three senior frontend engineers keeps raising my bar every week.',
     technologies: [
-      'Nextjs',
+      'Next.js',
       'TypeScript',
-      'Tailwind Css',
+      'Tailwind CSS',
       'React Query',
+      'TanStack Table',
       'Jest',
       'React Testing Library'
     ]
   },
   {
     id: 2,
-    title: 'Frontend Developer',
+    title: 'Frontend Developer · Remote',
     company: 'PT Colmitra Persada Indonesia',
     date: '2022-01-01--2023-05-01',
     description:
-      'I worked as a remote Frontend Developer for PT Colmitra Persada Indonesia. My main task was to develop a web application for their client. The application was a dashboard for Online Money Loan System. Our main tech stack was Nextjs, Tailwind Css, React Query and Next Auth. For testing library we use Jest and React Testing Library.',
+      'Working fully remote, I built the client-facing dashboard for an online lending platform — from data-heavy views to secure authentication — with Next.js, Tailwind CSS, React Query and NextAuth, tested with Jest and React Testing Library.',
     technologies: [
-      'Nextjs',
-      'Tailwind Css',
+      'Next.js',
+      'Tailwind CSS',
       'React Query',
-      'Next Auth',
+      'NextAuth',
       'Jest',
       'React Testing Library'
     ]
@@ -37,12 +38,12 @@ export const experiences = [
     company: 'Lombodocia',
     date: '2021-01-03--2021-10-01',
     description:
-      'This is my first Professional career as a Frontend Developer. Lombodocia is a Lombok Tourism Website and Event Organizer. My First project was to create a Landing page for the Company and then develop a ticket booking application for the Event they are about to held. Our main Tech stack was React, TypeScript, Redux, Tailwind Css. For testing library we use Jest and React Testing Library.',
+      'My first professional role, at a Lombok tourism and event company. I launched its landing page, then built the ticket-booking app for its upcoming events using React, TypeScript, Redux and Tailwind CSS, tested with Jest and React Testing Library.',
     technologies: [
       'React',
       'TypeScript',
       'Redux',
-      'Tailwind Css',
+      'Tailwind CSS',
       'Jest',
       'React Testing Library'
     ]

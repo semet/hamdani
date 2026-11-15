@@ -1,25 +1,28 @@
 # Portfolio
 
-Personal portfolio website for Hamdani Ash-Sidiq — a single-page, animation-heavy site
-built with Next.js, Tailwind CSS and Motion.
+Portfolio of Hamdani Ash-Sidiq, web designer & frontend engineer. A single-page,
+editorial-style site with light and dark themes, built with Next.js, Tailwind CSS and Motion.
 
-The page has five sections: **Home** (hero), **Stacks** (tech & tools), **About**
-(bio + work experience), **Showcase** (projects, horizontally scrolled on desktop) and
-**Contact** (footer).
+Sections: **Index** (hero), **Toolkit** (stack & tools), **About** (bio, stats, experience),
+**Work** (projects in a horizontal scroll reel on desktop) and **Contact**.
+
+Lighthouse: desktop 100 / 100 / 100 / 100 · mobile 91 / 100 / 100 / 100
+(performance / accessibility / best practices / SEO).
 
 ## Tech stack
 
-| Area          | Choice                                                             |
-| ------------- | ------------------------------------------------------------------ |
-| Framework     | Next.js 16 (Pages Router), React 19, TypeScript                    |
-| Styling       | Tailwind CSS 4, `@tailwindcss/typography`, `tailwind-merge`        |
-| Animation     | [Motion](https://motion.dev) (`motion/react`), Lenis smooth scroll |
-| UI primitives | Headless UI                                                        |
-| Tooling       | ESLint 9 (flat config), Prettier + Tailwind plugin, pnpm           |
+| Area      | Choice                                                                    |
+| --------- | ------------------------------------------------------------------------- |
+| Framework | Next.js 16 (Pages Router), React 19, TypeScript                           |
+| Styling   | Tailwind CSS 4 (CSS-first config), `tailwind-merge`                       |
+| Animation | [Motion](https://motion.dev) (`motion/react`), [Lenis](https://lenis.dev) |
+| Type      | Instrument Serif, Geist, Geist Mono via `next/font`                       |
+| Tooling   | ESLint 9 (flat config, React Compiler rules), Prettier + Tailwind plugin  |
+| Hosting   | Vercel                                                                    |
 
 ## Getting started
 
-Requirements: Node.js 18.18+ and [pnpm](https://pnpm.io).
+Requirements: Node.js 20.9+ and [pnpm](https://pnpm.io).
 
 ```bash
 pnpm install
@@ -41,20 +44,20 @@ There is no automated test suite; `pnpm lint` and `pnpm build` are the checks.
 
 ```
 src/
-  pages/        _app.tsx (fonts, smooth scroll, layout), index.tsx (the page)
-  providers/    LayoutProvider — section refs, active menu, scroll-to-section
-  data/         nav menu definition
-  hooks/        useAurora — animated gradient backgrounds
-  sections/     one folder per page section (<name>/<name>-section.tsx + its parts/data)
-  components/   shared UI: header/, logo, page-title, scroll-to-top
-  styles/       globals.css
-public/         favicons, images/, showcase/ screenshots
+  pages/        _app (fonts, Lenis, Motion config), _document (theme script), index, api/ (sitemap, robots)
+  sections/     one folder per page section (<name>/<name>-section.tsx + its parts and data)
+  components/   shared UI: header, logo, seo, theme toggle, reveal text, marquee, …
+  providers/    LayoutProvider — section refs, active section, scroll-to
+  hooks/        use-theme, use-local-time
+  data/         site details, socials, nav menu
+  styles/       globals.css — theme palettes and Tailwind tokens
+public/         icons/, images/, og.png, favicons, site.webmanifest
 ```
 
 More detail:
 
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — how the page, navigation and animations fit together
-- [docs/CONTENT.md](docs/CONTENT.md) — how to update projects, experience, stacks, socials
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — page structure, theming, motion, SEO and performance
+- [docs/CONTENT.md](docs/CONTENT.md) — how to update projects, experience, stack, socials
 - [AGENTS.md](AGENTS.md) — conventions for contributors and AI coding agents
 
 ## Contributing workflow
@@ -82,5 +85,6 @@ When conventions change, update `AGENTS.md` first, then the condensed copies.
 
 ## Deployment
 
-Designed for [Vercel](https://vercel.com): import the repo, keep the default Next.js
-settings, deploy. Any host that runs `next build && next start` also works.
+Hosted on [Vercel](https://vercel.com): import the repo and deploy with the default Next.js
+settings. Canonical URLs, Open Graph images and the sitemap use Vercel's production domain
+automatically; set `NEXT_PUBLIC_SITE_URL` to override it (for example, for a custom domain).

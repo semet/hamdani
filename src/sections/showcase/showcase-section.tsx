@@ -1,60 +1,96 @@
-import { motion, useScroll, useTransform } from 'motion/react'
-import { useEffect, useState } from 'react'
+import {
+  motion,
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform
+} from 'motion/react'
+import { useEffect, useRef, useState } from 'react'
 
-import { PageTitle } from '@/components/page-title'
-import { useAurora } from '@/hooks/use-aurora'
+import { SectionHeading } from '@/components/section-heading'
 import { useLayout } from '@/providers/layout-provider'
 
-import { Background } from './background'
-import { HorizontalView } from './horizontal-view'
 import { items } from './items'
-import { VerticalView } from './vertical-view'
+import { ProjectCard } from './project-card'
 
 export const ShowcaseSection = () => {
-  const { toTop } = useAurora()
-  const [windowWidth, setWindowWidth] = useState<number>(0)
   const { showcaseSection } = useLayout()
+  const trackRef = useRef<HTMLDivElement>(null)
+
+  // Horizontal overflow of the track. 0 below `lg`, where cards stack vertically.
+  const distance = useMotionValue(0)
+  const [sectionHeight, setSectionHeight] = useState<string | undefined>()
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+    const measure = () => {
+      const raw = track.scrollWidth - track.clientWidth
+      // scrollWidth ignores the trailing padding, so add it back to end on the gutter.
+      const overflow =
+        raw > 0 ? raw + parseFloat(getComputedStyle(track).paddingRight) : 0
+      distance.set(overflow)
+      setSectionHeight(overflow > 0 ? `calc(100vh + ${overflow}px)` : undefined)
+    }
+    // ResizeObserver fires once on observe, then on every size change.
+    const observer = new ResizeObserver(measure)
+    observer.observe(track)
+    return () => observer.disconnect()
+  }, [distance])
+
   const { scrollYProgress } = useScroll({
     target: showcaseSection,
     offset: ['start start', 'end end']
   })
+  const x = useTransform(() => -scrollYProgress.get() * distance.get())
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 })
 
-  //begin at lg:1024
-  const subtract =
-    windowWidth >= 1024 && windowWidth <= 1279
-      ? -410
-      : windowWidth >= 1280 && windowWidth <= 1535
-        ? -390
-        : windowWidth >= 1536
-          ? -460
-          : -50
-  const itemHeight = windowWidth >= 1024 ? 100 : 85
-  const x = useTransform(scrollYProgress, [0, 1], [0, subtract * items.length])
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    setWindowWidth(window.innerWidth)
-  }, [])
   return (
-    <motion.section
+    <section
       ref={showcaseSection}
-      className="relative z-20 pb-4"
-      style={{
-        backgroundImage: toTop,
-        height: `${items.length * itemHeight}vh`
-      }}
+      aria-label="Selected work"
+      style={{ height: sectionHeight }}
+      className="relative"
     >
-      <Background />
-      <div className="top-0 flex flex-col gap-2 lg:sticky lg:top-40 lg:overflow-hidden">
-        <div className="main-padding">
-          <PageTitle title="Showcase" />
+      <div className="flex flex-col gap-12 py-28 sm:py-36 lg:sticky lg:top-0 lg:h-screen lg:justify-center lg:gap-10 lg:overflow-hidden lg:py-0">
+        <div className="flex items-end justify-between gap-8 main-padding">
+          <SectionHeading
+            index="03"
+            eyebrow="Selected work"
+            title="Things I've *designed* & built."
+          />
+          <div className="mb-3 hidden w-48 shrink-0 flex-col gap-3 lg:flex">
+            <span className="font-mono text-xs tracking-[0.18em] text-muted uppercase">
+              Scroll
+            </span>
+            <div className="h-px w-full bg-line">
+              <motion.div
+                style={{ scaleX: progress }}
+                className="h-px origin-left bg-ember"
+              />
+            </div>
+          </div>
         </div>
-        <HorizontalView
-          scrollYProgress={scrollYProgress}
-          x={x}
-        />
-        <VerticalView scrollYProgress={scrollYProgress} />
+
+        <div
+          ref={trackRef}
+          className="main-padding"
+        >
+          <motion.div
+            style={{ x }}
+            className="flex flex-col gap-20 will-change-transform lg:flex-row lg:gap-10"
+          >
+            {items.map((item, index) => (
+              <ProjectCard
+                key={item.id}
+                item={item}
+                index={index}
+                total={items.length}
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   )
 }

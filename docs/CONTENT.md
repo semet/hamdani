@@ -1,60 +1,58 @@
 # Updating content
 
-All content is plain TypeScript in the repo. Edit the file, run `pnpm dev` to preview,
-then `pnpm lint`.
+All content is plain TypeScript in the repo. Edit the file, preview with `pnpm dev`, then
+run `pnpm lint`.
 
-## Showcase projects
+## Personal details and SEO
+
+File: `src/data/site.ts` — name, role, email, phone, résumé link, location and the SEO
+description used in search results and link previews.
+
+Social links (footer, mobile menu and structured data): `src/data/socials.ts`.
+
+## Projects
 
 File: `src/sections/showcase/items.ts`
 
 ```ts
+import myProject from './images/my-project.png'
+
 {
-  id: 9,                                   // unique, next number
+  id: 9,                          // unique
   title: 'My Project',
-  description: "Built with <a href='https://nextjs.org' target='_blank'>Next.js</a>.",
-  image: '/showcase/my-project.png',       // file in public/showcase/
+  kind: 'Landing page',           // small label above the title
+  description: 'One or two sentences, plain text.',
+  image: myProject,               // static import from ./images
   link: 'https://my-project.vercel.app',
-  tags: ['Nextjs', 'Tailwind css']
+  tags: ['Next.js', 'Tailwind CSS']
 }
 ```
 
-- `description` is rendered as **HTML**, so inline `<a>` tags work. Use single quotes
-  inside the string's attributes, and only write trusted HTML.
-- Put the screenshot in `public/showcase/`. Wide (landscape) screenshots look best.
-- The section's scroll length grows automatically with the number of items.
+- Put the screenshot in `src/sections/showcase/images/`. Landscape (16:10) works best; the
+  top of the image is what shows.
+- The reel's length adapts automatically to the number of projects.
 
 ## Work experience
 
-File: `src/sections/experience/experiences.ts`
-
-```ts
-{
-  id: 4,
-  title: 'Frontend Developer',
-  company: 'Company Name',
-  date: '2024-01-01--Present',   // start--end
-  description: 'What you did…',
-  technologies: ['Nextjs', 'TypeScript']
-}
-```
-
-The "About Me" paragraph is inline JSX in `src/sections/experience/experience-section.tsx`.
+File: `src/sections/experience/experiences.ts` — `date` is `'YYYY-MM-DD--YYYY-MM-DD'` or
+`'YYYY-MM-DD--Present'` and is formatted as "Jan 2023 — Present". The About text and stats
+are in `src/sections/experience/experience-section.tsx`.
 
 ## Tech stack and tools
 
-- Stacks: `src/sections/stacks/stacks.ts` — `{ id, title, image }`
-- Tools: `src/sections/stacks/tools.ts` — `{ id, name, image }`
+- Stack: `src/sections/stacks/stacks.ts` — `{ id, title, icon }`
+- Tools: `src/sections/stacks/tools.ts` — `{ id, name, icon }`
 
-`image` can be a remote HTTPS URL or a path under `public/`. Prefer local copies for
-logos you rely on; remote logo URLs can disappear.
+Add the logo as an SVG in `public/icons/`. Download from
+[Simple Icons](https://simpleicons.org); if that glyph is hard to recognize in one color, use
+the Devicon "plain" variant. Logos render as a single color that follows the theme.
 
-## Contact and socials
+## Headlines
 
-- Social icons/links: `src/sections/footer/socials.ts`. The `gmail` entry
-  opens a `mailto:` link instead of `href`.
-- Phone number, email, and the `mailto:` address: `src/sections/footer/footer-section.tsx`.
+Section titles use `RevealText` / `SectionHeading`. Wrap a word in asterisks to make it the
+italic ember accent: `title="The tools behind *every* pixel."`
 
 ## Navigation labels
 
-`src/data/menu.ts` — change `name` freely. Changing an `id` requires updating
+`src/data/menu.ts` — change `name` freely. Changing an `id` also requires updating
 `src/providers/layout-provider.tsx` (see [ARCHITECTURE.md](ARCHITECTURE.md)).

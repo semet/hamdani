@@ -1,113 +1,133 @@
+import type { StaticImageData } from 'next/image'
+
+import abudarda from './images/abudarda.png'
+import abudardapedia from './images/abudardapedia.png'
+import bookshelf from './images/bookshelf.png'
+import brida from './images/brida.png'
+import luminae from './images/luminae.png'
+import nexy from './images/nexy.png'
+import remixAdminLanding from './images/remix-admin-landing.png'
+import remixAdmin from './images/remix-admin.png'
+
 export type Item = {
   id: number
   title: string
+  /** Short label shown above the title, e.g. "Admin template". */
+  kind: string
+  /** Plain text, rendered as-is. */
   description: string
-  image: string
+  image: StaticImageData
   link: string
   tags: string[]
 }
 
-export const items = [
+export const items: Item[] = [
   {
     id: 1,
-    title: 'Remix Admin Template',
+    title: 'Remix Admin',
+    kind: 'Admin dashboard template',
     description:
-      'Remix Admin Template is a modern and responsive admin template built with Remix and Tailwind CSS. It is designed to be easy to use and customize. It uses some popular library like.',
-    image: '/showcase/remix-admin.png',
+      'A modern, fully responsive admin dashboard built with Remix and Tailwind CSS. Designed to be adopted in minutes and customized without a fight, with React Hook Form, TanStack Table, React Query and Recharts under the hood.',
+    image: remixAdmin,
     link: 'https://remix-admin-five.vercel.app/dashboard',
-    repository: '',
     tags: [
+      'Remix',
       'React',
       'TypeScript',
       'Tailwind CSS',
-      'Remix',
       'React Hook Form',
-      'React Table',
+      'TanStack Table',
       'React Query',
       'Recharts',
-      'framer-motion'
+      'Framer Motion'
     ]
   },
   {
     id: 2,
-    title: 'Remix Admin Template Landing',
+    title: 'Remix Admin — Landing',
+    kind: 'Product landing page',
     description:
-      'Remix Admin Template Landing is a modern and responsive landing page built with Remix and Tailwind CSS. It is designed to be easy to use and customize.',
-    image: '/showcase/remix-admin-landing.png',
+      'The marketing site for Remix Admin: a crisp, responsive landing page that walks visitors through the product, built with Remix and Tailwind CSS.',
+    image: remixAdminLanding,
     link: 'https://remix-admin-five.vercel.app',
     tags: [
+      'Remix',
       'React',
       'TypeScript',
       'Tailwind CSS',
-      'Remix',
       'React Hook Form',
-      'React Table',
+      'TanStack Table',
       'React Query',
-      'React Full Calendar',
+      'FullCalendar',
       'Recharts'
     ]
   },
   {
     id: 3,
-    title: 'Website Abudarda Boarding School',
+    title: 'Abudarda Boarding School',
+    kind: 'School website',
     description:
-      "This is the official website of a Boarding School in my village. I built it using <a href='https://nextjs.org' target='_blank'>Nextjs</a>, <a href='https://nextjs.org' target='_blank'>Nextjs</a>, Bootstrap, and Prisma and deployed on Vercel. The database is hosted in <a href='https://getbootstrap.com/docs/5.0/getting-started/introduction target='_blank'> Bootstrap </a>, and <a href='https://www.prisma.io' target='_blank'>Prisma</a> and deployed on <a href='https://vercel.com' target='_blank'>Vercel</a>. The database is hosted in <a href='https://planetscale.com' target='_blank'>Planetscale</a>. This website is not 100% done because of Administration issue",
-    url: 'https://abudarda.vercel.app',
-    image: '/showcase/abudarda.png',
+      'The official website of a boarding school in my home village, built with Next.js and Prisma on a PlanetScale database and deployed on Vercel. Still a work in progress — paused on the school’s administrative side.',
+    image: abudarda,
     link: 'https://abudarda.vercel.app/',
-    tags: ['Nextjs', 'Chakra UI', 'Planetscale', 'Prisma']
+    tags: ['Next.js', 'Chakra UI', 'Prisma', 'PlanetScale']
   },
   {
     id: 4,
-    title: 'Abudardapedia (Media Abudarda)',
+    title: 'Abudardapedia',
+    kind: 'Media & articles platform',
     description:
-      "Another website i built on top of <a href='https://nextjs.org' target='_blank'>Nextjs</a>, <a href='https://chakra-ui.com' target='_blank'>Chakra UI</a>, and <a href='https://www.prisma.io' target='_blank'>Prisma</a>. This website has a full working Login System built with <a href='https://next-auth.js.org' target='_blank'>Next-Auth</a> library. This website is intended for the Abudarda Boarding School to share their Media and Articles",
-    image: '/showcase/abudardapedia.png',
+      'A home for Abudarda Boarding School’s media and articles, built with Next.js, Chakra UI and Prisma, with a complete sign-in system powered by NextAuth and images served through Cloudinary.',
+    image: abudardapedia,
     link: 'https://abudardapedia.vercel.app/',
     tags: [
-      'Nextjs',
+      'Next.js',
       'Chakra UI',
-      'Planetscale',
       'Prisma',
+      'PlanetScale',
       'Cloudinary',
       'React Query',
-      'Next Auth'
+      'NextAuth'
     ]
   },
   {
     id: 5,
     title: 'Bookshelf',
+    kind: 'Book discovery app',
     description:
-      "This website is made as a test for me when I applied in the Digital Solution company located in Philipphine. The test require me using external Api <a href='https://developers.google.com/books' target='_blank'>(Google Book API)</a> and my favorite library; <a href='https://tanstack.com/query/v5/docs/react/overview' target='_blank'>React Query</a>. I use <a href='https://tailwindcss.com' target='_blank'>Tailwind css</a> to style this website. This repository also uses <a href='https://jestjs.io' target='_blank'>Jest</a> as the testing Framework",
-    image: '/showcase/bookshelf.png',
+      'A book explorer built as a technical assessment for a digital solutions company in the Philippines — powered by the Google Books API and React Query, styled with Tailwind CSS and covered by Jest tests.',
+    image: bookshelf,
     link: 'https://bookshelf-jet.vercel.app/',
-    tags: ['Nextjs', 'Tailwind css', 'Google book API', 'React Query', 'Jest']
+    tags: ['Next.js', 'Tailwind CSS', 'Google Books API', 'React Query', 'Jest']
   },
   {
     id: 6,
-    title: 'Remake Website Brida NTB',
+    title: 'BRIDA NTB Redesign',
+    kind: 'Government website redesign',
     description:
-      "I created this website on the purpose of applying for a job in  <a href='https://brida.ntbprov.go.id' target='_blank'>BRIDA Academy</a> in my home town, Mataram. Even though I receive no response after my application, I feel happy creating this remake of their website. This Website is another result of <a href='https://nextjs.org' target='_blank'>Nextjs</a> + <a href='https://chakra-ui.com' target='_blank'>Chakra UI</a> combined together",
-    image: '/showcase/brida.png',
+      'An unsolicited redesign of the BRIDA website in my hometown of Mataram, made as part of a job application. The role never came through, but the redesign was worth every hour. Built with Next.js and Chakra UI.',
+    image: brida,
     link: 'https://brida-three.vercel.app/',
-    tags: ['Nextjs', 'Chakra UI']
+    tags: ['Next.js', 'Chakra UI']
   },
   {
     id: 7,
-    title: 'Luminae (E-comers template)',
+    title: 'Luminae',
+    kind: 'E-commerce template',
     description:
-      "This is a <a href='https://nextjs.org' target='_blank'>Nextjs</a> Version of a <a href='https://www.figma.com/file/2MxWLF542kMuO5aS9VrgcI/Ecommerce-UI-Kit-(Community)?type=design&node-id=0-1&mode=design&t=DwqUmjBcEoUnI3Hx-0' target='_blank'>Figma file</a>. I transformed the <a href='https://www.figma.com' target='_blank'>Figma</a> design into a website template using <a href='https://nextjs.org' target='_blank'>Nextjs</a> and <a href='https://tailwindcss.com' target='_blank'>Tailwind css</a>. I handle state management using popular library called <a href='https://zustand-demo.pmnd.rs' target='_blank'>Zustand</a>. As usual, I pop <a href='https://jestjs.io' target='_blank'>Jest</a> testing library once again to deal with Unit Testing in this project",
-    image: '/showcase/luminae.png',
+      'A community Figma e-commerce UI kit brought to life as a Next.js template — styled with Tailwind CSS, with Zustand managing state and Jest covering the units.',
+    image: luminae,
     link: 'https://luminae-eta.vercel.app/',
-    tags: ['Nextjs', 'Tailwind css', 'Jest', 'Zustand']
+    tags: ['Next.js', 'Tailwind CSS', 'Zustand', 'Jest']
   },
   {
     id: 8,
-    title: 'Nexy Landing template',
+    title: 'Nexy',
+    kind: 'Landing page template',
     description:
-      "This was my first design using <a href='https://nextjs.org' target='_blank'>Nextjs</a> and <a href='https://chakra-ui.com' target='_blank'>Chakra UI</a>. It might look awful, but this project means a lot to me. This project open my mind and understanding about how Frontend design works. This is the beginning of my 'start-from-scratch' project",
-    image: '/showcase/nexy.png',
+      'My very first design built with Next.js and Chakra UI. Not my most polished work, but the project that taught me how frontend design really works — and where my build-it-from-scratch habit began.',
+    image: nexy,
     link: 'https://nexy-byq9.vercel.app/',
-    tags: ['Nextjs', 'Chakra UI']
+    tags: ['Next.js', 'Chakra UI']
   }
 ]

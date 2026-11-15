@@ -2,18 +2,82 @@
 
 @plugin '@tailwindcss/typography';
 
-/* Theme tokens (formerly tailwind.config.ts → theme.extend) */
-@theme {
-  --font-sans: 'Nunito Sans', sans-serif;
-  --font-mono: 'Fira Code', monospace;
-
-  --color-primary: #13ffaa;
-  --color-secondary: #1e67c6;
-  --color-tertiary: #ce84cf;
-  --color-quaternary: #dd335c;
+/*
+  Theme palettes. Raw values live in CSS variables so the theme can switch at runtime.
+  `data-theme` is set on <html> before first paint by the inline script in _document.tsx.
+  Without JS, the prefers-color-scheme media query still picks the right palette.
+*/
+:root,
+[data-theme='light'] {
+  --canvas: #f3efe7;
+  --surface: #ebe6dc;
+  --surface-2: #e2dccf;
+  --fg: #15130f;
+  --muted: #625d56; /* ≥4.5:1 on canvas, surface and surface-2 */
+  --line: rgb(21 19 15 / 0.1);
+  --line-strong: rgb(21 19 15 / 0.2);
+  --ember: #b93716; /* 5.1:1 on canvas, WCAG AA for small text */
+  --glow-ember: rgb(228 71 31 / 0.2);
+  --glow-indigo: rgb(99 102 241 / 0.14);
+  --grain-opacity: 0.035;
+  color-scheme: light;
 }
 
-/* Tailwind v3 compatibility defaults */
+[data-theme='dark'] {
+  --canvas: #0b0b0c;
+  --surface: #121214;
+  --surface-2: #1a1a1d;
+  --fg: #ece8e1;
+  --muted: #8e8a83;
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --ember: #ff5a36;
+  --glow-ember: rgb(255 90 54 / 0.28);
+  --glow-indigo: rgb(99 102 241 / 0.18);
+  --grain-opacity: 0.045;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --canvas: #0b0b0c;
+    --surface: #121214;
+    --surface-2: #1a1a1d;
+    --fg: #ece8e1;
+    --muted: #8e8a83;
+    --line: rgb(255 255 255 / 0.08);
+    --line-strong: rgb(255 255 255 / 0.16);
+    --ember: #ff5a36;
+    --glow-ember: rgb(255 90 54 / 0.28);
+    --glow-indigo: rgb(99 102 241 / 0.18);
+    --grain-opacity: 0.045;
+    color-scheme: dark;
+  }
+}
+
+/* Semantic color utilities: bg-canvas, bg-surface, text-fg, text-muted, border-line, text-ember… */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ember: var(--ember);
+}
+
+/* Fonts are loaded with next/font in _app.tsx and exposed as CSS variables */
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* All animation is done with Motion (motion/react); no CSS keyframes here. */
+
 @layer base {
   /* v4 changed the default border color to `currentcolor` */
   *,
@@ -21,7 +85,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+    border-color: var(--line, currentcolor);
   }
 
   /* v4 no longer sets `cursor: pointer` on buttons */
@@ -29,9 +93,56 @@
   [role='button']:not(:disabled) {
     cursor: pointer;
   }
+
+  html {
+    /* Motion's useScroll measures targets relative to <html>; it must not be static */
+    position: relative;
+    background-color: var(--canvas);
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--ember);
+    color: var(--canvas);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Film grain: one fixed layer, no animation, no repaint on scroll */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    /* Pre-rendered noise tile, drawn at 64px for a fine grain: far cheaper to paint than an SVG feTurbulence filter */
+    background-image: url('/images/grain.png');
+    background-size: 64px;
+  }
 }
 
 /* Responsive horizontal page gutters */
 @utility main-padding {
-  @apply px-4 md:px-10 lg:px-20 xl:px-28 2xl:px-32;
+  @apply px-5 sm:px-8 lg:px-14 xl:px-20 2xl:px-28;
+}
+
+/* Monochrome brand icon: the SVG/PNG is used as a mask and painted with currentColor */
+@utility icon-mask {
+  background-color: currentColor;
+  mask-image: var(--icon);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
 }

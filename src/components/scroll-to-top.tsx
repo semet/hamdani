@@ -1,72 +1,72 @@
+import { useLenis } from 'lenis/react'
 import {
   AnimatePresence,
   motion,
   useMotionValueEvent,
   useScroll,
-  Variants
+  useSpring
 } from 'motion/react'
 import { useState } from 'react'
+
+import { ArrowIcon } from '@/components/arrow-icon'
+import { useLayout } from '@/providers/layout-provider'
+
+/**
+ * Back-to-top button with a ring that fills with page scroll progress.
+ * Hidden in the footer, which has its own "Back to top" link.
+ */
 export const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(false)
-  const { scrollY } = useScroll()
+  const lenis = useLenis()
+  const { activeMenu } = useLayout()
+  const [pastHero, setPastHero] = useState(false)
+  const { scrollY, scrollYProgress } = useScroll()
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 })
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    if (latest > 644) {
-      setIsVisible(true)
-    } else {
-      setIsVisible(false)
-    }
+    const past = latest > 700
+    if (past !== pastHero) setPastHero(past)
   })
 
-  const containerVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      scale: 0,
-      y: 100
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0
-    }
-  }
+  // Derived during render, no extra state.
+  const isVisible = pastHero && activeMenu !== 'contactSection'
+
+  const toTop = () =>
+    lenis ? lenis.scrollTo(0, { duration: 1.6 }) : window.scrollTo({ top: 0 })
+
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
-          exit="hidden"
-          transition={{
-            duration: 0.3,
-            type: 'linear'
-          }}
-          className="fixed right-4 bottom-4 z-50"
+        <motion.button
+          initial={{ opacity: 0, scale: 0.6, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.6, y: 20 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={toTop}
+          aria-label="Back to top"
+          className="fixed right-5 bottom-5 z-40 grid size-12 place-items-center rounded-full border border-line bg-surface/80 text-fg backdrop-blur-md"
         >
-          <button
-            className="rounded-full bg-white p-2 shadow-lg"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          <svg
+            viewBox="0 0 48 48"
+            className="absolute inset-0 size-full -rotate-90"
+            aria-hidden
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
+            <motion.circle
+              cx="24"
+              cy="24"
+              r="22"
               fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={3}
-              stroke="#64748b"
-              className="size-5"
-            >
-              <motion.path
-                initial={{ opacity: 0, pathLength: 0, pathOffset: 1 }}
-                animate={{ opacity: 1, pathLength: 1, pathOffset: 0 }}
-                transition={{ duration: 1 }}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
-              />
-            </svg>
-          </button>
-        </motion.div>
+              stroke="var(--color-ember)"
+              strokeWidth="1.5"
+              style={{ pathLength: progress }}
+            />
+          </svg>
+          <ArrowIcon
+            direction="up"
+            className="size-4"
+          />
+        </motion.button>
       )}
     </AnimatePresence>
   )

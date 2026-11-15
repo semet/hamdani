@@ -1,122 +1,92 @@
+import { useLenis } from 'lenis/react'
 import { useInView } from 'motion/react'
 import {
   createContext,
-  Dispatch,
   FC,
   PropsWithChildren,
   RefObject,
-  SetStateAction,
   useContext,
-  useEffect,
-  useRef,
-  useState
+  useRef
 } from 'react'
 
 import { HomeMenu } from '@/data/menu'
 
+type SectionRef = RefObject<HTMLElement | null>
+
 type LayoutProviderType = {
-  homeSection: RefObject<HTMLDivElement | null>
-  stacksSection: RefObject<HTMLDivElement | null>
-  aboutSection: RefObject<HTMLDivElement | null>
-  showcaseSection: RefObject<HTMLDivElement | null>
-  contactSection: RefObject<HTMLDivElement | null>
+  homeSection: SectionRef
+  stacksSection: SectionRef
+  aboutSection: SectionRef
+  showcaseSection: SectionRef
+  contactSection: SectionRef
   activeMenu: HomeMenu
-  setActiveMenu: Dispatch<SetStateAction<HomeMenu>>
   onMenuClick: (_id: HomeMenu) => void
 }
 
 const LayoutContext = createContext<LayoutProviderType | null>(null)
 
+// A section is "active" while it crosses the vertical middle of the viewport.
+const CENTER_LINE = { margin: '-50% 0px -50% 0px' } as const
+
 const LayoutProvider: FC<PropsWithChildren> = ({ children }) => {
-  const sectionRefs = {
-    homeSection: useRef<HTMLDivElement | null>(null),
-    stacksSection: useRef<HTMLDivElement | null>(null),
-    aboutSection: useRef<HTMLDivElement | null>(null),
-    showcaseSection: useRef<HTMLDivElement | null>(null),
-    contactSection: useRef<HTMLDivElement | null>(null)
-  }
-  const [activeMenu, setActiveMenu] = useState<HomeMenu>('homeSection')
+  const lenis = useLenis()
+
+  const homeSection = useRef<HTMLElement | null>(null)
+  const stacksSection = useRef<HTMLElement | null>(null)
+  const aboutSection = useRef<HTMLElement | null>(null)
+  const showcaseSection = useRef<HTMLElement | null>(null)
+  const contactSection = useRef<HTMLElement | null>(null)
+
+  const homeInView = useInView(homeSection, CENTER_LINE)
+  const stacksInView = useInView(stacksSection, CENTER_LINE)
+  const aboutInView = useInView(aboutSection, CENTER_LINE)
+  const showcaseInView = useInView(showcaseSection, CENTER_LINE)
+  const contactInView = useInView(contactSection, CENTER_LINE)
+
+  // Derived during render: sections are stacked, so exactly one crosses the center line.
+  const activeMenu: HomeMenu = contactInView
+    ? 'contactSection'
+    : showcaseInView
+      ? 'showcaseSection'
+      : aboutInView
+        ? 'aboutSection'
+        : stacksInView
+          ? 'stacksSection'
+          : homeInView
+            ? 'homeSection'
+            : 'homeSection'
+
+  // Event handler: reading refs here (not during render) is allowed.
   const onMenuClick = (id: HomeMenu) => {
-    const { homeSection, stacksSection, aboutSection, showcaseSection } =
-      sectionRefs
-    const section = id
-    const offset = 70
-    switch (section) {
-      case 'homeSection':
-        window.scrollTo({
-          top: homeSection.current?.offsetTop,
-          behavior: 'smooth'
-        })
-        break
-      case 'stacksSection':
-        window.scrollTo({
-          top: (stacksSection.current?.offsetTop ?? 0) - offset - 40,
-          behavior: 'smooth'
-        })
-        break
-      case 'aboutSection':
-        window.scrollTo({
-          top: (aboutSection.current?.offsetTop ?? 0) - offset,
-          behavior: 'smooth'
-        })
-        break
-      case 'showcaseSection':
-        window.scrollTo({
-          top: showcaseSection.current?.offsetTop,
-          behavior: 'smooth'
-        })
-        break
-      case 'contactSection':
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: 'smooth'
-        })
-        break
+    const refs = {
+      homeSection,
+      stacksSection,
+      aboutSection,
+      showcaseSection,
+      contactSection
+    }
+    const target = refs[id].current
+    if (!target) return
+    const top =
+      id === 'contactSection'
+        ? document.documentElement.scrollHeight
+        : target.offsetTop
+    if (lenis) {
+      lenis.scrollTo(top, { duration: 1.4 })
+    } else {
+      window.scrollTo({ top, behavior: 'smooth' })
     }
   }
-
-  const isHomeInView = useInView(sectionRefs.homeSection, {
-    margin: '-500px 0px 0px 0px'
-  })
-  const isStacksInView = useInView(sectionRefs.stacksSection, {
-    margin: '-500px 0px 0px 0px'
-  })
-  const isAboutInView = useInView(sectionRefs.aboutSection, {
-    margin: '-500px 0px 0px 0px'
-  })
-  const isShowcaseInView = useInView(sectionRefs.showcaseSection, {
-    margin: '-500px 0px 0px 0px'
-  })
-  const isContactInView = useInView(sectionRefs.contactSection)
-
-  useEffect(() => {
-    const sections = [
-      { id: 'homeSection', inView: isHomeInView },
-      { id: 'stacksSection', inView: isStacksInView },
-      { id: 'aboutSection', inView: isAboutInView },
-      { id: 'showcaseSection', inView: isShowcaseInView },
-      { id: 'contactSection', inView: isContactInView }
-    ]
-
-    const activeSection = sections.find((section) => section.inView)?.id
-
-    if (activeSection) {
-      setActiveMenu(activeSection as HomeMenu)
-    }
-  }, [
-    isHomeInView,
-    isStacksInView,
-    isAboutInView,
-    isShowcaseInView,
-    isContactInView
-  ])
 
   return (
     <LayoutContext.Provider
       value={{
-        ...sectionRefs,
+        homeSection,
+        stacksSection,
+        aboutSection,
+        showcaseSection,
+        contactSection,
         activeMenu,
-        setActiveMenu,
         onMenuClick
       }}
     >

@@ -94,12 +94,7 @@ const eslintConfig = defineConfig([
       ],
       'import/default': 'off',
       'import/no-named-as-default-member': 'off',
-      'import/no-named-as-default': 'off',
-      // React Compiler rules added in eslint-config-next 16. This project doesn't
-      // use the compiler, and the flagged patterns (refs shared via context /
-      // passed to useInView) are intentional. Kept visible as warnings.
-      'react-hooks/refs': 'warn',
-      'react-hooks/set-state-in-effect': 'warn'
+      'import/no-named-as-default': 'off'
     }
   }
 ])
