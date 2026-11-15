@@ -1,13 +1,13 @@
 import { motion } from 'motion/react'
 
 import { PageTitle } from '@/components/page-title'
-import { useAurora } from '@/hooks'
-import { useLayout } from '@/providers'
+import { useAurora } from '@/hooks/use-aurora'
+import { useLayout } from '@/providers/layout-provider'
 
 import { ExperienceTabs } from './experience-tabs'
 import { NodejsLogo } from './nodejs-logo'
 
-export const Experience = () => {
+export const ExperienceSection = () => {
   const { toBottom } = useAurora()
   const { aboutSection } = useLayout()
   return (

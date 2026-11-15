@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from 'motion/react'
 
 import { Logo } from '@/components/logo'
-import { useAurora } from '@/hooks'
-import { useLayout } from '@/providers'
+import { useAurora } from '@/hooks/use-aurora'
+import { useLayout } from '@/providers/layout-provider'
 
 import { Background } from './background'
 import { socialLinks } from './socials'

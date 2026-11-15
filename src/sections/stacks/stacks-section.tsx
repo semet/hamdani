@@ -6,8 +6,8 @@ import {
 } from 'motion/react'
 import { useState } from 'react'
 
-import { useAurora } from '@/hooks'
-import { useLayout } from '@/providers'
+import { useAurora } from '@/hooks/use-aurora'
+import { useLayout } from '@/providers/layout-provider'
 
 import { CodeEditor } from './code-editor'
 import { MyTools } from './my-tools'

@@ -4,9 +4,9 @@ import type { AppProps } from 'next/app'
 import { Nunito_Sans, Fira_Code } from 'next/font/google'
 import { useEffect, useRef } from 'react'
 
-import { Header } from '@/components/header'
+import { Header } from '@/components/header/header'
 import { ScrollToTop } from '@/components/scroll-to-top'
-import { LayoutProvider } from '@/providers'
+import { LayoutProvider } from '@/providers/layout-provider'
 
 const nunito = Nunito_Sans({
   subsets: ['latin'],

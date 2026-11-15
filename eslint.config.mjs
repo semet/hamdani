@@ -27,20 +27,51 @@ const eslintConfig = defineConfig([
         'error',
         {
           patterns: [
-            '../*',
-            '../',
-            '..',
-            '@/apis/*/*',
-            '@/configs/*/*',
-            '@/components/*/*',
-            '@/contexts/*/*',
-            '@/factories/*/*',
-            '@/features/*/*',
-            '@/hooks/*/*',
-            '@/layouts/*/*',
-            '@/schemas/*/*',
-            '@/types/*/*',
-            '@/utils/*/**'
+            {
+              group: ['../*', '../', '..'],
+              message: 'Use the @/ alias instead of parent-relative imports.'
+            },
+            {
+              regex: '^@/[^/]+$|(^|/)index$',
+              message:
+                'No barrels: import from the file that defines the export (e.g. @/hooks/use-aurora).'
+            }
+          ]
+        }
+      ],
+      // No barrel files: re-export-everything modules hide dependencies
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'ExportAllDeclaration',
+          message:
+            'No barrel files (export *). Import directly from the source file.'
+        }
+      ],
+      // Dependency direction: pages -> sections -> shared (components/providers/hooks/data)
+      'import/no-restricted-paths': [
+        'error',
+        {
+          zones: [
+            {
+              target: [
+                './src/components',
+                './src/providers',
+                './src/hooks',
+                './src/data'
+              ],
+              from: './src/sections',
+              message: 'Shared code must not depend on page sections.'
+            },
+            ...['hero', 'stacks', 'experience', 'showcase', 'footer'].map(
+              (section) => ({
+                target: `./src/sections/${section}`,
+                from: './src/sections',
+                except: [`./${section}`],
+                message:
+                  'Sections are isolated; move shared code to src/components, hooks or data.'
+              })
+            )
           ]
         }
       ],

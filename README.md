@@ -45,7 +45,8 @@ src/
   providers/    LayoutProvider — section refs, active menu, scroll-to-section
   data/         nav menu definition
   hooks/        useAurora — animated gradient backgrounds
-  components/   header, logo, page-title, scroll-to-top, home/<section>/
+  sections/     one folder per page section (<name>/<name>-section.tsx + its parts/data)
+  components/   shared UI: header/, logo, page-title, scroll-to-top
   styles/       globals.css
 public/         favicons, images/, showcase/ screenshots
 ```

@@ -2,8 +2,8 @@ import { motion, useScroll, useTransform } from 'motion/react'
 import { useEffect, useState } from 'react'
 
 import { PageTitle } from '@/components/page-title'
-import { useAurora } from '@/hooks'
-import { useLayout } from '@/providers'
+import { useAurora } from '@/hooks/use-aurora'
+import { useLayout } from '@/providers/layout-provider'
 
 import { Background } from './background'
 import { HorizontalView } from './horizontal-view'

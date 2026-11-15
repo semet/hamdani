@@ -5,7 +5,7 @@ then `pnpm lint`.
 
 ## Showcase projects
 
-File: `src/components/home/showcase-section/items.ts`
+File: `src/sections/showcase/items.ts`
 
 ```ts
 {
@@ -25,7 +25,7 @@ File: `src/components/home/showcase-section/items.ts`
 
 ## Work experience
 
-File: `src/components/home/experience-section/experiences.ts`
+File: `src/sections/experience/experiences.ts`
 
 ```ts
 {
@@ -38,21 +38,21 @@ File: `src/components/home/experience-section/experiences.ts`
 }
 ```
 
-The "About Me" paragraph is inline JSX in `src/components/home/experience-section/index.tsx`.
+The "About Me" paragraph is inline JSX in `src/sections/experience/experience-section.tsx`.
 
 ## Tech stack and tools
 
-- Stacks: `src/components/home/stacks-section/stacks.ts` — `{ id, title, image }`
-- Tools: `src/components/home/stacks-section/tools.ts` — `{ id, name, image }`
+- Stacks: `src/sections/stacks/stacks.ts` — `{ id, title, image }`
+- Tools: `src/sections/stacks/tools.ts` — `{ id, name, image }`
 
 `image` can be a remote HTTPS URL or a path under `public/`. Prefer local copies for
 logos you rely on; remote logo URLs can disappear.
 
 ## Contact and socials
 
-- Social icons/links: `src/components/home/footer-section/socials.ts`. The `gmail` entry
+- Social icons/links: `src/sections/footer/socials.ts`. The `gmail` entry
   opens a `mailto:` link instead of `href`.
-- Phone number, email, and the `mailto:` address: `src/components/home/footer-section/index.tsx`.
+- Phone number, email, and the `mailto:` address: `src/sections/footer/footer-section.tsx`.
 
 ## Navigation labels
 

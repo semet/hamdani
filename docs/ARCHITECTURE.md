@@ -10,10 +10,10 @@ _app.tsx
 └─ LayoutProvider            (src/providers/layout-provider.tsx)
    └─ <main> (Nunito Sans / Fira Code fonts)
       ├─ Header              fixed; DesktopMenu + MobileMenu
-      ├─ index.tsx
+      ├─ pages/index.tsx      (imports each section from src/sections/<name>/<name>-section.tsx)
       │  ├─ HeroSection      ref: homeSection
       │  ├─ StacksSection    ref: stacksSection
-      │  ├─ Experience       ref: aboutSection
+      │  ├─ ExperienceSection ref: aboutSection
       │  ├─ ShowcaseSection  ref: showcaseSection
       │  └─ FooterSection    ref: contactSection
       └─ ScrollToTop
@@ -40,9 +40,11 @@ Menu items aren't links to routes. Instead:
 2. In `layout-provider.tsx`: add `fooSection` to `LayoutProviderType` and `sectionRefs`,
    add a `case` to `onMenuClick`, add a `useInView` call, and add it to the `sections` array
    and the effect's dependency list.
-3. Create `src/components/home/foo-section/index.tsx` exporting `FooSection`; attach
+3. Create `src/sections/foo/foo-section.tsx` exporting `FooSection`; attach
    `const { fooSection } = useLayout()` as the root `ref`.
-4. Export it from `src/components/home/index.ts` and render it in `src/pages/index.tsx`.
+4. Import it directly in `src/pages/index.tsx` and render it (there are no barrel files).
+5. Add `'foo'` to the section list in the `import/no-restricted-paths` rule in
+   `eslint.config.mjs` so its files stay private to it.
 
 ## Visual system
 
@@ -67,6 +69,16 @@ Menu items aren't links to routes. Instead:
 The showcase translation distance per item is a breakpoint-specific constant
 (`-410` / `-390` / `-460` px for lg / xl / 2xl). If you change card widths, retune these.
 The window width is read once on mount, so resizing across breakpoints needs a reload.
+
+## Module structure
+
+- `src/pages/` holds routes only. `src/sections/<name>/` holds one page section: its
+  `<name>-section.tsx` entry plus private sub-components and data files.
+- `src/components/`, `src/providers/`, `src/hooks/` and `src/data/` are shared and must not
+  import from `src/sections/`. A section must not import another section's files.
+- There are **no barrel (`index.ts`) files**. Every import names the file that defines the
+  export, so dependencies are explicit, go-to-definition lands on real code, and nothing
+  pulls in unrelated modules. ESLint enforces all of this.
 
 ## Conventions
 

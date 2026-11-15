@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { useLayout } from '@/providers'
+import { useLayout } from '@/providers/layout-provider'
 
 export const Logo = () => {
   const { homeSection } = useLayout()

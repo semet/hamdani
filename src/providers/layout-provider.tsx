@@ -12,7 +12,7 @@ import {
   useState
 } from 'react'
 
-import { HomeMenu } from '@/data'
+import { HomeMenu } from '@/data/menu'
 
 type LayoutProviderType = {
   homeSection: RefObject<HTMLDivElement | null>

@@ -44,15 +44,15 @@ src/
     menu.ts           # Nav menu items; HomeMenu type is derived from these ids
   hooks/
     use-aurora.ts     # Animated gradient background (motion values) shared by all sections
-  components/
-    header/           # Fixed header, desktop + mobile menus
-    logo/ page-title/ scroll-to-top/
-    home/
-      hero-sections/      -> HeroSection        (ref: homeSection)
-      stacks-section/     -> StacksSection      (ref: stacksSection)   data: stacks.ts, tools.ts
-      experience-section/ -> Experience         (ref: aboutSection)    data: experiences.ts
-      showcase-section/   -> ShowcaseSection    (ref: showcaseSection) data: items.ts
-      footer-section/     -> FooterSection      (ref: contactSection)  data: socials.ts
+  components/         # Shared UI used by pages and sections
+    header/header.tsx (+ desktop-menu, mobile-menu, mobile-menu-variants)
+    logo.tsx  page-title.tsx  scroll-to-top.tsx
+  sections/           # One folder per home-page section; private parts and data live beside it
+    hero/hero-section.tsx             -> HeroSection        (ref: homeSection)
+    stacks/stacks-section.tsx         -> StacksSection      (ref: stacksSection)   data: stacks.ts, tools.ts
+    experience/experience-section.tsx -> ExperienceSection  (ref: aboutSection)    data: experiences.ts
+    showcase/showcase-section.tsx     -> ShowcaseSection    (ref: showcaseSection) data: items.ts
+    footer/footer-section.tsx         -> FooterSection      (ref: contactSection)  data: socials.ts
   styles/globals.css  # Tailwind v4 entry: @import, @theme tokens, @plugin, @utility main-padding
 public/
   images/             # logo.svg, abstract.png
@@ -64,8 +64,13 @@ public/
 - **Imports**
   - Use the `@/` alias (→ `src/`). Parent-relative imports (`../`) are **forbidden** by ESLint.
   - Sibling imports (`./foo`) inside the same folder are fine.
-  - Import across folders only via the folder's barrel: `@/components/header` ✅,
-    `@/components/header/desktop-menu` ❌ (`@/components/*/*` is restricted). Same for `@/hooks/*/*`.
+  - **No barrel files.** Import from the file that defines the export:
+    `@/hooks/use-aurora` ✅, `@/hooks` ❌, `./index` ❌. `export *` is banned
+    (`no-restricted-syntax`). Don't create `index.ts` re-export files.
+  - **Layers** (`import/no-restricted-paths`): `pages` → `sections` → shared
+    (`components`, `providers`, `hooks`, `data`). Shared code must not import from
+    `sections`, and a section must not import another section's files — move anything
+    reused to a shared folder.
   - `import/order` is enforced: builtin → external → internal → parent → sibling → index,
     blank line between groups, alphabetized. Run `pnpm lint` to check; `pnpm lint --fix` can fix ordering.
 - **Formatting (Prettier):** 2 spaces, **no semicolons**, single quotes, no trailing commas,
@@ -74,8 +79,9 @@ public/
 - React Compiler lint rules `react-hooks/refs` and `react-hooks/set-state-in-effect` are
   set to warn (existing patterns are intentional); don't add new violations.
 - **Components:** named exports of arrow-function components (`export const Foo = () => ...`).
-  Folder components expose an `index.tsx`; group barrels are `index.ts` with `export * from`.
-- **File names:** kebab-case (`desktop-menu.tsx`, `use-aurora.ts`).
+- **File names:** kebab-case, named after the main export (`hero-section.tsx` →
+  `HeroSection`, `use-aurora.ts` → `useAurora`). Single-file components are plain files
+  (`components/logo.tsx`); use a folder only when a component has private parts.
 - **Styling:** Tailwind utilities only. Use `twMerge([...])` for conditional classes.
   Use the `main-padding` utility (defined with `@utility`) for horizontal page padding. Theme colors: `primary` `#13FFAA`,
   `secondary` `#1E67C6`, `tertiary` `#CE84CF`, `quaternary` `#DD335C`. Fonts: `font-sans`
@@ -94,8 +100,9 @@ public/
    - `src/data/menu.ts` — add `{ id, name }` (the `HomeMenu` type derives from it)
    - `src/providers/layout-provider.tsx` — add the ref to the type, `sectionRefs`,
      the `onMenuClick` switch, a `useInView` call, and the `sections` array in the effect
-   - the new component under `src/components/home/<name>-section/`, exported from
-     `src/components/home/index.ts`, rendered in `src/pages/index.tsx`
+   - the new component at `src/sections/<name>/<name>-section.tsx`, rendered in
+     `src/pages/index.tsx`
+   - the section list in the `import/no-restricted-paths` rule in `eslint.config.mjs`
 3. **Showcase layout depends on `items.length`.** `ShowcaseSection` sets its height to
    `items.length * itemHeight` vh and its horizontal scroll distance from breakpoint-specific
    magic numbers. Adding/removing items changes scroll length automatically; changing card
@@ -103,7 +110,7 @@ public/
 4. **Showcase `description` strings are raw HTML** rendered with `dangerouslySetInnerHTML`.
    Only put trusted, hand-written HTML there. Keep links with `target='_blank'`.
 5. **Two `AURORA` arrays exist:** `src/hooks/use-aurora.ts` (animated background colors) and
-   `src/components/home/hero-sections/data.ts` (brand colors for hero). They are independent.
+   `src/sections/hero/data.ts` (brand colors for hero). They are independent.
 6. **Client-only APIs** (`window`, `document`) must be inside `useEffect` or event handlers —
    pages are pre-rendered on the server.
 7. `react-syntax-highlighter` is listed in `transpilePackages` and lazily imported in
@@ -111,16 +118,16 @@ public/
 
 ## Editing content (most common task)
 
-| Change                  | File                                                                          |
-| ----------------------- | ----------------------------------------------------------------------------- |
-| Nav menu labels         | `src/data/menu.ts`                                                            |
-| About-me paragraph      | `src/components/home/experience-section/index.tsx`                            |
-| Work history            | `src/components/home/experience-section/experiences.ts`                       |
-| Tech stack logos        | `src/components/home/stacks-section/stacks.ts`                                |
-| Tools logos             | `src/components/home/stacks-section/tools.ts`                                 |
-| Portfolio projects      | `src/components/home/showcase-section/items.ts` + image in `public/showcase/` |
-| Social links            | `src/components/home/footer-section/socials.ts`                               |
-| Phone / email in footer | `src/components/home/footer-section/index.tsx`                                |
+| Change                  | File                                                           |
+| ----------------------- | -------------------------------------------------------------- |
+| Nav menu labels         | `src/data/menu.ts`                                             |
+| About-me paragraph      | `src/sections/experience/experience-section.tsx`               |
+| Work history            | `src/sections/experience/experiences.ts`                       |
+| Tech stack logos        | `src/sections/stacks/stacks.ts`                                |
+| Tools logos             | `src/sections/stacks/tools.ts`                                 |
+| Portfolio projects      | `src/sections/showcase/items.ts` + image in `public/showcase/` |
+| Social links            | `src/sections/footer/socials.ts`                               |
+| Phone / email in footer | `src/sections/footer/footer-section.tsx`                       |
 
 Keep `id` values unique and sequential in data arrays; they are used as React keys.
 

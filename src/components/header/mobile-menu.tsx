@@ -2,8 +2,8 @@ import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { menus } from '@/data'
-import { useLayout } from '@/providers'
+import { menus } from '@/data/menu'
+import { useLayout } from '@/providers/layout-provider'
 
 import {
   containerVariants,

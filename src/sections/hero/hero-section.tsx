@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 
-import { useAurora } from '@/hooks'
-import { useLayout } from '@/providers'
+import { useAurora } from '@/hooks/use-aurora'
+import { useLayout } from '@/providers/layout-provider'
 
 import { Left } from './left'
 import { Right } from './right'

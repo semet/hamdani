@@ -1,8 +1,8 @@
 import { motion } from 'motion/react'
 import { twMerge } from 'tailwind-merge'
 
-import { menus } from '@/data'
-import { useLayout } from '@/providers'
+import { menus } from '@/data/menu'
+import { useLayout } from '@/providers/layout-provider'
 
 export const DesktopMenu = () => {
   const { activeMenu, onMenuClick } = useLayout()
